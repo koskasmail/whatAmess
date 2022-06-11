@@ -1,0 +1,34 @@
+
+
+<https://wpastra.com/resources/chrome-developer-extensions/#1-githunt>
+.
+The Best Chrome Extensions for Web Developers
+1. Githunt
+2. WhatFont
+3. Fonts Ninja
+4. ColorPick Eyedropper
+5. Window Resizer
+6. BrowserStack
+7. CSS Viewer
+8. Lorem Ipsum Generator
+9. Corporate Ipsum
+10. Ghostery
+11. Wappalyzer
+12. Clear Cache
+13. HTML Validator
+The Best Chrome Extensions for Developers
+1. React Developer Tools
+2. JSON Viewer
+3. ColorZilla
+4. Dimensions
+5. Page Ruler
+6. UX Check
+7. Check My Links
+8. Web Developer Checklist
+9. Checkbot
+10. Web Developer
+11. EditThisCookie
+12. Lightshot
+13. Session Buddy
+14. Daily.dev
+Summary of the Best Chrome Extensions for Developers
