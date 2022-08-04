@@ -1,0 +1,32 @@
+package arrayOfArray;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArrayOfArray {
+
+	public static List<ArrayTemplate> arrList = new ArrayList<ArrayTemplate>();
+
+	public ArrayOfArray() {
+
+		arrList.clear();
+		arrList.add(new ArrayTemplate("01key", "01value"));
+		arrList.add(new ArrayTemplate("02key", "02value"));
+		arrList.add(new ArrayTemplate("03key", "03value"));
+
+		for (int i = 0; i < arrList.size(); i++) {
+			System.out
+					.println(" >>> " + i + " >>> " + arrList.get(i).getStKey() + " >>> " + arrList.get(i).getStValue());
+		}
+		System.out.println(" arrList.size =  " + arrList.size());
+
+		System.out.println("\n");
+
+		arrList.clear();
+		arrList.add(new ArrayTemplate("01key", "01value"));
+		System.out.println(" >>> " + 0 + " >>> " + arrList.get(0).getStKey() + " >>> " + arrList.get(0).getStValue()
+				+ " arrList.size =  " + arrList.size());
+
+	}
+
+}
