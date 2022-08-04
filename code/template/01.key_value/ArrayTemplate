@@ -1,0 +1,33 @@
+package arrayOfArray;
+
+public class ArrayTemplate {
+
+	private String stKey;
+	private String stValue;
+
+	public ArrayTemplate(String stKey, String stValue) {
+		super();
+		this.stKey = stKey;
+		this.stValue = stValue;
+	}
+
+	public String getStKey() {
+		return stKey;
+	}
+
+	public void setStKey(String stKey) {
+		this.stKey = stKey;
+	}
+
+	public String getStValue() {
+		return stValue;
+	}
+
+	public void setStValue(String stValue) {
+		this.stValue = stValue;
+	}
+
+	public ArrayTemplate() {
+	}
+
+}
