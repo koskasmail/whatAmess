@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        ////----[User-Name]----------------////
+        var getUserData = "tyaronk";
+
+        ////----[url]----------------////        
+        var txtUrl = "https://rmiapplictest/RmiTashtiotWS/api/GroupsApi/IsUserExistsInGroup?groupCode=1002&userName=";
+
+        ////----[url+User-Name]----------------////
+        const url = txtUrl + getUserData;
+
+        if (sessionStorage.getItem('praklitut') != null) {
+            console.log('praklitut === ' + sessionStorage.getItem('praklitut'));
+        }
+        else {
+
+                var open_original = XMLHttpRequest.prototype.open;
+                var send_original = XMLHttpRequest.prototype.send;
+
+                XMLHttpRequest.prototype.open = function (method, url, async, unk1, unk2) {
+                    console.log(url);
+                    open_original.apply(this, arguments);
+                };
+
+                XMLHttpRequest.prototype.send = function (data) {
+                    this.onreadystatechange = function () {
+                        console.log('asdasdh adzl8 ada');
+                    }
+                    send_original.apply(this, arguments);
+                };
+        }
+    </script>
+
+</body>
+
+</html>
