@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="output"></p>
+
+    <script>
+
+        ////----[User-Name]----------------////
+        var getUserData = "tyaronk";
+
+        ////----[url]----------------////        
+        var txtUrl = "https://rmiapplictest/RmiTashtiotWS/api/GroupsApi/IsUserExistsInGroup?groupCode=1002&userName=";
+
+        ////----[url+User-Name]----------------////
+        const url = txtUrl + getUserData;
+
+        getText = function (url, callback) 
+        {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+                    callback(request.responseText); // Another callback here
+                }
+                else
+                {
+                    console.log("else > error");
+                    sessionStorage.setItem('praklitut', 'false');
+                }
+            };
+            request.open('GET', url);
+            request.send();
+        }
+
+        function mycallback(data) {
+            console.log ("data ==> " +  data);
+            sessionStorage.setItem('praklitut', data);
+        }
+
+        if (sessionStorage.getItem('praklitut') != null) {
+            console.log('sessionStorage >> praklitut is ' + sessionStorage.getItem('praklitut'));
+        }
+        else
+        {
+           console.log('sessionStorage >> praklitut is empty');
+           getText(url, mycallback); //passing mycallback as a method
+        }
+    </script>
+</body>
+
+</html>
