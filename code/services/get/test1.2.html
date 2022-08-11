@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <p id="output"></p>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // document.getElementById("output").textContent = "start";
+        ////----[User-Name]----------------////
+        var getUserData = "tyaronk";
+
+        ////----[url]----------------////        
+        var txtUrl = "https://rmiapplictest/RmiTashtiotWS/api/GroupsApi/IsUserExistsInGroup?groupCode=1002&userName=";
+
+        ////----[url+User-Name]----------------////
+        const url = txtUrl + getUserData;
+
+        if (sessionStorage.getItem('lshulamits') != null) {
+            console.log('praklitut === ' + sessionStorage.getItem('praklitut'));
+        }
+        else {
+            getPraklitutService();
+            
+            async function getPraklitutService() {
+                console.log('url ' + url);
+                let myPromise = new Promise(function (resolve) {
+                    let req = new XMLHttpRequest();
+
+                    req.onload = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                           resolve(req.response);
+                            // sessionStorage.setItem('praklitut',  resolve(req.response));
+                            // document.getElementById("output").textContent = "if >> " + r;
+                        } else {
+                            document.getElementById("output").textContent = "else >> " + resolve("url not Found");
+                        }
+                    };
+                    req.send();
+                });
+
+                document.getElementById("result").textContent = await myPromise;
+            }
+        }
+        document.getElementById("result").textContent = "not in the promise";
+
+////----[End]----------------////    
+
+
+////----[Test user names:]---[tyaronk]----[lshulamits]----////
+    </script>
+</body>
+
+</html>
