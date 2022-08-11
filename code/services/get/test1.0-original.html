@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+	        ////----[User-Name]----------------////
+	        var getUserData = "lshulamits";   // Test erea, user prakitut == true  
+//			var getUserData = ecm.model.desktop.userId;        
+	        
+	        ////----[url]----------------////        
+	        var txtUrl = "https://rmiapplictest/RmiTashtiotWS/api/GroupsApi/IsUserExistsInGroup?groupCode=1002&userName=";
+
+	        ////----[url+User-Name]----------------////
+	        const url = txtUrl + getUserData;
+
+	        if (sessionStorage.getItem('praklitut') != null) {
+	            console.log('praklitut === ' + sessionStorage.getItem('praklitut'));
+	            
+	            return sessionStorage.getItem('praklitut');
+	        }
+	        else
+	        {
+	            // create a new sessionStorage
+	            const Http = new XMLHttpRequest();
+	            Http.open("GET", url);
+	            Http.send();
+
+	            ////----[Start and get response]----------------////
+	            Http.onreadystatechange = function () {
+	                if (this.readyState == 4 && this.status == 200) {
+	                    console.log(Http.responseText);
+	                    sessionStorage.setItem('praklitut', Http.responseText);
+
+	                    console.log(" if> praklitut ==> " + sessionStorage.getItem('praklitut'));
+	                    return sessionStorage.getItem('praklitut');
+
+	                }
+	                else {
+	                    ////----[Error]----------------////
+	                    sessionStorage.setItem('praklitut', false);
+	                    console.log(" else> error> praklitut ==> " + sessionStorage.getItem('praklitut') + " ..... " + Http.responseText);
+	                    return false;
+	                }
+	            }
+	        }
+
+	        // should not be executed
+//			return false; 
+    </script>
+</body>
+
+</html>
