@@ -1,0 +1,16 @@
+
+
+continue here
+
+* this
+https://www.youtube.com/watch?v=gvicrj31JOM
+https://www.youtube.com/watch?v=Pv9flm-80vM 
+https://www.youtube.com/watch?v=eOI9GzMfd24
+
+* getter/setter
+https://www.youtube.com/watch?v=bl98dm7vJt0 
+https://www.w3schools.com/Js/js_object_accessors.asp
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
+https://javascript.info/property-accessors
+
