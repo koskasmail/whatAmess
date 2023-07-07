@@ -1,0 +1,44 @@
+
+.sl-description-code {
+    background: #292929; /*black*/
+    border-radius: 8px;
+    color: #e4ecf8;
+    font-family: Fira Mono;
+    font-size: 14px;
+    margin: 16px 0 32px;
+    padding: 16px;
+    position: relative;
+    white-space: break-spaces;
+}
+
+.sl-description-code__content {
+    padding-right: 69px;
+}
+
+.sl-description-text {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: 150%;
+    text-decoration: inherit;
+    word-break: break-word;
+}
+
+/*icon*/
+.sl-description-code__format {
+    background-color: #d66643;
+    border-radius: 20px;
+    color: #f9f9fa;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 120%;
+    min-width: 40px;
+    padding: 6px 8px;
+    position: absolute;
+    right: 16px;
+    text-align: center;
+    top: 16px;
+}
+
+
