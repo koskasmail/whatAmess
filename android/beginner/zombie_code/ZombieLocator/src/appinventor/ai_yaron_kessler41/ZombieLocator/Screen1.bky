@@ -1,0 +1,433 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="component_event" id="1" x="559" y="-137">
+    <mutation component_type="LocationSensor" instance_name="LocationSensor1" event_name="LocationChanged"></mutation>
+    <field name="COMPONENT_SELECTOR">LocationSensor1</field>
+    <statement name="DO">
+      <block type="lexical_variable_set" id="2" inline="false">
+        <field name="VAR">global zombieLatitude</field>
+        <value name="VALUE">
+          <block type="lexical_variable_get" id="3">
+            <mutation>
+              <eventparam name="latitude"></eventparam>
+            </mutation>
+            <field name="VAR">latitude</field>
+          </block>
+        </value>
+        <next>
+          <block type="lexical_variable_set" id="4" inline="false">
+            <field name="VAR">global zombieLongitude</field>
+            <value name="VALUE">
+              <block type="lexical_variable_get" id="5">
+                <mutation>
+                  <eventparam name="longitude"></eventparam>
+                </mutation>
+                <field name="VAR">longitude</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="6" inline="false">
+                <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="labelTitle"></mutation>
+                <field name="COMPONENT_SELECTOR">labelTitle</field>
+                <field name="PROP">Text</field>
+                <value name="VALUE">
+                  <block type="text_join" id="7" inline="false">
+                    <mutation items="4"></mutation>
+                    <value name="ADD0">
+                      <block type="text" id="8">
+                        <field name="TEXT">Latitude:</field>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="component_set_get" id="9">
+                        <mutation component_type="LocationSensor" set_or_get="get" property_name="Latitude" is_generic="false" instance_name="LocationSensor1"></mutation>
+                        <field name="COMPONENT_SELECTOR">LocationSensor1</field>
+                        <field name="PROP">Latitude</field>
+                      </block>
+                    </value>
+                    <value name="ADD2">
+                      <block type="text" id="10">
+                        <field name="TEXT">\nLongitude:</field>
+                      </block>
+                    </value>
+                    <value name="ADD3">
+                      <block type="component_set_get" id="11">
+                        <mutation component_type="LocationSensor" set_or_get="get" property_name="Longitude" is_generic="false" instance_name="LocationSensor1"></mutation>
+                        <field name="COMPONENT_SELECTOR">LocationSensor1</field>
+                        <field name="PROP">Longitude</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="12" inline="false" x="0" y="-82">
+    <field name="NAME">zombieLatitude</field>
+    <value name="VALUE">
+      <block type="text" id="13">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="14" x="1291" y="-131">
+    <mutation component_type="Form" instance_name="Screen1" event_name="ScreenOrientationChanged"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+      <block type="controls_if" id="15" inline="false">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="math_compare" id="16" inline="true">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="component_set_get" id="17">
+                <mutation component_type="Form" set_or_get="get" property_name="Width" is_generic="false" instance_name="Screen1"></mutation>
+                <field name="COMPONENT_SELECTOR">Screen1</field>
+                <field name="PROP">Width</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="component_set_get" id="18">
+                <mutation component_type="Form" set_or_get="get" property_name="Height" is_generic="false" instance_name="Screen1"></mutation>
+                <field name="COMPONENT_SELECTOR">Screen1</field>
+                <field name="PROP">Height</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="component_set_get" id="19" inline="false">
+            <mutation component_type="Button" set_or_get="set" property_name="Height" is_generic="false" instance_name="Button1"></mutation>
+            <field name="COMPONENT_SELECTOR">Button1</field>
+            <field name="PROP">Height</field>
+            <value name="VALUE">
+              <block type="math_division" id="20" inline="true">
+                <value name="A">
+                  <block type="component_set_get" id="21">
+                    <mutation component_type="Button" set_or_get="get" property_name="Height" is_generic="false" instance_name="Button1"></mutation>
+                    <field name="COMPONENT_SELECTOR">Button1</field>
+                    <field name="PROP">Height</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="22">
+                    <field name="NUM">1.4</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="23" inline="false">
+                <mutation component_type="Button" set_or_get="set" property_name="Width" is_generic="false" instance_name="Button1"></mutation>
+                <field name="COMPONENT_SELECTOR">Button1</field>
+                <field name="PROP">Width</field>
+                <value name="VALUE">
+                  <block type="math_division" id="24" inline="true">
+                    <value name="A">
+                      <block type="component_set_get" id="25">
+                        <mutation component_type="Button" set_or_get="get" property_name="Width" is_generic="false" instance_name="Button1"></mutation>
+                        <field name="COMPONENT_SELECTOR">Button1</field>
+                        <field name="PROP">Width</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="26">
+                        <field name="NUM">1.4</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="component_set_get" id="27" inline="false">
+            <mutation component_type="Button" set_or_get="set" property_name="Height" is_generic="false" instance_name="Button1"></mutation>
+            <field name="COMPONENT_SELECTOR">Button1</field>
+            <field name="PROP">Height</field>
+            <value name="VALUE">
+              <block type="math_number" id="28">
+                <field name="NUM">342</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="29" inline="false">
+                <mutation component_type="Button" set_or_get="set" property_name="Width" is_generic="false" instance_name="Button1"></mutation>
+                <field name="COMPONENT_SELECTOR">Button1</field>
+                <field name="PROP">Width</field>
+                <value name="VALUE">
+                  <block type="math_number" id="30">
+                    <field name="NUM">285</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="31" inline="false" x="1" y="-54">
+    <field name="NAME">zombieLongitude</field>
+    <value name="VALUE">
+      <block type="text" id="32">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="33" x="-2" y="-23">
+    <mutation component_type="Form" instance_name="Screen1" event_name="Initialize"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+      <block type="component_set_get" id="34" inline="false">
+        <mutation component_type="LocationSensor" set_or_get="set" property_name="Enabled" is_generic="false" instance_name="LocationSensor1"></mutation>
+        <field name="COMPONENT_SELECTOR">LocationSensor1</field>
+        <field name="PROP">Enabled</field>
+        <value name="VALUE">
+          <block type="logic_false" id="35">
+            <field name="BOOL">FALSE</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="36" inline="false">
+            <mutation component_type="LocationSensor" set_or_get="set" property_name="Enabled" is_generic="false" instance_name="LocationSensor1"></mutation>
+            <field name="COMPONENT_SELECTOR">LocationSensor1</field>
+            <field name="PROP">Enabled</field>
+            <value name="VALUE">
+              <block type="logic_boolean" id="37">
+                <field name="BOOL">TRUE</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="38" inline="false">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="text_contains" id="39" inline="false">
+                    <value name="TEXT">
+                      <block type="component_set_get" id="40">
+                        <mutation component_type="LocationSensor" set_or_get="get" property_name="AvailableProviders" is_generic="false" instance_name="LocationSensor1"></mutation>
+                        <field name="COMPONENT_SELECTOR">LocationSensor1</field>
+                        <field name="PROP">AvailableProviders</field>
+                      </block>
+                    </value>
+                    <value name="PIECE">
+                      <block type="text" id="41">
+                        <field name="TEXT">gps</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="component_set_get" id="42" inline="false">
+                    <mutation component_type="LocationSensor" set_or_get="set" property_name="ProviderName" is_generic="false" instance_name="LocationSensor1"></mutation>
+                    <field name="COMPONENT_SELECTOR">LocationSensor1</field>
+                    <field name="PROP">ProviderName</field>
+                    <value name="VALUE">
+                      <block type="text" id="43">
+                        <field name="TEXT">gps</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="component_set_get" id="44" inline="false">
+                        <mutation component_type="LocationSensor" set_or_get="set" property_name="ProviderLocked" is_generic="false" instance_name="LocationSensor1"></mutation>
+                        <field name="COMPONENT_SELECTOR">LocationSensor1</field>
+                        <field name="PROP">ProviderLocked</field>
+                        <value name="VALUE">
+                          <block type="logic_boolean" id="45">
+                            <field name="BOOL">TRUE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="component_method" id="46" inline="false">
+                    <mutation component_type="Notifier" method_name="ShowChooseDialog" is_generic="false" instance_name="Notifier1"></mutation>
+                    <field name="COMPONENT_SELECTOR">Notifier1</field>
+                    <value name="ARG0">
+                      <block type="text" id="47">
+                        <field name="TEXT">Please Enable GPS</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="text" id="48">
+                        <field name="TEXT">Can't Access GPS</field>
+                      </block>
+                    </value>
+                    <value name="ARG2">
+                      <block type="text" id="49">
+                        <field name="TEXT">ok</field>
+                      </block>
+                    </value>
+                    <value name="ARG3">
+                      <block type="text" id="50">
+                        <field name="TEXT">Cancel</field>
+                      </block>
+                    </value>
+                    <value name="ARG4">
+                      <block type="logic_boolean" id="51">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="52" x="561" y="91">
+    <mutation component_type="Button" instance_name="Button1" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">Button1</field>
+    <statement name="DO">
+      <block type="component_method" id="53" inline="false">
+        <mutation component_type="Sound" method_name="Vibrate" is_generic="false" instance_name="Sound1"></mutation>
+        <field name="COMPONENT_SELECTOR">Sound1</field>
+        <value name="ARG0">
+          <block type="math_number" id="54">
+            <field name="NUM">500</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_method" id="55" inline="false">
+            <mutation component_type="TextToSpeech" method_name="Speak" is_generic="false" instance_name="TextToSpeech1"></mutation>
+            <field name="COMPONENT_SELECTOR">TextToSpeech1</field>
+            <value name="ARG0">
+              <block type="text_join" id="56" inline="false">
+                <mutation items="4"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="57">
+                    <field name="TEXT">zombie Latitude is</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="lexical_variable_get" id="58">
+                    <field name="VAR">global zombieLatitude</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="text" id="59">
+                    <field name="TEXT">zombie Longitude is</field>
+                  </block>
+                </value>
+                <value name="ADD3">
+                  <block type="lexical_variable_get" id="60">
+                    <field name="VAR">global zombieLongitude</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="61" x="588" y="328">
+    <mutation component_type="AccelerometerSensor" instance_name="AccelerometerSensor1" event_name="Shaking"></mutation>
+    <field name="COMPONENT_SELECTOR">AccelerometerSensor1</field>
+    <statement name="DO">
+      <block type="component_method" id="62">
+        <mutation component_type="Sound" method_name="Play" is_generic="false" instance_name="Sound2"></mutation>
+        <field name="COMPONENT_SELECTOR">Sound2</field>
+        <next>
+          <block type="component_set_get" id="63" inline="false">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="labelTitle"></mutation>
+            <field name="COMPONENT_SELECTOR">labelTitle</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="text_join" id="64" inline="false">
+                <mutation items="4"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="65">
+                    <field name="TEXT">Latitude:</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="component_set_get" id="66">
+                    <mutation component_type="LocationSensor" set_or_get="get" property_name="Latitude" is_generic="false" instance_name="LocationSensor1"></mutation>
+                    <field name="COMPONENT_SELECTOR">LocationSensor1</field>
+                    <field name="PROP">Latitude</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="text" id="67">
+                    <field name="TEXT">\nLongitude:</field>
+                  </block>
+                </value>
+                <value name="ADD3">
+                  <block type="component_set_get" id="68">
+                    <mutation component_type="LocationSensor" set_or_get="get" property_name="Longitude" is_generic="false" instance_name="LocationSensor1"></mutation>
+                    <field name="COMPONENT_SELECTOR">LocationSensor1</field>
+                    <field name="PROP">Longitude</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="69" x="-6" y="360">
+    <mutation component_type="Notifier" instance_name="Notifier1" event_name="AfterChoosing"></mutation>
+    <field name="COMPONENT_SELECTOR">Notifier1</field>
+    <statement name="DO">
+      <block type="controls_if" id="70" inline="false">
+        <value name="IF0">
+          <block type="logic_compare" id="71" inline="true">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="lexical_variable_get" id="72">
+                <mutation>
+                  <eventparam name="choice"></eventparam>
+                </mutation>
+                <field name="VAR">choice</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="text" id="73">
+                <field name="TEXT">ok</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="procedures_callnoreturn" id="74">
+            <mutation name="openLocationSettings"></mutation>
+            <field name="PROCNAME">openLocationSettings</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="75" x="-7" y="506">
+    <mutation></mutation>
+    <field name="NAME">openLocationSettings</field>
+    <statement name="STACK">
+      <block type="component_set_get" id="76" inline="false">
+        <mutation component_type="ActivityStarter" set_or_get="set" property_name="Action" is_generic="false" instance_name="ActivityStarter1"></mutation>
+        <field name="COMPONENT_SELECTOR">ActivityStarter1</field>
+        <field name="PROP">Action</field>
+        <value name="VALUE">
+          <block type="text" id="77">
+            <field name="TEXT">android.settings.LOCATION_SOURCE_SETTINGS</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_method" id="78">
+            <mutation component_type="ActivityStarter" method_name="StartActivity" is_generic="false" instance_name="ActivityStarter1"></mutation>
+            <field name="COMPONENT_SELECTOR">ActivityStarter1</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <yacodeblocks ya-version="138" language-version="19"></yacodeblocks>
+</xml>

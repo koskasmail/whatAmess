@@ -1,0 +1,108 @@
+#|
+$Source $Yail
+|#
+
+(define-form appinventor.ai_yaron_kessler41.ZombieLocator.Screen1 Screen1)
+(require <com.google.youngandroid.runtime>)
+
+(def g$zombieLatitude "")
+(def g$zombieLongitude "")
+(def (p$openLocationSettings )  (set-and-coerce-property! 'ActivityStarter1 'Action "android.settings.LOCATION_SOURCE_SETTINGS" 'text)(call-component-method 'ActivityStarter1 'StartActivity (*list-for-runtime*) '()))
+;;; Screen1
+
+(do-after-form-creation (set-and-coerce-property! 'Screen1 'AppName "ZombieLocator" 'text)
+ (set-and-coerce-property! 'Screen1 'BackgroundColor #x00FFFFFF 'number)
+ (set-and-coerce-property! 'Screen1 'BackgroundImage "SplatterBackground.png" 'text)
+ (set-and-coerce-property! 'Screen1 'Icon "ZombieIcon.png" 'text)
+ (set-and-coerce-property! 'Screen1 'Title "Zombie Locator" 'text)
+)
+
+(define-event Screen1 ScreenOrientationChanged()(set-this-form)
+    (if (call-yail-primitive > (*list-for-runtime* (get-property 'Screen1 'Width) (get-property 'Screen1 'Height)) '(number number) ">") (begin   (set-and-coerce-property! 'Button1 'Height (call-yail-primitive yail-divide (*list-for-runtime* (get-property 'Button1 'Height) 1.4) '(number number) "yail-divide") 'number)(set-and-coerce-property! 'Button1 'Width (call-yail-primitive yail-divide (*list-for-runtime* (get-property 'Button1 'Width) 1.4) '(number number) "yail-divide") 'number)) (begin   (set-and-coerce-property! 'Button1 'Height 342 'number)(set-and-coerce-property! 'Button1 'Width 285 'number))))
+(define-event Screen1 Initialize()(set-this-form)
+    (set-and-coerce-property! 'LocationSensor1 'Enabled #f 'boolean)(set-and-coerce-property! 'LocationSensor1 'Enabled #t 'boolean)(if (call-yail-primitive string-contains (*list-for-runtime* (get-property 'LocationSensor1 'AvailableProviders) "gps") '(text text) "contains") (begin   (set-and-coerce-property! 'LocationSensor1 'ProviderName "gps" 'text)(set-and-coerce-property! 'LocationSensor1 'ProviderLocked #t 'boolean)) (begin   (call-component-method 'Notifier1 'ShowChooseDialog (*list-for-runtime* "Please Enable GPS"  "Can't Access GPS"  "ok"  "Cancel"  #t) '(text text text text boolean)))))
+;;; labelTitle
+
+(add-component Screen1 Label labelTitle 
+(set-and-coerce-property! 'labelTitle 'FontSize 20 'number)
+
+(set-and-coerce-property! 'labelTitle 'Width -2 'number)
+
+(set-and-coerce-property! 'labelTitle 'Text "Zombie Locator" 'text)
+
+(set-and-coerce-property! 'labelTitle 'TextAlignment 1 'number)
+
+)
+
+;;; HorizontalArrangement1
+
+(add-component Screen1 HorizontalArrangement HorizontalArrangement1 
+(set-and-coerce-property! 'HorizontalArrangement1 'AlignHorizontal 3 'number)
+
+(set-and-coerce-property! 'HorizontalArrangement1 'Height -2 'number)
+
+(set-and-coerce-property! 'HorizontalArrangement1 'Width -2 'number)
+
+)
+
+;;; Button1
+
+(add-component HorizontalArrangement1 Button Button1 
+(set-and-coerce-property! 'Button1 'Height -2 'number)
+
+(set-and-coerce-property! 'Button1 'Width -2 'number)
+
+(set-and-coerce-property! 'Button1 'Image "Zombie.png" 'text)
+
+)
+
+(define-event Button1 Click()(set-this-form)
+    (call-component-method 'Sound1 'Vibrate (*list-for-runtime* 500) '(number))(call-component-method 'TextToSpeech1 'Speak (*list-for-runtime* (call-yail-primitive string-append (*list-for-runtime* "zombie Latitude is" (get-var g$zombieLatitude) "zombie Longitude is" (get-var g$zombieLongitude) ) '(text text text text ) "join")) '(text)))
+;;; Sound1
+
+(add-component Screen1 Sound Sound1 
+(set-and-coerce-property! 'Sound1 'Source "ZombieMoan.wav" 'text)
+
+)
+
+;;; Sound2
+
+(add-component Screen1 Sound Sound2 
+(set-and-coerce-property! 'Sound2 'MinimumInterval 4000 'number)
+
+(set-and-coerce-property! 'Sound2 'Source "ZombieAttack.wav" 'text)
+
+)
+
+;;; AccelerometerSensor1
+
+(add-component Screen1 AccelerometerSensor AccelerometerSensor1 
+)
+
+(define-event AccelerometerSensor1 Shaking()(set-this-form)
+    (call-component-method 'Sound2 'Play (*list-for-runtime*) '())(set-and-coerce-property! 'labelTitle 'Text (call-yail-primitive string-append (*list-for-runtime* "Latitude:" (get-property 'LocationSensor1 'Latitude) "\nLongitude:" (get-property 'LocationSensor1 'Longitude) ) '(text text text text ) "join") 'text))
+;;; LocationSensor1
+
+(add-component Screen1 LocationSensor LocationSensor1 
+)
+
+(define-event LocationSensor1 LocationChanged($latitude $longitude $altitude)(set-this-form)
+    (set-var! g$zombieLatitude (lexical-value $latitude))(set-var! g$zombieLongitude (lexical-value $longitude))(set-and-coerce-property! 'labelTitle 'Text (call-yail-primitive string-append (*list-for-runtime* "Latitude:" (get-property 'LocationSensor1 'Latitude) "\nLongitude:" (get-property 'LocationSensor1 'Longitude) ) '(text text text text ) "join") 'text))
+;;; Notifier1
+
+(add-component Screen1 Notifier Notifier1 
+)
+
+(define-event Notifier1 AfterChoosing($choice)(set-this-form)
+    (if (call-yail-primitive yail-equal? (*list-for-runtime* (lexical-value $choice) "ok") '(any any) "=") (begin   ((get-var p$openLocationSettings) ))))
+;;; ActivityStarter1
+
+(add-component Screen1 ActivityStarter ActivityStarter1 
+)
+
+;;; TextToSpeech1
+
+(add-component Screen1 TextToSpeech TextToSpeech1 
+)
+
+(init-runtime)
