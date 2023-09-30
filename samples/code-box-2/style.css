@@ -1,0 +1,42 @@
+.description {
+    background: #292929;
+    /*black*/
+    border-radius: 28px;
+    color: #e4ecf8;
+    font-family: Fira Mono;
+    font-size: 14px;
+    margin: 16px 0 32px;
+    padding: 3px; /*16px;*/
+    position: relative;
+    white-space: break-spaces;
+}
+
+.description__content {
+    padding-right: 69px;
+}
+
+.description-text {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: 150%;
+    text-decoration: inherit;
+    word-break: break-word;
+}
+
+/*icon*/
+.description__format {
+    background-color: #d66643;
+    border-radius: 20px;
+    color: #f9f9fa;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 120%;
+    min-width: 40px;
+    padding: 3px 4px;/*6px 8px;*/
+    position: absolute;
+    right: 16px;
+    text-align: center;
+    top: 16px;
+}
