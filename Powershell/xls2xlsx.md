@@ -61,64 +61,13 @@ Write-Host "Conversion and optimization complete."
 
 # Display a message to indicate that the process is finished
 Write-Host "Conversion and optimization complete."
-
 ```
 
-#### output
-```sh
-xxxx
-```
-
-#### example #2
-
-```sh
-xxxx
-```
-
-#### output
-```sh
-xxxx
-```
-
-#### Arrow function - simple
-
-```sh
-xxxx
-```
-
-#### output
-```sh
-xxxx
-```
-
-### [ Task ]
-  1. xxxx
-
-
-### [ before ]
-
-```sh
-xxxx
-```
-
-### [ solution ]
-
-```sh
-xxxx
-```
-
-### [ output result ]
-
-```sh
-xxxx
-```
-
------
-
-### [ Thoughts ]
-
-  1. xxxx
-  
+### [ Notes ]
+  * Replace the inputXLSPath and outputXLSXPath variables with the paths to your input XLS file and the desired output XLSX file, respectively.
+  * This script will open the XLS file, convert it to XLSX, optimize cell sizes, and save the resulting XLSX file.
+  * Finally, it cleans up any Excel processes that may still be running.
+  * Please make sure to back up your data before running such scripts, as they interact with Excel and can modify your files.
 
 <p align="right">(<a href="#topage">back to top</a>)</p>
 <br/>
