@@ -1,0 +1,25 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333; /* Change the background color to your preference */
+    padding: 10px 20px; /* Adjust padding as needed */
+}
+
+/* Style the left-side links */
+.left-side a {
+    text-decoration: none;
+    color: #fff; /* Link color */
+    margin-right: 20px; /* Add spacing between links */
+}
+
+/* Style the right-side logo */
+.right-side img {
+    max-height: 40px; /* Adjust the logo size as needed */
+}
