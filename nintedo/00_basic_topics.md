@@ -63,8 +63,8 @@ sta $02
 
 * vs code config
    * vs code ==> "ctrl"+"shift"+p
-      * "configure default build taks"
-         * "ca65: build without config"
+      * configure default build taks
+         * ca65: build without config
          * created a file: ["tasks.json"]
 
 ```
@@ -90,5 +90,23 @@ sta $02
 ```
         
 ----
+
+* execute
+  * press <ctrl>+<shift>+<p>
+     * run build task
+
+----
+
+* youtube - view
+   * https://www.youtube.com/watch?v=RtY5FV5TrIU
+
+
+
+
+
+
+
+  
+  
 
 
