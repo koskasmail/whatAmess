@@ -37,6 +37,11 @@
 
 ----
 
+* amulator installation
+   * amulator installation.md
+
+------
+
 * first program
 
 #### 01.sample.s
@@ -51,7 +56,39 @@ sta $02
 
 ---
 
+* code examples:
+  * https://github.com/NesHacker/DevEnvironmentDemo.git
 
+---
 
+* vs code config
+   * vs code ==> "ctrl"+"shift"+p
+      * "configure default build taks"
+         * "ca65: build without config"
+         * created a file: ["tasks.json"]
+
+```
+        {
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "ca65",
+			"problemMatcher": [
+				"$ca65",
+				"$ld65",
+				"$ld65-unresolved",
+				"$ld65-config"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"label": "ca65: Build without config"
+		}
+	]
+}
+```
+        
+----
 
 
