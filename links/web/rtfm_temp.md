@@ -59,6 +59,11 @@ https://youtu.be/4ul3q-cEhvU?si=rDeUhUsi-KARtN0S
 https://youtu.be/sBJmRD7kNTk?si=HcuUo2XzoThxEmV4
 ```
 
+#### 10 JavaScript Projects in 10 Hours - Coding Challenge 
+```
+https://youtu.be/dtKciwk_si4?si=3nWgq-VGNRRsPJ_N
+```
+
 <p align="right">(<a href="#topage">back to top</a>)</p>
 <br/>
 <br/>
