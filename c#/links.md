@@ -11,3 +11,27 @@ https://visualstudio.microsoft.com/vs/community/
 ```
 https://code.visualstudio.com/download
 ```
+
+
+
+
+### manual ???
+
+####
+```
+https://www.w3schools.com/cs/index.php
+```
+
+#### ???
+```
+https://github.com/pytopia/CS-Tutorial.git
+```
+
+####
+```
+```
+
+####
+```
+```
+
