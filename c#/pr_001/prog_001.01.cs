@@ -14,6 +14,5 @@ public class ProgramBase ///----[class]----///
         ///----[witout 'using System' namespace ]----///
         System.Console.WriteLine("text witout 'using System' namespace ");
         System.Console.WriteLine(156);
-
     }
 }
