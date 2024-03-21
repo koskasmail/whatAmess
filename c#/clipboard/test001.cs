@@ -14,7 +14,7 @@ namespace SoloLearn
             int toys = 142;
             int toysperpack = 15;
             int remainder = toys % toysperpack;
-            System.Console.writeLine(remainder);       
+            System.Console.WriteLine(remainder);
         }
     }
 }
