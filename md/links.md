@@ -6,3 +6,6 @@
 #### emojis
 * https://api.github.com/emojis
 * https://unicode.org/emoji/charts/full-emoji-list.html
+
+#### other links (delete this links)
+* https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
