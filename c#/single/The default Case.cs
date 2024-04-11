@@ -31,7 +31,7 @@ namespace SoloLearn
                     System.Console.WriteLine("Hard");
                     break;
                 default:
-                    System.Console.WriteLine("other");
+                    System.Console.WriteLine("Invalid option");
                     break;
             }
         }
