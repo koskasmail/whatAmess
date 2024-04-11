@@ -20,7 +20,20 @@ namespace SoloLearn
             */
 
             //your code goes here
-            
+                       switch(num) {
+                case 1:
+                    System.Console.WriteLine("Easy");
+                    break;
+                case 2:
+                    System.Console.WriteLine("Medium");
+                    break;
+                case 3:
+                    System.Console.WriteLine("Hard");
+                    break;
+                default:
+                    System.Console.WriteLine("other");
+                    break;
+            }
         }
     }
 }
