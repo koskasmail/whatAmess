@@ -195,6 +195,41 @@ sudo docker run hello-docker
 
 ```
 
+#### commands
+```
+mkdir hello-docker
+cd hello-docker
+```
+
+ "app.js"
+ ```
+ console.log("Hello Docker !");
+ ```
+
+ "Dockerfile"
+ ```
+ FROM  node:alpine
+ COPY . /app  
+ WORKDIR /app
+ CMD node app.js
+ ```
+
+* deploy docker
+```
+sudo docker build -t hello-docker .
+```
+
+* show images
+```
+sudo docker image ls
+```
+
+* run images
+```
+sudo docker run hello-docker
+```
+
+
 --------
 
 * TODO
