@@ -169,7 +169,28 @@ WORKDIR /app
 CMD node app.js
 ```
 
-* build with tag from current directory `.`
+* build image with tag from current directory `.`
+```
+sudo docker build -t hello-docker .
+```
+
+* show image in docker
+```
+sudo docker image ls
+```
+   * output
+   ```
+   REPOSITORY     TAG       IMAGE ID       CREATED         SIZE
+   hello-docker   latest    84afe6ebea2f   3 minutes ago   148MB
+   mariadb        latest    465bc4da7f09   2 months ago    405MB
+   hello-world    latest    d2c94e258dcb   12 months ago   13.3kB
+   ```
+* run this program
+```
+sudo docker run hello-docker
+```
+
+* output
 ```
 
 ```
