@@ -192,7 +192,7 @@ sudo docker run hello-docker
 
 * output
 ```
-
+sudo docker run hello-docker
 ```
 
 #### commands
