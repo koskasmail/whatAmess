@@ -110,6 +110,70 @@ Server: Docker Engine - Community
 2. running
 3. executing
 
+#### application into an image
+* Take application and make a change  and dockerize it (make a small change so it can be run by docker) by adding a docker file to it. 
+* Dockerfile is a plain text file that include instruction that docker uses to package up this application into an image.
+* The image contain everything our application needs to run.
+    * OS, runtime environment(node/python),application files, third party libraries, environment variables, etc.
+* docker package the application into an image.
+
+#### running container locally on development machine
+* Once we have the image, we tell docker to start a container using that image.
+* a container is a process with his own file system that provided by the image.
+* an application get loaded inside a container or process.
+* running it in local machine.
+* instead of loading the application directly, we will tell docker to run this application inside a container (isolated environment).
+* Once we have the image we can push it to docker registry (docker hub)
+* docker hub is like `github` to `git` (docker image that anyone can use).
+* when the application image is on docker hub then we can put it on any machine running docker.
+* this machine has the same image we have on our development machine (specific version of our application with everything it needs).
+* Starting the application the way we start it on our development machine by telling docker to 'start a container` using this image.
+* All the instrauction for building an image of an application are 
+* All the instruction for building an image of an application are written in a `docker file`. 
+* using a `docker file` we can package up your application into an image and run it virtually anywhere
+
+### evelopment workflow  
+* make folder called "hello-docker" and enter it.
+```
+mkdir hello-docker
+cd hello-docker
+```
+* create a new file call "app.js"
+* enter a command inside the "app.js" file
+* app.js
+```
+console.log("Hello Docker !");
+```
+* we want to dockerize this application/file ("app.js")
+* using docker we want to build, run, ship this application.
+
+# instructions to deploying this program 
+   * start with an os
+   * install node
+   * copy App files
+   * run node `app.js`
+
+# instructions to deploying this program  in docker
+* running these instructions inside a docker file and package up our application.
+* add `Dockerfile` in the same folder as `app.js`
+* install docker inside vscode. (docker microsoft)
+
+* Dockerfile
+```
+# base image 
+FROM  node:alpine
+# copy all the files from the current directory into the /app directory
+COPY . /app  
+WORKDIR /app
+# execute command
+CMD node app.js
+```
+
+* build with tag from current directory `.`
+```
+
+```
+
 --------
 
 * TODO
