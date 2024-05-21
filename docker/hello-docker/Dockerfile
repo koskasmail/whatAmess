@@ -4,4 +4,4 @@ FROM  node:alpine
 COPY . /app  
 WORKDIR /app
 # execute command
-CMD node app.js
+CMD node hello-docker.js
