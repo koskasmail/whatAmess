@@ -22,7 +22,8 @@ This library is commonly used for rendering web content in GTK applications.
 * command
    ```
    sudo apt update ; sudo apt-get upgrade
-   sudo apt upgrade webkit2gtk-4.0
+   sudo apt-get install webkit2gtk-4.0
+   ### sudo apt upgrade webkit2gtk-4.0 ???
    ```
    
 2. Check for Known Issues
@@ -39,7 +40,7 @@ This will help you understand what is happening when the crash occurs.
 
 Install GDB if not already installed:
 ```
-sudo apt install gdb
+sudo apt-get install gdb
 ```
 
 Run your application with GDB:
