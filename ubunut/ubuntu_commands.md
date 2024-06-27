@@ -46,6 +46,13 @@ avahi-browse --all -t -r
 ## Z
 ## ???
    * sudo apt-get install --reinstall rsyslog
+
+## todo
+head
+tail
+less
+vim
+
 ----
 
 <p align="right">(<a href="#topage">back to top</a>)</p>
