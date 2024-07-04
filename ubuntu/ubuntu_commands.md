@@ -26,6 +26,8 @@ avahi-browse --all -t -r
    * lsmem
    * lsw ()
        * sudo apt-get install suckless-tools
+   * lsb_release -a
+       * ubuntu version 
      
 ## M
 ## N
