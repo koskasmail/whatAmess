@@ -77,22 +77,51 @@ mariadb        latest    465bc4da7f09   4 months ago    405MB
 hello-world    latest    d2c94e258dcb   14 months ago   13.3kB
 ```
 
-* rtfm: thanks for
-   * https://mariadb.com/kb/en/installing-and-using-mariadb-via-docker/
-
- ### Creating a Container - 
- * XXXXXXXXXX TODO: fix the command - XXXXXXXXXXXXXXXXXXXX
- 
+### Creating a Container 
+```
+sudo docker run --name mariadbtest -e MYSQL_ROOT_PASSWORD=mypass -p 3306:3306 -d docker.io/library/mariadb:11.4.2
  ```
- docker run --name mariadbtest -e MYSQL_ROOT_PASSWORD=mypass -p 3306:3306 -d docker.io/library/mariadb:10.3
- ```
-
 
 #### output
 ```
-xxxxxxxxxxxxxxxxxx
+bfefabc6473de3b9693df29de550f72c9815de8c8e6ec3ab6f57a20dfa9c0ca8
 ```
 
+### show all running containers
+```
+sudo docker ps
+```
+
+#### output
+```
+CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+bfefabc6473d   mariadb:11.4.2   "docker-entrypoint.s…"   4 minutes ago   Up 4 minutes   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   mariadbtest
+```
+
+### restart mariadb containers
+```
+sudo docker restart mariadbtest
+```
+
+#### example:
+```
+$ sudo docker ps
+CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+bfefabc6473d   mariadb:11.4.2   "docker-entrypoint.s…"   8 minutes ago   Up 8 minutes   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   mariadbtest
+
+$ sudo docker restart mariadbtest
+mariadbtest
+
+$ sudo docker ps
+CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+bfefabc6473d   mariadb:11.4.2   "docker-entrypoint.s…"   8 minutes ago   Up 4 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   mariadbtest
+```
+
+
+-----
+
+* rtfm: thanks for
+   * https://mariadb.com/kb/en/installing-and-using-mariadb-via-docker/
 
 -----
 
