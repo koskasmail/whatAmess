@@ -43,7 +43,7 @@ wodby/mariadb                                Alpine-based MariaDB container imag
 ### check/download the latest version on `mariadb` site
 https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.4.2&os=Linux&cpu=x86_64&pkg=tar_gz&i=systemd&mirror=archive
 
-#### download mariadb latest version
+#### download mariadb latest version (07/2024)
 ````
 sudo docker pull mariadb:10.4
 ````
@@ -61,15 +61,39 @@ eef7a8467f98: Pull complete
 60c15bb5bb03: Pull complete 
 ```
 
-### 
+### show a list of installed images
 
 ````
-xxx
+sudo docker images
 ````
 
-* thanks for
+#### output
+```
+REPOSITORY     TAG       IMAGE ID       CREATED         SIZE
+mariadb        11.4.2    4486d64c9c3b   3 weeks ago     406MB
+hello-docker   latest    2d4bd7156ea6   6 weeks ago     148MB
+<none>         <none>    84afe6ebea2f   6 weeks ago     148MB
+mariadb        latest    465bc4da7f09   4 months ago    405MB
+hello-world    latest    d2c94e258dcb   14 months ago   13.3kB
+```
+
+* rtfm: thanks for
    * https://mariadb.com/kb/en/installing-and-using-mariadb-via-docker/
-  
+
+ ### Creating a Container - 
+ * XXXXXXXXXX TODO: fix the command - XXXXXXXXXXXXXXXXXXXX
+ 
+ ```
+ docker run --name mariadbtest -e MYSQL_ROOT_PASSWORD=mypass -p 3306:3306 -d docker.io/library/mariadb:10.3
+ ```
+
+
+#### output
+```
+xxxxxxxxxxxxxxxxxx
+```
+
+
 -----
 
 <p align="right">(<a href="#topage">back to top</a>)</p>
