@@ -1,6 +1,6 @@
 <a name="topage"></a>
 
-# mariadb installation
+# mariadb
 
 ### download mariadb
 
@@ -58,7 +58,49 @@ f8f7f3c9a741: Pull complete
 0221331af5c0: Pull complete 
 e3c4d1c9d9cb: Pull complete 
 eef7a8467f98: Pull complete 
-60c15bb5bb03: Pull complete 
+60c15bb5bb03: Pull complete $ sudo docker ps
+CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+bfefabc6473d   mariadb:11.4.2   "docker-entrypoint.s…"   18 minutes ago   Up 10 minutes   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   mariadbtest
+$ sudo docker stop mariadbtest
+mariadbtest
+$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+$ sudo docker ps -A
+unknown shorthand flag: 'A' in -A
+See 'docker ps --help'.
+$ sudo docker ps a
+"docker ps" accepts no arguments.
+See 'docker ps --help'.
+
+Usage:  docker ps [OPTIONS]
+
+List containers
+$ sudo docker ps all
+\"docker ps" accepts no arguments.
+See 'docker ps --help'.
+
+Usage:  docker ps [OPTIONS]
+
+List containers
+$ sudo docker ps -all
+CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS                      PORTS     NAMES
+bfefabc6473d   mariadb:11.4.2   "docker-entrypoint.s…"   19 minutes ago   Exited (0) 20 seconds ago             mariadbtest
+$ sudo docker start mariadbtest
+mariadbtest
+$ sudo docker ps all
+"docker ps" accepts no arguments.
+See 'docker ps --help'.
+
+Usage:  docker ps [OPTIONS]
+
+List containers
+$ sudo docker ps
+CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS         PORTS                                       NAMES
+bfefabc6473d   mariadb:11.4.2   "docker-entrypoint.s…"   19 minutes ago   Up 7 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   mariadbtest
+$ sudo docker ps -all
+CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+bfefabc6473d   mariadb:11.4.2   "docker-entrypoint.s…"   19 minutes ago   Up 13 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   mariadbtest
+
 ```
 
 ### show a list of installed images
@@ -87,6 +129,11 @@ sudo docker run --name mariadbtest -e MYSQL_ROOT_PASSWORD=mypass -p 3306:3306 -d
 bfefabc6473de3b9693df29de550f72c9815de8c8e6ec3ab6f57a20dfa9c0ca8
 ```
 
+### show all stoped/running containers 
+```
+sudo docker ps -all
+```
+
 ### show all running containers
 ```
 sudo docker ps
@@ -98,12 +145,14 @@ CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS 
 bfefabc6473d   mariadb:11.4.2   "docker-entrypoint.s…"   4 minutes ago   Up 4 minutes   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   mariadbtest
 ```
 
+----
+
 ### restart mariadb containers
 ```
 sudo docker restart mariadbtest
 ```
 
-#### example:
+#### example
 ```
 $ sudo docker ps
 CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS                                       NAMES
@@ -117,6 +166,48 @@ CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS 
 bfefabc6473d   mariadb:11.4.2   "docker-entrypoint.s…"   8 minutes ago   Up 4 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   mariadbtest
 ```
 
+---- 
+
+### stop and start mariadb containers
+
+#### stop
+```
+sudo docker stop mariadbtest
+```
+
+#### start
+```
+sudo docker start mariadbtest
+```
+
+#### example
+
+```
+$ sudo docker ps
+CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+bfefabc6473d   mariadb:11.4.2   "docker-entrypoint.s…"   18 minutes ago   Up 10 minutes   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   mariadbtest
+
+$ sudo docker stop mariadbtest
+mariadbtest
+
+$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+$ sudo docker ps -all
+CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS                      PORTS     NAMES
+bfefabc6473d   mariadb:11.4.2   "docker-entrypoint.s…"   19 minutes ago   Exited (0) 20 seconds ago             mariadbtest
+
+$ sudo docker start mariadbtest
+mariadbtest
+
+$ sudo docker ps
+CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS         PORTS                                       NAMES
+bfefabc6473d   mariadb:11.4.2   "docker-entrypoint.s…"   19 minutes ago   Up 7 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   mariadbtest
+
+$ sudo docker ps -all
+CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+bfefabc6473d   mariadb:11.4.2   "docker-entrypoint.s…"   19 minutes ago   Up 13 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   mariadbtest
+```
 
 -----
 
