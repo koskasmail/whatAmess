@@ -209,7 +209,50 @@ CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS
 bfefabc6473d   mariadb:11.4.2   "docker-entrypoint.s…"   19 minutes ago   Up 13 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   mariadbtest
 ```
 
+#### stop service after 10 second
+```
+sud docker stop --time=10 mariadbtest
+```
+
+
+### stop service container with `kill` parameters
+```
+sudo docker kill mariadbtest
+```
+
 -----
+
+### log docker container
+```
+docker logs mariadbtest
+```
+
+-----
+* TODO
+* TODO:xxxx continue here xxx
+* split this file.
+
+### access the container
+```
+sudo docker exec -it mariadbtest bash
+```
+
+
+-----
+
+### remove container
+```
+sudo docker rm mariadbtest
+```
+
+### remove container and destroy the value
+```
+sudo docker rm -v mariadbtest
+```
+
+-----
+
+
 
 * rtfm: thanks for
    * https://mariadb.com/kb/en/installing-and-using-mariadb-via-docker/
