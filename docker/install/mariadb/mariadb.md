@@ -232,7 +232,7 @@ docker logs mariadbtest
 * TODO:xxxx continue here xxx
 * split this file.
 
-### access the container
+### access the container via Bash
 ```
 sudo docker exec -it mariadbtest bash
 ```
