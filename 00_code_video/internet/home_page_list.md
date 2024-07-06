@@ -1,6 +1,6 @@
 <a name="topage"></a>
 
-### sorting algorithm 
+### home_page_list 
 
 * @GregHogg/
     * https://www.youtube.com/@GregHogg/shorts
