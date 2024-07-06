@@ -6,8 +6,10 @@
     * https://www.youtube.com/@GregHogg/shorts
 * /@Java.Brains
     * https://www.youtube.com/@Java.Brains
-* xxx
-    * xxx
+* @derekbanas
+    * https://www.youtube.com/@derekbanas
+* xxx @freecodecamp
+    * https://www.youtube.com/@freecodecamp
 
 -----
 
