@@ -11,14 +11,16 @@
         * https://www.youtube.com/watch?v=A74TOX803D0
     * 
 
-* xxx
-    * xxx
+* python
+    * Python for Everybody - Full University Python Course
+        * https://www.youtube.com/watch?v=8DvywoWv6fI
 
 -----
 
 * xxx
     * xxx
-
+        * xxx
+   
 -----
 
 <p align="right">(<a href="#topage">back to top</a>)</p>
