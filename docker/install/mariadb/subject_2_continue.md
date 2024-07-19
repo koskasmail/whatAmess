@@ -1,0 +1,14 @@
+
+### access the container via Bash
+```
+sudo docker exec -it mariadbtest bash
+```
+
+-----
+
+### Connecting to MariaDB from Outside the Container
+
+* TODO: learn more about it.
+
+* label it
+* reorder subject
