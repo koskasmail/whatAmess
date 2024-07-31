@@ -24,11 +24,14 @@ avahi-browse --all -t -r
 ## K
 ## L
    * lsmem
-   * lsw ()
+       * list the ranges of available memory with their online status
+   * lshw 
+       * list hardware
        * sudo apt-get install suckless-tools    
 ## M
 ## N
-   * ncdu
+   * ncdu 
+       * NCurses Disk Usage
        * sudo apt-get install ncdu -y
 ## O
 ## P
