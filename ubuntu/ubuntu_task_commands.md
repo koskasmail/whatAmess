@@ -65,10 +65,8 @@ avahi-browse --all -t -r
    * sudo apt-get install --reinstall rsyslog
 
 ## todo
-head
-tail
-less
-vim
+* head / tail / less / vim
+* logs (reboot, restart, logout, login, system.
 
 ----
 
