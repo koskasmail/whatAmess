@@ -10,9 +10,10 @@
     * https://github.com/BrijeshSaxena?tab=repositories
 * bethrobson
     * https://github.com/bethrobson?tab=repositories
+        * https://github.com/bethrobson/Head-First-JavaScript-Programming-2nd-Ed
 * BretFisher
     * https://github.com/BretFisher?tab=repositories
- 
+
 -----
 
 * mdx
