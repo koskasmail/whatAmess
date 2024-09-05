@@ -13,12 +13,12 @@ MyArray.push(10);
 MyArray.push(20,30);
 MyArray.push(40,50, 60);
 
-console.log("///----[bad]----///");
+console.log("///----[for() loop]----///");
 for (var i=0; i < MyArray.length; i++) {
     console.log(MyArray[i]);
 }
 
-console.log("///----[good]----///");
+console.log("///----[forEach() loop]----///");
 MyArray.forEach(item => console.log(item));
 ```
 
@@ -43,6 +43,18 @@ console.log(personal.age > 21 ? "young":"old");
 
 ### tip #3:
 ```
+var personal = {
+    name: "jaron",
+    age: 51
+};
+
+///----[user array "personal" to call the inner variables "name" and "age"]----///
+console.log(personal.name);
+console.log(personal.age);
+
+///----[copy array "personal" to a variables "name" and "age"]----///
+const { name, age} = personal;
+console.log(name, age);
 ```
 
 ### tip #4:
