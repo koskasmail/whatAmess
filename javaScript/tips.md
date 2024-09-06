@@ -113,10 +113,27 @@ console.log(fnGreet2("Hi",));
 console.log(fnGreet2("Hi","jaron"));
 ```
 
-#### tip #7:
+#### tip #7: Asynchronous code
 
 ```
+var data = "test";
 
+console.log(data);
+
+function getData(callBack) {
+    setTimeout(() => {
+        callBack("Data");
+    }, 1000);
+}
+
+getData(function(data) {
+    console.log(data);
+});
+
+
+var data2 = "test2";
+const getData2 = () => new  Promise(resolve => setTimeout(() => resolve("data"),1000));
+getData2().then(data2 => console.log(data2));
 ```
 
 -----
