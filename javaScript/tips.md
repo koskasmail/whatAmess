@@ -24,6 +24,7 @@ MyArray.forEach(item => console.log(item));
 ```
 
 #### tip #2: conditional statement
+
 ```
 var personal = {
     name: "jaron",
@@ -66,20 +67,37 @@ var arrNumbers = [2,4,6];
 var arrCalcResult = [];
 var x = 2;
 
+///----[Array]----///
 for (var index=0; index < arrNumbers.length; index++) {
     arrCalcResult.push(arrNumbers[index] * x);
 }
 
-console.error(arrNumbers); /// 2, 4, 6
-console.error(arrCalcResult); /// 4, 8, 12
+console.error(arrNumbers); 
+console.error(arrCalcResult); 
+
+
+///----[map - creates a new array]----///
+const arrCalc = arrNumbers.map(number => number * x) 
+console.error(arrNumbers); 
+console.error(arrCalc); 
 ```
 
-#### tip #5:
+#### tip #5: Null / Undefined
+
 ```
+var user;
+if (user !== null && user !== undefined && user.name !== undefined) {
+    console.log(user.name);
+}
+
+var user2;
+var result = user2?.name;
+console.log(result);
 ```
 
 #### tip #6:
 ```
+
 ```
 
 #### tip #7:
