@@ -4,16 +4,24 @@
 
 ### repository name: JavaScript
 
+#### javaScript-tree
+
 ```
+*
+|
++----[docs]
 |
 +----[js]
 |
-+----[js_online]
-|
 +----[js_commands]
 |
-
++----[js_online]
+|
++----[js_task]
+|
 +----[static-web-pages]
+|
+*
 ```
 
 -----
