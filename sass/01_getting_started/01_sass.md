@@ -1,19 +1,19 @@
 <a name="topage"></a>
 
-# 01_sass
+# Sass
 
-### install sass
-
-```
-continue
-```
-
-### add 'sass' to vscode
+### Welcome
 
 ```
-live Sass compiler
+Welcome to Sass
 ```
 
+
+#### edit css clip path - online site
+* https://bennettfeely.com/clippy/
+
+#### online - learn sass
+https://www.youtube.com/watch?v=roywYSEPSvc&list=PL5Tw98-9k5IZzaejcgHvB_8D6tF2m5nZ2
 
 ----
 
