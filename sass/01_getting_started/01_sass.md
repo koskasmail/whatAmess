@@ -1,19 +1,37 @@
 <a name="topage"></a>
 
-# Sass
+# 01_sass
 
-### Welcome
+### install sass
 
 ```
-Welcome to Sass
+continue
 ```
 
+### add 'sass' to vscode
 
-#### edit css clip path - online site
-* https://bennettfeely.com/clippy/
+* open `vscode Extension`
+* install 
+    * live Sass compiler
 
-#### online - learn sass
-https://www.youtube.com/watch?v=roywYSEPSvc&list=PL5Tw98-9k5IZzaejcgHvB_8D6tF2m5nZ2
+### excute `live Sass compiler` 
+
+* press `Watch Sass` button 
+    * `Watch Sass` button is located in the bottom of vscode windows.
+    * The `Watch Sass` button will be replaced by `Watching` message.    
+    * The `Watch Sass` will create a new files `main.css.map` and `main.css` 
+
+#### main.css.map
+
+````
+{"version":3,"sources":[],"names":[],"mappings":"","file":"main.css"}
+````
+
+#### main.css
+
+````
+/*# sourceMappingURL=main.css.map */
+````
 
 ----
 
