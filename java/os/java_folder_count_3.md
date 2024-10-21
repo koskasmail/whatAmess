@@ -26,11 +26,6 @@ public class FileInfo {
                 System.out.println("Total Files: " + totalFiles);
                 System.out.println("Total Size (MB): " + totalSize / (1024 * 1024));
                 System.out.println();
-----
-
-<p align="right">(<a href="#topage">back to top</a>)</p>
-<br/>
-<br/>
             } else {
                 System.out.println("Path " + path + " does not exist.");
             }
