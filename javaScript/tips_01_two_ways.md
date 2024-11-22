@@ -1,6 +1,6 @@
 <a name="topage"></a>
 
-# tips_01
+# tips_01_two_ways
 
 #### tip #1: Array loops:
 
