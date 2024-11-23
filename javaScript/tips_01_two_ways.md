@@ -2,8 +2,18 @@
 
 # tips_01_two_ways
 
-#### tip #1: Array loops:
+## 📜 content of element
+#### **01.** Array loop
+#### **02.** conditional statement
+#### **03.** objects
+#### **04.** Array manipulation
+#### **05.** Null / Undefined
+#### **06.** default function parameters
+#### **07.** Asynchronous code
 
+-----
+
+#### ✏️ 01. Array loops
 ```
 const MyArray = [];
 MyArray.push(10);
@@ -19,7 +29,9 @@ console.log("///----[forEach() loop]----///");
 MyArray.forEach(item => console.log(item));
 ```
 
-#### tip #2: conditional statement
+-----
+
+#### ✏️ 02. conditional statement
 
 ```
 var personal = {
@@ -39,7 +51,9 @@ console.log("///----[Ternary Operator - shorthand statement]----///");
 console.log(personal.age > 21 ? "young":"old");
 ```
 
-#### tip #3: objects
+-----
+
+#### ✏️ 03. objects
 
 ```
 var personal = {
@@ -56,7 +70,9 @@ const { name, age} = personal;
 console.log(name, age);
 ```
 
-#### tip #4: Array manipulation
+-----
+
+#### ✏️ 04. Array manipulation
 
 ```
 var arrNumbers = [2,4,6];
@@ -78,7 +94,9 @@ console.error(arrNumbers);
 console.error(arrCalc); 
 ```
 
-#### tip #5: Null / Undefined
+-----
+
+#### ✏️ 05. Null / Undefined
 
 ```
 var user;
@@ -91,7 +109,9 @@ var result = user2?.name;
 console.log(result);
 ```
 
-#### tip #6: default function parameters
+-----
+
+#### ✏️ 06. default function parameters
 
 ```
 function fnGreet(message, name) {
@@ -109,7 +129,9 @@ console.log(fnGreet2("Hi",));
 console.log(fnGreet2("Hi","jaron"));
 ```
 
-#### tip #7: Asynchronous code
+-----
+
+#### ✏️ 07. Asynchronous code
 
 ```
 var data = "test";
