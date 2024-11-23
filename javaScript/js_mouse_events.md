@@ -2,7 +2,7 @@
 
 # js_mouse_events
 
-## 📜 js mouse events
+## 📜 content of element
 
 #### **00.** html
 #### **01.** click
