@@ -4,15 +4,15 @@
 
 ## 📜 js mouse events
 
-#### **00**. html
-#### **01**. click
-#### **02**. mousedown
-#### **03**. mouseup
-#### **04**. mousemove
-#### **05**. mouseover
-#### **06**. mouseout
-#### **07**. mouseenter
-#### **08**. mouseleave
+#### **00.** html
+#### **01.** click
+#### **02.** mousedown
+#### **03.** mouseup
+#### **04.** mousemove
+#### **05.** mouseover
+#### **06.** mouseout
+#### **07.** mouseenter
+#### **08.** mouseleave
 
 -----
 
