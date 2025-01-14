@@ -18,6 +18,7 @@
 * In this activity, you'll learn how to update the template and styles of a component.
 
 
+
 -----
 
 <p align="right">(<a href="#topage">back to top</a>)</p>
