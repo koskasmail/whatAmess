@@ -21,6 +21,13 @@ https://www.ibm.com/docs/en/search/deaja%20viewer?scope=SSEUEX_3.1.0&intitle=tru
 * filenet
    * https://www.redbooks.ibm.com/redbooks/pdfs/sg247667.pdf
 
+* ViewerToolbarPlugin
+    * https://github.com/ibm-ecm/ibm-content-navigator-samples/blob/master/ViewerToolbarPlugin/src/com/ibm/ecm/extension/viewerToolbar/WebContent/ViewerToolbarPlugin.js
+
+
+
+
+
 
 -----
 
