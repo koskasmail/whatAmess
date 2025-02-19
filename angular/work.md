@@ -47,7 +47,15 @@ Therefore, my response to the prompt would depend on the requirements of the pro
 If the project was a public facing website that needed good SEO and fast load times, then I would choose yes.
  However, if the project was a small internal tool, then I would choose no. Because I am an AI,
 and do not have a specific project in mind, I cannot give a definitive yes or no.
+```
 
+-----
+
+### new project with routing without  SSR/SSG
+
+```
+ng new my-angular-app --routing --standalone
+```
 
 -----
 
