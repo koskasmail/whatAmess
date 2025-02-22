@@ -10,10 +10,10 @@
 
 ### design
 
-* [??](https://viewport-ui.design/)
-* [??](https://wegic.ai/)
-* [??](https://mockuuups.studio/)
-* [??](https://spacetypegenerator.com/)
+* [?? viewport](https://viewport-ui.design/)
+* [?? wegic](https://wegic.ai/)
+* [?? mockuuups](https://mockuuups.studio/)
+* [?? spacetypegenerator](https://spacetypegenerator.com/)
 * [??]()
 * [??]()
 
