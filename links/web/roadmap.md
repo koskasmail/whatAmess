@@ -7,17 +7,29 @@
 * css
 * javaScript
 
+----
+
 #### framework
 * [bootstrap](https://getbootstrap.com/)
 * [react](https://react.dev/)
 * [tailwindcss](https://tailwindcss.com/)
-* pouchdb
+
+##### DATABASE
+* [pouchdb](https://pouchdb.com/)
+
+----
 
 #### Backend
+
+###### JS
 * node.js
+* Express.js
+
+##### DataBase 
 * mangoDB
 * couchdb
-* Express.js
+
+----
 
 #### tools
 
