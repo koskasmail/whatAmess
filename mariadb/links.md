@@ -2,7 +2,10 @@
 
 # links
 
-* windows
+* nice 2 know
+    * https://mariadb.com/kb/en/why-is-the-software-called-mariadb/
+
+* windows 
     * https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.4.2&os=windows&cpu=x86_64&pkg=msi&mirror=archive
 
 * ubuntu
