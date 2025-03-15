@@ -1,7 +1,7 @@
 
 # code
 * [index](#index)
-* [style](#style.css)
+* [style](#style)
 * [script](#script.js)
 
 #### index
@@ -1490,7 +1490,7 @@ body {
 
 ----
 
-#### script
+#### script.js
 ```
 $(function() {
     $('a.page-scroll').bind('click', function(event) {
