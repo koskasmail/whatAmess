@@ -1,11 +1,10 @@
 
 # code
-* [index](#index.html)
+* [index](#index)
 * [style](#style.css)
 * [script](#script.js)
 
-#### index.html
-
+#### index
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -624,7 +623,8 @@
 
 ----
 
-#### style.css
+#### style
+
 ```
 /*!
  * Start Bootstrap - Agency Bootstrap Theme (https://startbootstrap.com)
@@ -1490,7 +1490,7 @@ body {
 
 ----
 
-#### script.js
+#### script
 ```
 $(function() {
     $('a.page-scroll').bind('click', function(event) {
