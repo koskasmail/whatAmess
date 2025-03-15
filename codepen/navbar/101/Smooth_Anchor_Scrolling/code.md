@@ -2,7 +2,7 @@
 # code
 * [index](#index)
 * [style](#style)
-* [script](#script.js)
+* [script](#script)
 
 #### index
 ```
