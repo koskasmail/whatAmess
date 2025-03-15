@@ -1490,7 +1490,7 @@ body {
 
 ----
 
-#### script.js
+#### script
 ```
 $(function() {
     $('a.page-scroll').bind('click', function(event) {
