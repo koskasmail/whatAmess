@@ -1,8 +1,8 @@
 
 # code
-* [index.html](# index.html)
-* [style.css](# style.css)
-* [script.js](# script.js)
+* [index](#index.html)
+* [style](#style.css)
+* [script](#script.js)
 
 #### index.html
 
