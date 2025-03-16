@@ -13,6 +13,9 @@
 ### navbar
 * https://codepen.io/jo_Geek/pen/xgbaEr
 
+#### Bootstrap Vertical Tabs
+* https://codepen.io/joshadamous/pen/MWxeyB
+
 #### ?? 
 * https://codepen.io/AshikNesin/details/KzgeYX
 * https://codepen.io/zavoloklom/pen/ZEmBGR
