@@ -1,6 +1,9 @@
-# 01 
+<a name="topage"></a>
+
+# 01_variables 
 
 ### Table of Content
+
 #### basic
 * [python](#python)
 * [print](#print)
@@ -11,6 +14,7 @@
 * [string](#string)
 * [boolean](#boolean)
 * [Naming_Conventions](#Naming_Conventions)
+* [Empty_Variables](#Empty_Variables)
 
 
 ----
@@ -36,7 +40,7 @@ Hello World!
 ```
 
 
-* [Top](#01)
+* [Top](#Table of Content)
 ----
 
 #### comment
@@ -58,7 +62,7 @@ comment.
 """
 ```
 
-* [Top](#01)
+* [Top](#Table of Content)
 ----
 
 #### number
@@ -85,7 +89,7 @@ var = 5;
 print(f`var = {var}')
 ```
 
-* [Top](#01)
+* [Top](#Table of Content)
 
 ----
 
@@ -132,7 +136,7 @@ s1 = single quotation string
 s2 = double quotation string
 ```
 
-* [Top](#01)
+* [Top](#Table of Content)
 ----
 
 
@@ -159,7 +163,7 @@ boolean_false = False
 ```
 
 
-* [Top](#01)
+* [Top](#Table of Content)
 ----
 
 #### Naming_Conventions
@@ -191,24 +195,28 @@ greeting = welcome
 ```
 
 
-* [Top](#01)
+* [Top](#Table of Content)
 ----
 
+#### Empty_Variables 
 
-
-* `xxx` is a xxx xxx
-    * example: xxxx,.
+* Empty Variables or `None` value - is a special value that represents "nothing".
+* `None` value is used until a real value will appears.
 
 ###### example: 
 ```
-
+name = None;
+print(f'name = {name}')
 ```
 
 ###### output: 
-
+```
+name = None
 ```
 
-```
+* [Top](#Table of Content)
+----
+
 
 
 ----
