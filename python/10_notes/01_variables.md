@@ -2,7 +2,7 @@
 
 # 01_variables 
 
-### Table of Content
+### Table_of_Content
 
 #### basic
 * [python](#python)
@@ -40,7 +40,7 @@ Hello World!
 ```
 
 
-* [Top](#Table of Content)
+* [Top](#Table_of_Content)
 ----
 
 #### comment
@@ -62,7 +62,7 @@ comment.
 """
 ```
 
-* [Top](#Table of Content)
+* [Top](#Table_of_Content)
 ----
 
 #### number
@@ -89,7 +89,7 @@ var = 5;
 print(f`var = {var}')
 ```
 
-* [Top](#Table of Content)
+* [Top](#Table_of_Content)
 
 ----
 
@@ -136,7 +136,7 @@ s1 = single quotation string
 s2 = double quotation string
 ```
 
-* [Top](#Table of Content)
+* [Top](#Table_of_Content)
 ----
 
 
@@ -163,7 +163,7 @@ boolean_false = False
 ```
 
 
-* [Top](#Table of Content)
+* [Top](#Table_of_Content)
 ----
 
 #### Naming_Conventions
@@ -195,7 +195,7 @@ greeting = welcome
 ```
 
 
-* [Top](#Table of Content)
+* [Top](#Table_of_Content)
 ----
 
 #### Empty_Variables 
@@ -214,7 +214,7 @@ print(f'name = {name}')
 name = None
 ```
 
-* [Top](#Table of Content)
+* [Top](#Table_of_Content)
 ----
 
 
