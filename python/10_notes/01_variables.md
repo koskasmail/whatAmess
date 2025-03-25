@@ -9,7 +9,7 @@
 * [print](#print)
 * [comment](#comment)
 
-#### variables
+#### Memory & Variables
 * [number](#number)
 * [string](#string)
 * [boolean](#boolean)
@@ -22,7 +22,7 @@
 ### python
 
 * Python is one of the world's easiest and most popular programming languages.
-
+* Python is one of the most popular and useful languages used to give instructions to computers.
 ----
 
 #### print
@@ -30,6 +30,7 @@
 ```
 print("Hello Python!")
 print("Hello World!")
+print("Welcome")
 ```
 
 ###### output: 
@@ -37,6 +38,7 @@ print("Hello World!")
 ```
 Hello Python!
 Hello World!
+Welcome
 ```
 
 
