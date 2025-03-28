@@ -7,3 +7,39 @@ Java doesn't have a built-in API for directly monitoring network usage. However,
 
 Here's an example that demonstrates calling a system command:
 ```
+
+
+3. **Third-Party Libraries:** For more robust monitoring, libraries like [OSHI (Operating System & Hardware Information)](https://oshi.github.io/oshi/) can be used. OSHI is a Java library that provides comprehensive hardware and OS statistics, including network usage.
+
+Here's an example using OSHI:
+
+```
+import oshi.SystemInfo;
+import oshi.hardware.NetworkIF;
+
+import java.util.List;
+
+public class OshiNetworkUsage {
+    public static void main(String[] args) throws InterruptedException {
+        SystemInfo si = new SystemInfo();
+        List<NetworkIF> networkIFs = si.getHardware().getNetworkIFs();
+
+        for (NetworkIF net : networkIFs) {
+            net.updateAttributes(); // Update stats
+            long bytesSent = net.getBytesSent();
+            long bytesReceived = net.getBytesRecv();
+
+            System.out.println("Network Interface: " + net.getName());
+            System.out.println("Bytes Sent: " + bytesSent);
+            System.out.println("Bytes Received: " + bytesReceived);
+        }
+    }
+}
+```
+
+### To calculate usage percentage:
+- Measure bytes sent/received at two time intervals.
+- Calculate the difference in bytes over time.
+- Compare with your network bandwidth to compute the percentage usage.
+
+Let me know if you need further explanation!
