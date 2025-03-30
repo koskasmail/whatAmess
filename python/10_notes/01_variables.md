@@ -21,7 +21,7 @@
 
 ### python
 
-* Python is one of the world's easiest and most popular programming languages.
+* `Python` is one of the world's easiest and most popular programming languages.
 * Python is one of the most popular and useful languages used to give instructions to computers.
 ----
 
@@ -70,9 +70,9 @@ comment.
 #### number
 
 * Variables are containers that hold data values.
-* int - whole number
+* `int` - whole number
    * example: -2,-1,0,1,2,3...
-* float - real number
+* `float` - real number
    * example: 0.94, 1.00, 1.10,1.20,1.32
 
 ##### initialize a variable of type int (a = 3)
@@ -144,8 +144,8 @@ s2 = double quotation string
 
 #### boolean
 
-* boolean is the building blocks for creating logic in a program
-* boolean type variable only have 2 values
+* `boolean` is the building blocks for creating logic in a program
+* boolean type variable only have `2` values
     * `True` or `False`.
 
 ###### example: 
@@ -170,7 +170,7 @@ boolean_false = False
 
 #### Naming_Conventions
 
-* Naming Conventions is a convention of naming things (variable naming, etc...)
+* `Naming Conventions` is a convention of naming things (variable naming, etc...)
 * python Naming Conventions is `snake case`.
     * example:
        * is_free = True
@@ -202,7 +202,7 @@ greeting = welcome
 
 #### Empty_Variables 
 
-* Empty Variables or `None` value - is a special value that represents "nothing".
+* `Empty Variables` or `None` value - is a special value that represents `nothing`.
 * `None` value is used until a real value will appears.
 
 ###### example: 
