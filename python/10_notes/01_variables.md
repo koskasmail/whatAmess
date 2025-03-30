@@ -113,8 +113,8 @@ print(f'char_d = {char_d}');
 ###### output: 
 
 ```
-char_c = b;
-char_d = D;
+char_c = b
+char_d = D
 ```
 
 
@@ -134,8 +134,8 @@ print(f's2 = {s2}');
 ###### output: 
 
 ```
-s1 = single quotation string;
-s2 = double quotation string;
+s1 = single quotation string
+s2 = double quotation string
 ```
 
 * [Top](#Table_of_Content)
