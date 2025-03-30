@@ -28,9 +28,9 @@
 #### print
 
 ```
-print("Hello Python!")
-print("Hello World!")
-print("Welcome")
+print("Hello Python!");
+print("Hello World!");
+print("Welcome");
 ```
 
 ###### output: 
@@ -51,7 +51,7 @@ Welcome
 
 ```
 # This is a comment
-print("Hello!")  # This prints "Hello!"
+print("Hello!");  # This prints "Hello!"
 ```
 
 ###### multi-line comment.
@@ -77,18 +77,18 @@ comment.
 
 ##### initialize a variable of type int (a = 3)
 ```
-a = 3
+a = 3;
 ```
 
 #####  initialize a variable of type float (b = 13.2)
 ```
-b = 13.2
+b = 13.2;
 ```
 
 ###### example
 ```
 var = 5;
-print(f`var = {var}')
+print(f`var = {var}');
 ```
 
 * [Top](#Table_of_Content)
@@ -106,15 +106,15 @@ print(f`var = {var}')
 char_c = 'b';
 char_d = "D";
 
-print(f'char_c = {char_c}')
-print(f'char_d = {char_d}')
+print(f'char_c = {char_c}');
+print(f'char_d = {char_d}');
 ```
 
 ###### output: 
 
 ```
-char_c = b
-char_d = D
+char_c = b;
+char_d = D;
 ```
 
 
@@ -124,18 +124,18 @@ char_d = D
 
 ###### example: 
 ```
-s1 = 'single quotation string'
-s2 = "double quotation string"
+s1 = 'single quotation string';
+s2 = "double quotation string";
 
-print(f's1 = {s1}')
-print(f's2 = {s2}')
+print(f's1 = {s1}');
+print(f's2 = {s2}');
 ```
 
 ###### output: 
 
 ```
-s1 = single quotation string
-s2 = double quotation string
+s1 = single quotation string;
+s2 = double quotation string;
 ```
 
 * [Top](#Table_of_Content)
@@ -150,11 +150,11 @@ s2 = double quotation string
 
 ###### example: 
 ```
-boolean_true = True
-boolean_false = False
+boolean_true = True;
+boolean_false = False;
 
-print(f'boolean_true = {boolean_true}')
-print(f'boolean_false = {boolean_false}')
+print(f'boolean_true = {boolean_true}');
+print(f'boolean_false = {boolean_false}');
 ```
 
 ###### output: 
@@ -173,19 +173,19 @@ boolean_false = False
 * `Naming Conventions` is a convention of naming things (variable naming, etc...)
 * python Naming Conventions is `snake case`.
     * example:
-       * is_free = True
+       * is_free = True;
        * age = 25;
        * greeting = 'welcome';
 
 ###### example: 
 ```
-is_free = True
+is_free = True;
 age = 25;
 greeting = 'welcome';
 
-print(f'is_free = {is_free}')
-print(f'age = {age}')
-print(f'greeting = {greeting}')
+print(f'is_free = {is_free}');
+print(f'age = {age}');
+print(f'greeting = {greeting}');
 ```
 
 ###### output: 
@@ -208,7 +208,7 @@ greeting = welcome
 ###### example: 
 ```
 name = None;
-print(f'name = {name}')
+print(f'name = {name}');
 ```
 
 ###### output: 
