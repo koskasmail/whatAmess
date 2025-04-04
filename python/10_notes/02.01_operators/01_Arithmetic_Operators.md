@@ -17,40 +17,62 @@
 
 ----
 
-#### ex2
-
+#### Addition `+`
 ```
-count = 10;
-
-count += 4;
-count *= 2;
-count -= 1;
-count /= 1;
-
-print(f"count = {count}")
 ```
 
 ###### output
 ```
-count = 7
 ```
 
 ----
 
-#### ex3
+#### Subtraction `-`
 ```
-score = 100;
-
-score /= 2;
-score += 10;
-score *= 3;
-
-print(f"score = {score}")
 ```
 
 ###### output
 ```
-count = 180.0
+```
+
+----
+
+#### Multiplication `*`
+```
+```
+
+###### output
+```
+```
+
+----
+
+#### Division `/`
+```
+```
+
+###### output
+```
+```
+
+----
+
+#### Modulus `%`
+```
+```
+
+###### output
+```
+```
+
+----
+
+#### Floor division `//`
+```
+```
+
+###### output
+```
 ```
 
 
