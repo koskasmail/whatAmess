@@ -19,10 +19,17 @@
 
 #### Addition `+`
 ```
+number = 2;
+
+number = number + 2; ## 4
+print (number);
+print(f"number = {number};
 ```
 
 ###### output
 ```
+4
+number = 4
 ```
 
 ----
