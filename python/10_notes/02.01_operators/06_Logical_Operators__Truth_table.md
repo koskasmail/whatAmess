@@ -77,6 +77,60 @@ b4 = b1 and b2 and (not b3)
 print(f"b4 = {b4}")
 ```
 
+#### example
+
+```
+number = 15
+
+result1 = not (number >= 1 and number <= 10)
+result2 = (not number >= 1) or (not number <= 10)
+
+print(result1)  # True
+print(result2)  # True
+```
+
+#### example
+
+```
+b1 = True;
+b2 = True;
+b3 = False;
+
+b4 = b1 and b2 and (not b3)
+print(f"b4 = {b4}") # b4 = true
+```
+
+#### example
+
+```
+# These two expressions are equivalent:
+result1 = not (is_student or is_employed) # result1 = not(false or False) = True
+print(result1)  # True
+
+result2 = (not is_student) and (not is_employed) # result2 =  (not false) and (not false) = true
+print(result2)  # True
+```
+
+#### example
+
+```
+has_license = True;
+has_space = True;
+has_experience = False;
+
+can_sell_regular_pet = (has_license == True or has_experience == True) and (has_space == True);
+can_sell_exotic_pet = (has_license == True and has_experience == True and has_space == True);
+cannot_sell_any_pet = (has_license == False and has_experience == False and has_space == False);
+
+print("Can sell regular pet:", can_sell_regular_pet)
+print("Can sell exotic pet:", can_sell_exotic_pet)
+print("Cannot sell any pet:", cannot_sell_any_pet)
+```
+
+#### example
+
+```
+```
 
 
 ----
