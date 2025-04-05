@@ -29,7 +29,15 @@
 | False | True |  |
 | True | False |  |
 
+----
 
+
+
+```
+number = 4;
+result = number > 0 and number % 2 == 0
+print(f"number = {number} and the result is ==> {result}");
+```
 
 ----
 
