@@ -1,6 +1,9 @@
 <a name="topage"></a>
 
 # all
+* https://www.mycompiler.io/
+* https://www.programiz.com/
+
 
 #### python
 * https://www.programiz.com/python-programming/online-compiler/
@@ -9,6 +12,8 @@
 
 #### sql
 * https://www.programiz.com/sql/online-compiler
+* https://www.w3schools.com/sql/sql_editor.asp
+* https://www.w3schools.com/sql/trysql.asp?filename=trysql_editor
 
 -----
 
