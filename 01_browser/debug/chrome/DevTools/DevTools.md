@@ -24,17 +24,18 @@
 * option exists
     * Appearance, Console, Debugger, Elements, Extension, Global, Sources, Network, Performance, Persistence, Sync
 
-##### step 1.2.1.1: Appearance
-Console
-Debugger
-Elements
-Extension
-Global
-Sources
-Network
-Performance
-Persistence
-Sync
+###### Preferences deatiles:
+* Appearance 
+* Console - 
+* Debugger - 
+* Elements - 
+* Extension - 
+* Global - 
+* Sources - 
+* Network - 
+* Performance - 
+* Persistence - 
+* Sync - 
 
 
 ----
