@@ -3,7 +3,10 @@
 # base.md
 
 
-* Sure! Here's a basic setup using HTML, CSS, and JavaScript with a `<base>` tag to set relative paths for all linked resources:
+* `<base>` tag set base URL/target relative paths for all linked resources:
+* The <base> tag specifies the base URL and/or target for all relative URLs in a document.
+    * href (URL) 
+    * target (_blank / _parent / _self / _top)
 
 ### 1. **HTML (index.html)**
 ```html
