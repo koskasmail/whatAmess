@@ -2,13 +2,17 @@
 
 # base.md
 
-
 * `<base>` tag set base URL/target relative paths for all linked resources:
 * The <base> tag specifies the base URL and/or target for all relative URLs in a document.
     * href (URL) 
     * target (_blank / _parent / _self / _top)
 
-### 1. **HTML (index.html)**
+----
+
+### Example:
+
+#### 1. **HTML (index.html)**
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +35,8 @@
 </html>
 ```
 
-### 2. **CSS (styles/style.css)**
+#### 2. **CSS (styles/style.css)**
+
 ```css
 body {
     font-family: Arial, sans-serif;
@@ -45,7 +50,8 @@ input, button {
 }
 ```
 
-### 3. **JavaScript (scripts/script.js)**
+#### 3. **JavaScript (scripts/script.js)**
+
 ```js
 function calculate() {
     let num1 = parseFloat(document.getElementById("num1").value);
@@ -55,7 +61,7 @@ function calculate() {
 }
 ```
 
-### Folder Structure:
+#### Folder Structure:
 ```
 project-folder/
 │── tags/
@@ -75,6 +81,8 @@ project-folder/
 </head>
 ...
 ```
+
+----
 
 #### TIP
 * This setup ensures that all files reference the correct paths relative to `./tags/`.
