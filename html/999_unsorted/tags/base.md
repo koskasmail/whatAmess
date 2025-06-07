@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="https://koskasmail.github.io/whatAmess/html/999_unsorted/tags/">  <!-- Base path for all relative links -->
     <title>Calculator</title>
-    <link rel="stylesheet" href="styles/style.css">  <!-- Points to ./calc/styles/style.css -->
+    <link rel="stylesheet" href="styles/style.css">  <!-- path: ./tags/styles/style.css -->
 </head>
 <body>
     <h1>Simple Calculator</h1>
@@ -23,7 +23,7 @@
     <button onclick="calculate()">Calculate</button>
     <p id="result"></p>
 
-    <script src="scripts/script.js"></script>  <!-- Points to ./calc/scripts/script.js -->
+    <script src="scripts/script.js"></script>  <!-- path: ./tags/scripts/script.js -->
 </body>
 </html>
 ```
@@ -55,7 +55,7 @@ function calculate() {
 ### Folder Structure:
 ```
 project-folder/
-│── calc/
+│── tags/
 │   ├── html/       (Store HTML files here)
 │   │   ├── index.html
 │   ├── scripts/    (JavaScript files)
@@ -72,7 +72,10 @@ project-folder/
 </head>
 ...
 ```
-This setup ensures that all files reference the correct paths relative to `./calc/`. 
+
+#### TIP
+* This setup ensures that all files reference the correct paths relative to `./tags/`.
+* [tag-example](https://koskasmail.github.io/whatAmess/html/999_unsorted/tags/base/html/)
 
 
 ---- 
