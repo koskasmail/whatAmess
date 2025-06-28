@@ -8,6 +8,7 @@
          * Note: today + Expiration date
          * Expiration: 90 days
          * Select scopes -> repo
+         * [generate token]
    
 ----
 
