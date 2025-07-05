@@ -23,23 +23,28 @@ avahi-browse --all -t -r
    * journalctl
 ## K
 ## L
-   * lsmem
+   * lsmem - list the ranges of available memory with their online status
+       * $ lsmem -J | $ lsmem -P | $ lsmem -a
+  
    * lsw ()
-       * sudo apt-get install suckless-tools
+       * install
+           * sudo apt-get install suckless-tools
    * lsb_release -a
-       * ubuntu version 
-     
+       * ubuntu version    
 ## M
 ## N
-   * ncdu
-       * sudo apt-get install ncdu -y
+   * ncdu (NCurses Disk Usage) - provides a fast way to see what directories are using your disk space.
+       * install
+           * sudo apt-get install ncdu -y
+       * see also
+           * `du` command
 ## O
 ## P
 ## Q
 ## R
 ## S
 ## T 
-   * top
+   * top - display Linux processes
 ## U
 ## V
 ## W
