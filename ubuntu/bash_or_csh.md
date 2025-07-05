@@ -21,7 +21,7 @@ echo $0
 ```bash
 echo $SHELL
 ```
-This shows the default shell assigned to your user account. It might be different from the one you're currently using if you've switched shells manually.
+
 
 ---
 
@@ -49,8 +49,6 @@ or
 ```bash
 chsh -s /bin/csh
 ```
-
-Want help customizing your shell or setting up aliases and functions? I’ve got plenty of tricks up my sleeve.
 
 
 ---
