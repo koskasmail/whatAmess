@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Daily Coder</title>
+  <style>
+    body {
+  font-family: 'Georgia', serif;
+  background: #fdfcf8;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+  letter-spacing: 2px;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+  background: #ccc;
+  font-weight: bold;
+}
+
+nav li {
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.lead-story {
+  border-bottom: 2px solid #444;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.columns {
+  display: flex;
+  gap: 2rem;
+}
+
+.columns article {
+  flex: 1;
+  border-left: 2px solid #999;
+  padding-left: 1rem;
+}
+
+footer {
+  background: #222;
+  color: #eee;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The Daily Coder</h1>
+    <p class="tagline">Breaking News in the World of Code</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li>Home</li>
+      <li>Tech</li>
+      <li>Opinion</li>
+      <li>About</li>
+    </ul>
+  </nav>
+
+  <main>
+    <article class="lead-story">
+      <h2>Markdown Files Spark Renaissance in Documentation</h2>
+      <p><em>By Jane Script</em> • July 6, 2025</p>
+      <p>Markdown, once an understated markup language, has captured the imagination of open-source developers with its minimal syntax and powerful integrations.</p>
+    </article>
+
+    <section class="columns">
+      <article>
+        <h3>JavaScript Takes a Functional Turn</h3>
+        <p>Developers are embracing immutability and pure functions for cleaner, more reliable code.</p>
+      </article>
+      <article>
+        <h3>CSS Grid vs. Flexbox: The Showdown</h3>
+        <p>Modern layout battles rage on as teams debate the superior styling tool for responsive design.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 The Daily Coder. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('nav li').forEach(item => {
+  item.addEventListener('click', () => {
+    alert(`You clicked on ${item.textContent} — but this feature is coming soon!`);
+  });
+});
+
+  </script>
+</body>
+</html>
