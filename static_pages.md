@@ -4,7 +4,11 @@
 
 
 #### jquery - mobile
+
+* https://github.com/koskasmail/whatAmess/settings/pages
 * https://koskasmail.github.io/whatAmess/jquery/mobile/101.html
+* https://koskasmail.github.io/whatAmess/newspaper/newspaper.html
+  
 -----
 
 <p align="right">(<a href="#topage">back to top</a>)</p>
