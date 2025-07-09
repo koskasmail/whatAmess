@@ -6,23 +6,44 @@
 
 * [ ] night
   * [ ] walleye
+  * [ ] bream
   * [ ] eal
 
-  * [ ] desert 
+* [ ] desert
   * [ ] pufferfish
+  * [ ] Goldfish
+  * [ ] sandfish
+  * [ ] woodskip
 
 * [ ] xxx
+  * [ ] sardine
+  * [ ] tuna
   * [ ] red snapper
   * [ ] tilapia
 
 * [ ] xxx
+  * [ ] sunfish
+  * [ ] catfish
   * [ ] shad
   * [ ] tiger trout
 
 * [ ] lake
-  * [ ] sturgeon
-  * [ ] bullhead
   * [ ] largemouth Bass
+  * [ ] carp
+  * [ ] bullhead
+  * [ ] sturgeon
+
+* [ ] sea fish
+  * [ ] labsster
+  * [ ] cryfish
+  * [ ] crab
+  * [ ] cockle
+  * [ ] mussel
+  * [ ] shrimp
+  * [ ] snail
+  * [ ] periwinkle
+  * [ ] oyster
+  * [ ] clam
 
 
 
