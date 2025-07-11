@@ -11,6 +11,35 @@
 # Clear the screen
 Clear-Host
 
+# Say hello and show current date and time
+Write-Host "Howdy! "
+Write-Host "Current Date and Time is: $(Get-Date)"
+
+
+# Print current date and time
+Write-Host "Date: $(Get-Date -Format 'dddd, MMMM dd, yyyy')"
+Write-Host "Time: $(Get-Date -Format 'hh:mm:ss tt')" 
+Write-Host ""
+
+# Welcome message
+Write-Host "Welcome to PowerShell!" 
+Write-Host "Hope you're having a productive session." 
+Write-Host ""
+
+# Exit the script
+Write-Host "Exiting now. Have a great day!" 
+Start-Sleep -Seconds 2
+exit
+```
+----
+
+### welcome with color
+
+
+```powershell
+# Clear the screen
+Clear-Host
+
 # Print current date and time
 Write-Host "🗓️ Date: $(Get-Date -Format 'dddd, MMMM dd, yyyy')" -ForegroundColor Cyan
 Write-Host "🕒 Time: $(Get-Date -Format 'hh:mm:ss tt')" -ForegroundColor Cyan
