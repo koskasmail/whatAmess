@@ -30,13 +30,12 @@
          * `doSomthing.ps1`
   
 🧪 How to Execute PowerShell Code
-There are a few ways to run PowerShell scripts:
 
-From the command line: Open PowerShell and type .\scriptname.ps1 to run a script.
-
-Right-click the .ps1 file and choose “Run with PowerShell.”
-
-In Visual Studio Code: Press F5 to run the whole script or F8 to run selected lines.
+* There are a few ways to run PowerShell scripts:
+   * From the command line: Open `PowerShell` and type .\scriptname.ps1 to run a script.
+      * $ PowerShell .\scriptname.ps1
+   * Right-click the .ps1 file and choose “Run with PowerShell.”
+   * In Visual Studio Code: Press `F5` to run the whole script or `F8` to run selected lines.
 
 🧱 How to Compile PowerShell Code
 PowerShell is interpreted, not compiled — meaning it runs line-by-line without needing to be built into an executable. But if you want to package a script into an .exe file, you can use tools like:
