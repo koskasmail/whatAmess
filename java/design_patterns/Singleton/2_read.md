@@ -4,7 +4,9 @@
 
 ### links:
 * https://www.baeldung.com/java-singleton
-
+* https://www.geeksforgeeks.org/java/singleton-class-java/
+* https://www.digitalocean.com/community/tutorials/java-singleton-design-pattern-best-practices-examples
+* https://www.digitalocean.com/community/tutorials/visitor-design-pattern-java
 
 ----
 
