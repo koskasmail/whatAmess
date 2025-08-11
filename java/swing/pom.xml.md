@@ -1,17 +1,15 @@
 # pom.xml
 
-
 #### example #1:
-
-* poi | org.apache.poi | poi | 5.4.1 |
-* 
 
 | xxx | name | groupId | artifactId | version | comment |
 |  -  | :-: | :-: |  :-: | :-: | :-: |
 | 01 | poi | org.apache.poi | poi | 5.4.1 | xxx |
-| 02 |   |   |   |   |   |
-| 03 |   |   |   |   |   |
-| 04 |   |   |   |   |   |
+| 02 | pdfbox | org.apache.pdfbox | pdfbox | 3.0.5 | xxx |
+| 03 | poi-ooxml | org.apache.poi | poi-ooxml | 5.4.1 | xxx |
+| 04 | jsoup | org.jsoup | jsoup | 1.21.1 | xxx |
+
+#### pom.xml
 
 ````
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -53,9 +51,12 @@
 | xxx | name | groupId | artifactId | version | comment |
 |  -  | :-: | :-: |  :-: | :-: | :-: |
 | 01 | poi | org.apache.poi | poi | 5.4.1 | xxx |
-| 02 |   |   |   |   |   |
-| 03 |   |   |   |   |   |
-| 04 |   |   |   |   |   |
+| 02 | pdfbox | org.apache.pdfbox | pdfbox | 3.0.5 | xxx |
+| 03 | poi-ooxml | org.apache.poi | poi-ooxml | 5.4.1 | xxx |
+| 04 | jsoup | org.jsoup | jsoup | 1.21.1 | xxx |
+| 05 | java | jdk | 1.8| xxx |
+
+#### pom.xml
 
 ````
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
