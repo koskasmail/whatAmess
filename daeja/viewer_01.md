@@ -251,10 +251,153 @@ Test with:
 
 Would you like a working prototype using specific formats like `.docx`, `.pdf`, and `.xlsx`? I can help you scaffold the code for that.
 
-------
 
+-----
 
 #### viewer_03
+
+To build a **unified document viewer** that supports a wide range of formats—like `.txt`, `.html`, `.mht`, `.doc`, `.docx`, `.xls`, `.xlsx`, `.ppt`, `.pptx`, `.pps`, `.ppsx`, `.pdf`, and more—**without using `<iframe>`**, you’ll need a hybrid approach that combines:
+
+- **Frontend JavaScript libraries** for rendering supported formats directly in the browser
+- **Backend conversion services** for transforming unsupported formats into HTML or canvas-renderable content
+
+Let’s walk through a complete **architecture and implementation plan**.
+
+---
+
+## 🧩 Architecture Summary
+
+| Layer        | Role                                                                 |
+|--------------|----------------------------------------------------------------------|
+| Frontend     | Renders documents using JS libraries (PDF.js, Mammoth.js, SheetJS)  |
+| Backend      | Converts complex formats to HTML or PDF using LibreOffice, Pandoc   |
+| Viewer Shell | Unified UI to load and display content in `<div>` or `<canvas>`     |
+
+---
+
+## 🛠️ Step-by-Step Implementation
+
+### 1. 📦 Frontend Libraries by Format
+
+| Format         | Library Used                  | Rendered In |
+|----------------|-------------------------------|-------------|
+| `.pdf`         | [PDF.js](https://mozilla.github.io/pdf.js/)           | `<canvas>`   |
+| `.docx`        | [Mammoth.js](https://github.com/mwilliamson/mammoth.js) | `<div>`      |
+| `.xlsx`, `.xls`| [SheetJS](https://sheetjs.com/)                        | `<table>`    |
+| `.pptx`, `.ppsx`| [Pptx2Html](https://github.com/meshesha/pptx2html) or backend | `<div>` |
+| `.txt`, `.html`| Native rendering              | `<pre>` / `<div>` |
+| `.mht`, `.doc`, `.ppt`, `.pss` | Convert to HTML/PDF server-side | `<div>` / `<canvas>` |
+
+---
+
+### 2. 🧠 Backend Conversion Service
+
+Use a backend (Node.js, Python, or Java) to convert unsupported formats to HTML or PDF.
+
+#### Example: LibreOffice Headless Conversion
+
+```bash
+soffice --headless --convert-to html yourfile.doc --outdir /converted
+```
+
+Expose this via REST API:
+
+```http
+GET /convert?fileId=123&type=html
+```
+
+---
+
+### 3. 🖼️ Unified Viewer Shell (HTML + JS)
+
+```html
+<input type="file" id="upload" />
+<div id="viewer"></div>
+
+<script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+
+<script>
+  document.getElementById("upload").addEventListener("change", async function(event) {
+    const file = event.target.files[0];
+    const ext = file.name.split('.').pop().toLowerCase();
+    const viewer = document.getElementById("viewer");
+    viewer.innerHTML = "";
+
+    if (ext === "txt") {
+      const text = await file.text();
+      viewer.innerHTML = `<pre>${text}</pre>`;
+    } else if (ext === "html") {
+      const html = await file.text();
+      viewer.innerHTML = html;
+    } else if (ext === "docx") {
+      const arrayBuffer = await file.arrayBuffer();
+      const result = await mammoth.convertToHtml({ arrayBuffer });
+      viewer.innerHTML = result.value;
+    } else if (ext === "xlsx" || ext === "xls") {
+      const data = await file.arrayBuffer();
+      const workbook = XLSX.read(data, { type: "array" });
+      const sheet = workbook.Sheets[workbook.SheetNames[0]];
+      const html = XLSX.utils.sheet_to_html(sheet);
+      viewer.innerHTML = html;
+    } else if (ext === "pdf") {
+      const pdfData = await file.arrayBuffer();
+      const pdf = await pdfjsLib.getDocument({ data: pdfData }).promise;
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const viewport = page.getViewport({ scale: 1.5 });
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        viewer.appendChild(canvas);
+        await page.render({ canvasContext: context, viewport }).promise;
+      }
+    } else {
+      viewer.innerHTML = `<p>Unsupported format: ${ext}</p>`;
+    }
+  });
+</script>
+```
+
+---
+
+### 4. 🔄 Backend Fallback for Complex Formats
+
+If the format is `.doc`, `.ppt`, `.mht`, `.pps`, `.pss`, etc.:
+
+- Upload to backend
+- Convert to HTML or PDF
+- Return HTML content or PDF buffer
+- Render using same frontend logic
+
+---
+
+### 5. 🔐 Security & UX Considerations
+
+- Sanitize HTML to prevent XSS
+- Show loading indicators for large files
+- Add pagination for long documents
+- Respect access control if integrated with a repository
+
+---
+
+## 🚀 Optional Features
+
+- Annotation tools (fabric.js or PDF.js annotations)
+- Search within documents
+- Zoom and rotate
+- Save as PDF or HTML
+- Integration with IBM Content Navigator
+
+---
+
+Would you like me to generate a working HTML+JS prototype for a few formats (e.g., `.pdf`, `.docx`, `.xlsx`) to get started?
+
+-----
+
+#### viewer_04
 
 Creating a **universal document viewer** that supports a wide range of formats—**without using `<iframe>`**—requires a smart combination of **frontend rendering libraries** and **backend conversion services**. Here's a complete blueprint to help you build it from scratch.
 
