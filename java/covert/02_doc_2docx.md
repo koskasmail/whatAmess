@@ -1,10 +1,35 @@
 
+# 02_doc_2docx
 
+------
+
+##### pom.xml
+
+```
+<dependencies>
+  <dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>5.2.3</version>
+  </dependency>
+  <dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>5.2.3</version>
+  </dependency>
+  <dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-scratchpad</artifactId>
+    <version>5.2.3</version>
+  </dependency>
+</dependencies>
+```
 ------
 
 To convert a `.doc` file (older binary format) to `.docx` (modern XML-based format) using Java, the most reliable and widely used approach is to leverage the **Apache POI** library in combination with **LibreOffice** or **Aspose.Words for Java**, depending on your needs. Here's a breakdown of the best options:
 
 ---
+
 
 ### 🛠 Option 1: Using LibreOffice with Java (via UNO or command line)
 LibreOffice can handle `.doc` to `.docx` conversion very well.
