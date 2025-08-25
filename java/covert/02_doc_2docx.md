@@ -25,7 +25,34 @@
 </dependencies>
 ```
 ------
+You're running into a **`NoClassDefFoundError`** because your project is missing a required dependency:  
+🔧 **Apache Commons Math** — specifically, the class `ArithmeticUtils` from `commons-math3`.
 
+### ✅ How to Fix It
+
+You need to add the **Apache Commons Math 3.x** library to your project. Here's how:
+
+#### 🧱 If you're using Maven:
+```xml
+<dependency>
+  <groupId>org.apache.commons</groupId>
+  <artifactId>commons-math3</artifactId>
+  <version>3.6.1</version> <!-- or latest -->
+</dependency>
+```
+
+#### 📦 If you're using a manual JAR setup:
+Download the JAR from [Maven Central](https://search.maven.org/artifact/org.apache.commons/commons-math3/3.6.1/jar)  
+Then add it to your classpath.
+
+---
+
+### 💡 Why This Happens
+
+Apache POI internally uses `ArithmeticUtils` in some of its classes (like `RootProperty`) for calculations. If you're working with `.doc` files using `HWPFDocument`, this dependency becomes essential—even if you're not directly using math functions yourself.
+
+Let me know if you want help bundling all the required JARs or switching to a `.docx`-only workflow to simplify things.
+------
 To convert a `.doc` file (older binary format) to `.docx` (modern XML-based format) using Java, the most reliable and widely used approach is to leverage the **Apache POI** library in combination with **LibreOffice** or **Aspose.Words for Java**, depending on your needs. Here's a breakdown of the best options:
 
 ---
