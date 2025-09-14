@@ -1,5 +1,58 @@
+##### fix #2:
 
-##### fix for java 1.8/8
+Thanks for catching that! The error you're seeing:
+
+```
+The method builder() is undefined for the type JodConverter
+```
+
+means that you're using a method (`JodConverter.builder()`) that doesn't exist in the version of the JODConverter library you're using—likely an older version compatible with Java 8.
+
+---
+
+## ✅ How to Fix It for Java 8-Compatible JODConverter
+
+Instead of using the builder pattern, you can directly create a `DocumentConverter` using the `LocalConverter` class, which is available in older versions of JODConverter (like 4.2.2 or earlier).
+
+### 🔧 Replace This:
+```java
+converter = JodConverter.builder().officeManager(officeManager).build();
+```
+
+### ✅ With This:
+```java
+import org.jodconverter.local.converter.LocalConverter;
+
+converter = LocalConverter.make(officeManager);
+```
+
+---
+
+## 🧠 Why This Works
+
+- `LocalConverter.make(...)` is the correct way to instantiate a converter in older JODConverter versions.
+- The `builder()` method was introduced in newer versions that may require Java 11+.
+
+---
+
+## 📦 Bonus Tip: Check Your JODConverter Version
+
+If you're using Maven, your `pom.xml` should look like this for Java 8 compatibility:
+
+```xml
+<dependency>
+  <groupId>org.jodconverter</groupId>
+  <artifactId>jodconverter-local</artifactId>
+  <version>4.2.2</version> <!-- or another Java 8-compatible version -->
+</dependency>
+```
+
+---
+
+Let me know if you'd like help verifying your dependencies or upgrading your converter logic. I can walk you through it step-by-step.
+-----
+
+##### fix #1: for java 1.8/8
 
 You got it! Here's your updated version of the `DocToHtmlApp` class, rewritten to be fully compatible with **Java 8**. I’ve replaced Java 9+ features like `Set.of(...)` and `Files.readString(...)`, and ensured everything works with Java 8 syntax and APIs.
 
