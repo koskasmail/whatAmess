@@ -48,6 +48,23 @@ Sure! Here's a complete example that clears any previous content inside a `<span
 </html>
 ```
 
+#### short:
+```
+     const span = document.querySelector('.dijitPlaceHolder.dijitInputField');
+
+     // Clear previous content
+     span.innerHTML = '';
+
+     // Create a new element
+     const newElement = document.createElement('strong');
+     newElement.textContent = 'הכנס ערכים במרחאות כל ערך בצורה אחרת';
+     newElement.style.color = 'green';
+
+     // Inject the new element
+     span.appendChild(newElement);
+```
+
+
 ### 🧪 What This Does
 - Adds a button to trigger the injection.
 - Clears any existing content inside the span.
@@ -115,6 +132,20 @@ To inject different text into the `<label>` element within your provided HTML st
 
 </body>
 </html>
+```
+
+
+#### short:
+```
+	const parentDiv = document.querySelector('#ecm_widget_search_SearchForm_0_textSearchHoverHelp').parentElement;
+    const label = parentDiv.querySelector('label');
+
+    // Update the label text
+    if (label) {
+      label.textContent = 'טקסט חדש שהוזרק לתווית';
+    } else {
+      console.warn('Label element not found.');
+    }
 ```
 
 ---
