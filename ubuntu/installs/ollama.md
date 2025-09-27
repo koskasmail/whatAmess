@@ -28,9 +28,8 @@ To install **Ollama** on Ubuntu, you can use a simple one-line command provided 
    ```
 
 ### 📦 Optional: Manual Installation
-If you prefer manual setup or want to inspect the script first, you can view it on [Ollama's Linux download page](https://ollama.com/download/linux).
+* [Ollama's Linux download page](https://ollama.com/download/linux).
 
-Would you like help setting up a web interface like Open WebUI to interact with Ollama visually?
 
 ----
 
