@@ -77,3 +77,58 @@ echo "Samba setup complete. Users can now access their folders remotely."
 - Ensure your firewall allows Samba traffic (`sudo ufw allow 'Samba'` if using UFW).
 
 Would you like a version that auto-generates passwords or restricts access further?
+
+-----
+
+# show computer "tv" to network
+
+To set your Ubuntu machine's hostname to "tv" and make it visible on your local network, follow these steps:
+
+### 🖥️ 1. Set the Hostname
+Run the following command to permanently set the hostname:
+
+```bash
+sudo hostnamectl set-hostname tv
+```
+
+Then update your `/etc/hosts` file to reflect the new hostname:
+
+```bash
+sudo nano /etc/hosts
+```
+
+Change or add this line:
+
+```
+127.0.1.1   tv
+```
+
+Save and exit (`Ctrl+O`, `Enter`, then `Ctrl+X`).
+
+### 🌐 2. Make It Discoverable on the Network
+Ubuntu uses **Avahi** (a mDNS responder) to broadcast its hostname on the local network. This allows other devices to access it using `tv.local`.
+
+To ensure Avahi is installed and running:
+
+```bash
+sudo apt install avahi-daemon
+sudo systemctl enable avahi-daemon
+sudo systemctl start avahi-daemon
+```
+
+### 🧪 3. Test from Another Device
+From another computer on the same network, try:
+
+```bash
+ping tv.local
+```
+
+Or access services (like Samba or a web server) via:
+
+```
+http://tv.local
+```
+
+This works across most modern operating systems including Windows, macOS, and Linux.
+
+Let me know if you want to assign a static IP or integrate with a local DNS server for more advanced setups.
