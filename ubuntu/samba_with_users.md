@@ -131,4 +131,105 @@ http://tv.local
 
 This works across most modern operating systems including Windows, macOS, and Linux.
 
+-----
+
+# check and fix
+
+If you've configured Samba with a user and share point on Ubuntu, but Windows users on the same local network still can't see the share, here’s a complete checklist to troubleshoot and fix the issue safely:
+
+---
+
+### ✅ 1. **Verify Samba Is Installed and Running**
+```bash
+sudo systemctl status smbd
+```
+If it's not running, start it:
+```bash
+sudo systemctl start smbd
+```
+
+---
+
+### ✅ 2. **Check Your Samba Configuration**
+Edit your Samba config:
+```bash
+sudo nano /etc/samba/smb.conf
+```
+Make sure your share looks like this:
+```ini
+[Shared]
+   path = /home/yourusername/Shared
+   browseable = yes
+   read only = no
+   guest ok = yes
+```
+Also ensure:
+```ini
+workgroup = WORKGROUP
+server string = Samba Server
+netbios name = ubuntu-machine
+wins support = yes
+```
+> Replace `yourusername` and `ubuntu-machine` with your actual values.
+
+---
+
+### ✅ 3. **Set Proper Permissions**
+```bash
+chmod -R 0777 /home/yourusername/Shared
+```
+If using user authentication:
+```bash
+sudo smbpasswd -a yourusername
+```
+
+---
+
+### ✅ 4. **Install WSDD for Windows Discovery**
+Windows uses WS-Discovery, not NetBIOS. Install `wsdd`:
+```bash
+sudo apt install wsdd
+sudo systemctl enable wsdd
+sudo systemctl start wsdd
+```
+This makes your Samba server visible in Windows Network Neighborhood.
+
+---
+
+### ✅ 5. **Allow Samba Through the Firewall**
+```bash
+sudo ufw allow samba
+sudo ufw reload
+```
+
+---
+
+### ✅ 6. **Restart Samba and Network Services**
+```bash
+sudo systemctl restart smbd nmbd
+```
+
+---
+
+### ✅ 7. **Access the Share from Windows**
+Instead of browsing, try direct access:
+- Press `Win + R` → type `\\10.0.0.123\Shared` → press Enter
+
+If it works, the issue is with network discovery, not the share itself.
+
+---
+
+### ✅ 8. **Enable Guest Access in Windows (if needed)**
+If you're using guest access:
+- Run `gpedit.msc`
+- Go to:  
+  `Computer Configuration → Administrative Templates → Network → Lanman Workstation`
+- Enable **"Enable insecure guest logons"**
+
+---
+
+Once these steps are complete, your Samba share should be visible and accessible from Windows devices on the same local network.
+
+Would you like help setting up auto-mounting on Windows or securing the share with user permissions?
+
 Let me know if you want to assign a static IP or integrate with a local DNS server for more advanced setups.
