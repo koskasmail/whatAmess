@@ -233,3 +233,67 @@ Once these steps are complete, your Samba share should be visible and accessible
 Would you like help setting up auto-mounting on Windows or securing the share with user permissions?
 
 Let me know if you want to assign a static IP or integrate with a local DNS server for more advanced setups.
+
+-----
+
+# service fix
+
+Thanks for sharing the error—this means the `wsdd` service isn’t installed yet. Here's how to **safely install and enable WSDD** on Ubuntu so your Samba shares become visible to Windows machines:
+
+---
+
+### 🛠️ Step-by-Step: Install WSDD on Ubuntu
+
+#### 1. **Install Required Packages**
+First, install Python 3 and Git (if not already installed):
+```bash
+sudo apt update
+sudo apt install python3 git
+```
+
+#### 2. **Download WSDD**
+Clone the official WSDD repository:
+```bash
+git clone https://github.com/christgau/wsdd.git
+```
+
+#### 3. **Install WSDD Systemd Service**
+Navigate into the folder:
+```bash
+cd wsdd
+```
+Copy the service file:
+```bash
+sudo cp wsdd.service /etc/systemd/system/
+```
+
+Install the script:
+```bash
+sudo cp src/wsdd.py /usr/bin/wsdd
+sudo chmod +x /usr/bin/wsdd
+```
+
+#### 4. **Enable and Start the Service**
+```bash
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl enable wsdd
+sudo systemctl start wsdd
+```
+
+#### 5. **Verify It's Running**
+```bash
+sudo systemctl status wsdd
+```
+
+---
+
+### ✅ After Setup
+Once WSDD is running, your Samba server should appear in Windows Network Neighborhood. You can still access it directly via `\\your-ip\sharename`, but now it should also show up automatically.
+
+Would you like help making this setup persistent across reboots or securing it with user authentication?
+
+-----
+
+
+
