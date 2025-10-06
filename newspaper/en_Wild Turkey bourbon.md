@@ -11,7 +11,7 @@ Got it. Here’s a punchy, youth-friendly magazine-style article about how Wild 
 
 ## 🦃 Wild Turkey Bourbon: The Rebel Spirit of Kentucky
 
-**By [Your Name] | Men's Leisure Magazine**
+**By [Kessler Jaron] | Men's Leisure Magazine**
 
 If whiskey were a rock band, Wild Turkey would be the one smashing guitars and refusing to lip-sync. Born in the rolling hills of Kentucky, this bourbon doesn’t just warm your chest—it tells a story of grit, fire, and unapologetic flavor.
 
