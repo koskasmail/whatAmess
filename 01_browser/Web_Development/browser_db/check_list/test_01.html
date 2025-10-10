@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+  <title>פרוטוקול בדיקת דירה</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    h2 {
+      background-color: #e0e0e0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .section {
+      background-color: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    ul {
+      list-style: none;
+      padding-right: 0;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>✅ פרוטוקול ראשוני לבדיקת דירה</h1>
+  <div id="checklist-container"></div>
+
+  <script>
+    const checklistData = {
+      "כניסה ראשית": [
+        "דלת נפתחת תקין",
+        "דלת סרוטה",
+        "מנעול תקין (קל להפעלה)",
+        "לוודא שאין מפתח במנעול",
+        "מסגרת דלת תקינה",
+        "דלת נקיה"
+      ],
+      "סלון": [
+        "דלתות וידיות – ניקיון, שריטות, גליפים ומשקופים",
+        "חלונות – תקינות, פתיחה/סגירה, מסילות, גומי, ניקיון",
+        "זכוכיות מרפסות – ניקיון, שריטות, רווחים",
+        "פתחי ניקוז במרפסת – אטימה בסיליקון",
+        "ריצוף – שברים, סדקים, חללים"
+      ],
+      "חדרי שינה": [
+        "חלונות – תקינות, פתיחה/סגירה, ניקיון, גומי",
+        "דלתות פנים – תקינות, קבלת מפתחות",
+        "ריצוף – שברים, סדקים, אחידות"
+      ]
+      // ניתן להוסיף עוד חדרים וסעיפים כאן
+    };
+
+    const container = document.getElementById('checklist-container');
+
+    Object.entries(checklistData).forEach(([section, items]) => {
+      const sectionDiv = document.createElement('div');
+      sectionDiv.className = 'section';
+
+      const title = document.createElement('h2');
+      title.textContent = section;
+      sectionDiv.appendChild(title);
+
+      const ul = document.createElement('ul');
+
+      items.forEach((item, index) => {
+        const id = `${section}-${index}`;
+        const li = document.createElement('li');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = id;
+
+        // Load saved state
+        if (localStorage.getItem(id) === 'true') {
+          checkbox.checked = true;
+        }
+
+        // Save state on change
+        checkbox.addEventListener('change', () => {
+          localStorage.setItem(id, checkbox.checked);
+        });
+
+        const label = document.createElement('label');
+        label.htmlFor = id;
+        label.textContent = ` ${item}`;
+
+        li.appendChild(checkbox);
+        li.appendChild(label);
+        ul.appendChild(li);
+      });
+
+      sectionDiv.appendChild(ul);
+      container.appendChild(sectionDiv);
+    });
+  </script>
+
+</body>
+</html>

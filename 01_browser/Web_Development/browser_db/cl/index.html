@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>פרוטוקול בדיקת דירה</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <button onclick="location.reload()">🔄 רענן</button>
+        <button onclick="saveChecklist()">💾 שמור</button>
+        <button onclick="downloadPDF()">📄 ל־PDF</button>
+    </nav>
+
+    <h1 style="text-align:center;">✅ פרוטוקול ראשוני לבדיקת דירה</h1>
+    <div id="pdf-content"></div>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+nav button {
+  color: white;
+  background-color: #555;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background-color: #777;
+}
+
+main {
+  padding: 20px;
+}
+
+#contactList {
+  list-style: none;
+  padding: 0;
+}

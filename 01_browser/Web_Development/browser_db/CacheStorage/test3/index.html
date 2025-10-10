@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark px-3">
+        <span class="navbar-brand">Contact Dashboard</span>
+        <div class="ms-auto">
+            <button class="btn btn-outline-light me-2" id="addBtn">Add Contact</button>
+            <button class="btn btn-outline-success me-2" id="refreshBtn">Refresh</button>
+            <button class="btn btn-outline-danger" id="cleanBtn">Clean</button>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2>Contact List</h2>
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody id="contactTableBody"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

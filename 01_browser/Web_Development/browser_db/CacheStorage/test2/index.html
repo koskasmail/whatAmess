@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+</head>
+
+<body>
+    <nav>
+        <button id="addBtn">Add</button>
+        <button id="refreshBtn">Refresh</button>
+        <button id="cleanBtn">Clean</button>
+    </nav>
+
+    <main>
+        <h1>Contact List</h1>
+        <ul id="contactList"></ul>
+    </main>
+
+    <!-- Popup Form -->
+    <div id="popupForm" class="modal hidden">
+        <div class="modal-content">
+            <h2>Add Contact</h2>
+            <input type="text" id="firstname" placeholder="First Name" />
+            <input type="text" id="lastname" placeholder="Last Name" />
+            <input type="text" id="phone" placeholder="Phone Number" />
+            <input type="text" id="address" placeholder="Address" />
+            <div class="form-buttons">
+                <button id="saveBtn">Save</button>
+                <button id="clearFormBtn">Clear</button>
+                <button id="cancelBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פרוטוקול בדיקת דירה</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding-top: 60px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        nav button {
+            margin-left: 10px;
+            padding: 8px 16px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        nav button:hover {
+            background-color: #777;
+        }
+
+        h2 {
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .section {
+            background-color: #fff;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style: none;
+            padding-right: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <button onclick="location.reload()">🔄 רענן</button>
+        <button onclick="saveChecklist()">💾 שמור</button>
+        <button onclick="generatePDF()">📄 ל־PDF</button>
+    </nav>
+
+    <h1 style="text-align:center;">✅ פרוטוקול ראשוני לבדיקת דירה</h1>
+    <div id="checklist-container"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        const checklistJSON = {
+            "כניסה ראשית": [
+                "דלת נפתחת תקין",
+                "דלת סרוטה",
+                "מנעול תקין (קל להפעלה)",
+                "לוודא שאין מפתח במנעול",
+                "מסגרת דלת תקינה",
+                "דלת נקיה"
+            ],
+            "סלון": [
+                "דלתות וידיות – ניקיון, שריטות, גליפים ומשקופים",
+                "חלונות – תקינות, פתיחה/סגירה, מסילות, גומי, ניקיון",
+                "זכוכיות מרפסות – ניקיון, שריטות, רווחים",
+                "פתחי ניקוז במרפסת – אטימה בסיליקון",
+                "ריצוף – שברים, סדקים, חללים"
+            ]
+        };
+
+        const container = document.getElementById('checklist-container');
+
+        function loadChecklist() {
+            Object.entries(checklistJSON).forEach(([section, items]) => {
+                const sectionDiv = document.createElement('div');
+                sectionDiv.className = 'section';
+
+                const title = document.createElement('h2');
+                title.textContent = section;
+                sectionDiv.appendChild(title);
+
+                const ul = document.createElement('ul');
+
+                items.forEach((item, index) => {
+                    const id = `${section}-${index}`;
+                    const li = document.createElement('li');
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.id = id;
+
+                    if (localStorage.getItem(id) === 'true') {
+                        checkbox.checked = true;
+                    }
+
+                    checkbox.addEventListener('change', () => {
+                        localStorage.setItem(id, checkbox.checked);
+                    });
+
+                    const label = document.createElement('label');
+                    label.htmlFor = id;
+                    label.textContent = ` ${item}`;
+
+                    li.appendChild(checkbox);
+                    li.appendChild(label);
+                    ul.appendChild(li);
+                });
+
+                sectionDiv.appendChild(ul);
+                container.appendChild(sectionDiv);
+            });
+        }
+
+        function saveChecklist() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(cb => {
+                localStorage.setItem(cb.id, cb.checked);
+            });
+            alert("✅ נשמר בהצלחה!");
+        }
+
+        async function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            let y = 10;
+
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(14);
+            doc.text("פרוטוקול בדיקת דירה", 105, y, { align: "center" });
+            y += 10;
+
+            Object.entries(checklistJSON).forEach(([section, items]) => {
+                doc.setFontSize(12);
+                doc.text(section, 10, y);
+                y += 8;
+
+                items.forEach((item, index) => {
+                    const id = `${section}-${index}`;
+                    const checked = localStorage.getItem(id) === 'true' ? "✔" : "✘";
+                    doc.text(`${checked} ${item}`, 15, y);
+                    y += 7;
+                    if (y > 280) {
+                        doc.addPage();
+                        y = 10;
+                    }
+                });
+
+                y += 5;
+            });
+
+            const pdfBlob = doc.output("blob");
+            const url = URL.createObjectURL(pdfBlob);
+            window.open(url, "_blank");
+            doc.save("פרוטוקול_בדיקת_דירה.pdf");
+        }
+
+        loadChecklist();
+    </script>
+
+</body>
+
+</html>
