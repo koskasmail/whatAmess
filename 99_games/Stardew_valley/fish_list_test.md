@@ -1,21 +1,24 @@
 <a name="topage"></a>
  
-# unsored
+# fish_list.md
 
-### `fish list`
+## Ocean
 
-* [ ] Ocean
-  * [x] pufferfish - Summer (12pm – 4pm) - *
-  * [x] sardine - Spring/Fall/Winter (6am – 7pm) - *
+
+
+
+* [x] Pufferfish - Season: Summer, Weather: Sun, Time: 12pm – 4pm
+* [x] Sardine - Spring/Fall/Winter - (6am – 7pm) - Weather:
+* [x] tuna -  Summer/Winter - (6am – 7pm) - Weather: Any
 
 * [ ] The Mines 
   * [x] Ghostfish - All Seasons - (Anytime) - inside The Mines **20s/60s floor**
 
 * [ ] The Desert
-  * [ ] sandfish - All Seasons - (6am – 8pm) - *
+  * [ ] Sandfish - All Seasons - (6am – 8pm) - *
 
 * [ ] The Secret Woods
-  * [ ] woodskip - All Seasons - (Anytime) - *
+  * [ ] Woodskip - All Seasons - (Anytime) - *
      
 * [ ] xx
   * [ ] xx
@@ -28,10 +31,6 @@ The Desert
   * [ ] walleye
   * [ ] bream
   * [ ] eal
-
-*
-* [ ] Ocean
-  * [x] sandfish
 
 *
 * [ ] xxx
