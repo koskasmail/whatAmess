@@ -1,0 +1,53 @@
+{
+  "Spring": [
+    { "fish": "Sardine", "location": "Ocean", "weather": "Any", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Eel", "location": "Ocean", "weather": "Rain", "time": "4:00 PM – 2:00 AM" },
+    { "fish": "Sunfish", "location": "River", "weather": "Sunny", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Catfish", "location": "River", "weather": "Rain", "time": "6:00 AM – 12:00 AM" },
+    { "fish": "Shad", "location": "River", "weather": "Rain", "time": "9:00 AM – 2:00 AM" }
+  ],
+  "Summer": [
+    { "fish": "Pufferfish", "location": "Ocean", "weather": "Sunny", "time": "12:00 PM – 4:00 PM" },
+    { "fish": "Tuna", "location": "Ocean", "weather": "Any", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Red Snapper", "location": "Ocean", "weather": "Rain", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Tilapia", "location": "Ocean", "weather": "Any", "time": "6:00 AM – 2:00 PM" },
+    { "fish": "Sunfish", "location": "River", "weather": "Sunny", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Shad", "location": "River", "weather": "Rain", "time": "9:00 AM – 2:00 AM" },
+    { "fish": "Sturgeon", "location": "Lake", "weather": "Any", "time": "6:00 AM – 7:00 PM" }
+  ],
+  "Fall": [
+    { "fish": "Sardine", "location": "Ocean", "weather": "Any", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Eel", "location": "Ocean", "weather": "Rain", "time": "4:00 PM – 2:00 AM" },
+    { "fish": "Red Snapper", "location": "Ocean", "weather": "Rain", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Tilapia", "location": "Ocean", "weather": "Any", "time": "6:00 AM – 2:00 PM" },
+    { "fish": "Catfish", "location": "River", "weather": "Rain", "time": "6:00 AM – 12:00 AM" },
+    { "fish": "Shad", "location": "River", "weather": "Rain", "time": "9:00 AM – 2:00 AM" },
+    { "fish": "Tiger Trout", "location": "River", "weather": "Any", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Walleye", "location": "River", "weather": "Rain", "time": "12:00 PM – 2:00 AM" }
+  ],
+  "Winter": [
+    { "fish": "Sardine", "location": "Ocean", "weather": "Any", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Tuna", "location": "Ocean", "weather": "Any", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Tiger Trout", "location": "River", "weather": "Any", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Sturgeon", "location": "Lake", "weather": "Any", "time": "6:00 AM – 7:00 PM" }
+  ],
+  "All Seasons": [
+    { "fish": "Ghostfish", "location": "Mines", "weather": "Any", "time": "Any" },
+    { "fish": "Sandfish", "location": "Desert", "weather": "Any", "time": "6:00 AM – 8:00 PM" },
+    { "fish": "Woodskip", "location": "Secret Woods", "weather": "Any", "time": "Any" },
+    { "fish": "Bream", "location": "River", "weather": "Any", "time": "6:00 PM – 2:00 AM" },
+    { "fish": "Largemouth Bass", "location": "Lake", "weather": "Any", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Carp", "location": "Lake", "weather": "Any", "time": "Any" },
+    { "fish": "Bullhead", "location": "Lake", "weather": "Any", "time": "Any" },
+    { "fish": "Lobster", "location": "Crab Pot", "weather": "Any", "time": "All day" },
+    { "fish": "Crayfish", "location": "Crab Pot", "weather": "Any", "time": "All day" },
+    { "fish": "Crab", "location": "Crab Pot", "weather": "Any", "time": "All day" },
+    { "fish": "Cockle", "location": "Crab Pot", "weather": "Any", "time": "All day" },
+    { "fish": "Mussel", "location": "Crab Pot", "weather": "Any", "time": "All day" },
+    { "fish": "Shrimp", "location": "Crab Pot", "weather": "Any", "time": "All day" },
+    { "fish": "Snail", "location": "Crab Pot", "weather": "Any", "time": "All day" },
+    { "fish": "Periwinkle", "location": "Crab Pot", "weather": "Any", "time": "All day" },
+    { "fish": "Oyster", "location": "Crab Pot", "weather": "Any", "time": "All day" },
+    { "fish": "Clam", "location": "Crab Pot", "weather": "Any", "time": "All day" }
+  ]
+}
