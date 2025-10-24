@@ -1,0 +1,42 @@
+[
+  {
+    "location": "River",
+    "fish": "Catfish",
+    "season": "Spring, Fall",
+    "weather": "Rain",
+    "time": "6:00 AM – 12:00 AM",
+    "image_base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+  },
+  {
+    "location": "Ocean",
+    "fish": "Tuna",
+    "season": "Summer, Winter",
+    "weather": "Any",
+    "time": "6:00 AM – 7:00 PM",
+    "image_base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+  },
+  {
+    "location": "Lake",
+    "fish": "Sturgeon",
+    "season": "Summer, Winter",
+    "weather": "Any",
+    "time": "6:00 AM – 7:00 PM",
+    "image_base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+  },
+  {
+    "location": "Night Fishing",
+    "fish": "Eel",
+    "season": "Spring, Fall",
+    "weather": "Rain",
+    "time": "4:00 PM – 2:00 AM",
+    "image_base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+  },
+  {
+    "location": "Crab Pot",
+    "fish": "Lobster",
+    "season": "Any",
+    "weather": "Any",
+    "time": "All day",
+    "image_base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+  }
+]
