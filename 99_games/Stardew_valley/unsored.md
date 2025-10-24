@@ -4,17 +4,29 @@
 
 ### `fish list`
 
+* [ ] Ocean
+  * [x] pufferfish - Summer (12pm – 4pm) - *
+
+* [ ] The Mines 
+  * [x] Ghostfish - All Seasons - (Anytime) - inside The Mines **20s/60s floor**
+
+* [ ] The Desert
+  * [ ] sandfish - All Seasons (6am – 8pm) - *
+
+* [ ] xx
+  * [ ] xx
+
+The Desert
 * [ ] night
   * [ ] walleye
   * [ ] bream
   * [ ] eal
 
-* [ ] desert
-  * [ ] pufferfish
-  * [ ] Goldfish
-  * [ ] sandfish
+*
+* [ ] Ocean
+  * [x] sandfish
   * [ ] woodskip
-
+*
 * [ ] xxx
   * [ ] sardine
   * [ ] tuna
