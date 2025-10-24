@@ -6,13 +6,20 @@
 
 * [ ] Ocean
   * [x] pufferfish - Summer (12pm – 4pm) - *
+  * [x] sardine - Spring/Fall/Winter (6am – 7pm) - *
 
 * [ ] The Mines 
   * [x] Ghostfish - All Seasons - (Anytime) - inside The Mines **20s/60s floor**
 
 * [ ] The Desert
-  * [ ] sandfish - All Seasons (6am – 8pm) - *
+  * [ ] sandfish - All Seasons - (6am – 8pm) - *
 
+* [ ] The Secret Woods
+  * [ ] woodskip - All Seasons - (Anytime) - *
+     
+* [ ] xx
+  * [ ] xx
+     
 * [ ] xx
   * [ ] xx
 
@@ -25,10 +32,10 @@ The Desert
 *
 * [ ] Ocean
   * [x] sandfish
-  * [ ] woodskip
+
 *
 * [ ] xxx
-  * [ ] sardine
+
   * [ ] tuna
   * [ ] red snapper
   * [ ] tilapia
