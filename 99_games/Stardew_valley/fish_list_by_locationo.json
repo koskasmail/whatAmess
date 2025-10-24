@@ -1,0 +1,45 @@
+{
+  "Ocean": [
+    { "fish": "Pufferfish", "season": "Summer", "weather": "Sunny", "time": "12:00 PM – 4:00 PM" },
+    { "fish": "Sardine", "season": "Spring, Fall, Winter", "weather": "Any", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Tuna", "season": "Summer, Winter", "weather": "Any", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Eel", "season": "Spring, Fall", "weather": "Rain", "time": "4:00 PM – 2:00 AM" },
+    { "fish": "Red Snapper", "season": "Summer, Fall", "weather": "Rain", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Tilapia", "season": "Summer, Fall", "weather": "Any", "time": "6:00 AM – 2:00 PM" }
+  ],
+  "Mines": [
+    { "fish": "Ghostfish", "season": "Any", "weather": "Any", "time": "Any" }
+  ],
+  "Desert": [
+    { "fish": "Sandfish", "season": "Any", "weather": "Any", "time": "6:00 AM – 8:00 PM" }
+  ],
+  "Secret Woods": [
+    { "fish": "Woodskip", "season": "Any", "weather": "Any", "time": "Any" }
+  ],
+  "River": [
+    { "fish": "Walleye", "season": "Fall", "weather": "Rain", "time": "12:00 PM – 2:00 AM" },
+    { "fish": "Bream", "season": "Any", "weather": "Any", "time": "6:00 PM – 2:00 AM" },
+    { "fish": "Sunfish", "season": "Spring, Summer", "weather": "Sunny", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Catfish", "season": "Spring, Fall", "weather": "Rain", "time": "6:00 AM – 12:00 AM" },
+    { "fish": "Shad", "season": "Spring, Summer, Fall", "weather": "Rain", "time": "9:00 AM – 2:00 AM" },
+    { "fish": "Tiger Trout", "season": "Fall, Winter", "weather": "Any", "time": "6:00 AM – 7:00 PM" }
+  ],
+  "Lake": [
+    { "fish": "Largemouth Bass", "season": "All Seasons", "weather": "Any", "time": "6:00 AM – 7:00 PM" },
+    { "fish": "Carp", "season": "All Seasons", "weather": "Any", "time": "Any" },
+    { "fish": "Bullhead", "season": "All Seasons", "weather": "Any", "time": "Any" },
+    { "fish": "Sturgeon", "season": "Summer, Winter", "weather": "Any", "time": "6:00 AM – 7:00 PM" }
+  ],
+  "Crab Pot": [
+    { "fish": "Lobster", "season": "Any", "weather": "Any", "time": "All day" },
+    { "fish": "Crayfish", "season": "Any", "weather": "Any", "time": "All day" },
+    { "fish": "Crab", "season": "Any", "weather": "Any", "time": "All day" },
+    { "fish": "Cockle", "season": "Any", "weather": "Any", "time": "All day" },
+    { "fish": "Mussel", "season": "Any", "weather": "Any", "time": "All day" },
+    { "fish": "Shrimp", "season": "Any", "weather": "Any", "time": "All day" },
+    { "fish": "Snail", "season": "Any", "weather": "Any", "time": "All day" },
+    { "fish": "Periwinkle", "season": "Any", "weather": "Any", "time": "All day" },
+    { "fish": "Oyster", "season": "Any", "weather": "Any", "time": "All day" },
+    { "fish": "Clam", "season": "Any", "weather": "Any", "time": "All day" }
+  ]
+}
