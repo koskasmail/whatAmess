@@ -1,6 +1,6 @@
 <a name="topage"></a>
 
-# 📘 fileName.md/subject
+# 📘 fileName.md/subject.md
 
 
 ### 📝 Naming Conventions
@@ -23,9 +23,18 @@ console.log('js');
 var b=10;
 ```
 
-
 **🖥️ Output:**
 
 ``` 
 output data
 ```
+
+### 📚 Resources
+
+- [Angular Official Docs](https://angular.io/docs)
+
+----
+
+## 🌐 Learn Angular — Recommended Resources
+
+* [Angular Official Documentation](https://angular.io/docs)
