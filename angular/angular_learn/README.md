@@ -45,7 +45,7 @@ cd my-angular-app
 ng serve -o
 ```
 
-### open browser with this url
+### 🌐 open browser with this url
 ```
 http://localhost:4200
 ```
@@ -54,11 +54,23 @@ http://localhost:4200
 
 ### 📚 Resources
 
-- [Angular Official Docs](https://angular.io/docs)
-- [Angular CLI Reference](https://angular.io/cli)
-- [Angular Blog](https://blog.angular.io)
+- local resource
 
----
+----
+
+### 🌐 Learn Angular — Recommended Resources
+
+* [Angular Official Documentation](https://angular.io/docs)
+* [Angular CLI Reference](https://angular.io/cli)
+* [Angular Tutorial: Tour of Heroes](https://angular.io/tutorial)  
+* [Angular YouTube Channel](https://www.youtube.com/angular)  
+* [StackBlitz Angular Playground](https://stackblitz.com/fork/angular)  
+* [Angular Blog](https://blog.angular.io)  
+* [FreeCodeCamp Angular Course](https://www.freecodecamp.org/news/angular-full-course/)  
+* [Coursera: Single Page Web Applications with AngularJS](https://www.coursera.org/learn/single-page-web-apps-with-angularjs)  
+* [Udemy Angular Courses](https://www.udemy.com/topic/angular/
+
+----
 
 
 <p align="right">(<a href="#topage">back to top</a>)</p>
