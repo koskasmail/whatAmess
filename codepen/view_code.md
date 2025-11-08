@@ -24,7 +24,7 @@
 
 #### css 
 * https://codepen.io/noahblon/embed/ExwmWq?default-tab=result&theme-id=dark
-* xxx
+* [Custom curved corner scrollbars](https://codepen.io/cbolson/pen/vELrOPz)
 
 
 #### html
