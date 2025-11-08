@@ -25,7 +25,7 @@
 #### css 
 * https://codepen.io/noahblon/embed/ExwmWq?default-tab=result&theme-id=dark
 * [Custom curved corner scrollbars](https://codepen.io/cbolson/pen/vELrOPz)
-
+* [CSS-only shimmering neon](text https://codepen.io/giana/pen/qmKNeE)
 
 #### html
 
