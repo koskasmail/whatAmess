@@ -48,9 +48,9 @@ Decorators like @Component are used by Angular to add metadata & configuration t
 
 In addition, TypeScript gives you more control over how properties are defined in classes.
 
-You can, for example, mark properties (and methods) as private, public (the default) and protected to control which parts of your code can access which property (or method). You can learn more about these keywords here.
+You can, for example, mark properties (and methods) as private, public (the default) and protected to control which parts of your code can access which property (or method). You can learn more about these keywords [here](https://www.typescriptlang.org/docs/handbook/2/classes.html#member-visibility).
 
-And, in general, you can learn more about TypeScript's support for classes here.
+And, in general, you can learn more about TypeScript's support for classes [here](https://www.typescriptlang.org/docs/handbook/2/classes.html).
 
 That being said, you don't have to study classes in-depth right now. You'll see most of those important features in action throughout this course.
 
