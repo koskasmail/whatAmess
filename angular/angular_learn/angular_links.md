@@ -6,5 +6,23 @@
 * https://www.jetbrains.com/ides/#choose-your-ide
 * https://academind.com/community
 
+-----
+
 #### code
 * https://github.com/mschwarzmueller/angular-complete-guide-course-resources
+
+-----
+
+####  Angular_manual
+
+* https://angular.dev/
+* https://angular.dev/overview
+* https://v17.angular.io/docs
+
+------
+
+#### course
+* [angular-complete-guide-course-resources](https://github.com/mschwarzmueller/angular-complete-guide-course-resources.git)
+
+###### 02-essentials
+* [10. A New Starting Project & Analyzing The Project Structure](https://github.com/mschwarzmueller/angular-complete-guide-course-resources/blob/main/attachments/02-essentials/01-starting-project.zip)
