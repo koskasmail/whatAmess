@@ -19,6 +19,12 @@
 * https://angular.dev/overview
 * https://v17.angular.io/docs
 
+-----
+
+#### web manuals
+* https://developer.mozilla.org/en-US/docs/Web/HTTP
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types
+
 ------
 
 #### course
