@@ -29,6 +29,7 @@
 
 #### course
 * [angular-complete-guide-course-resources](https://github.com/mschwarzmueller/angular-complete-guide-course-resources.git)
+* [02-essentials](https://github.com/mschwarzmueller/angular-complete-guide-course-resources/tree/main/attachments/02-essentials)
 
 ###### 02-essentials
 * [10. A New Starting Project & Analyzing The Project Structure](https://github.com/mschwarzmueller/angular-complete-guide-course-resources/blob/main/attachments/02-essentials/01-starting-project.zip)
