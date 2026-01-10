@@ -23,3 +23,9 @@
 
 ### tamplate
 * https://github.com/koskasmail/fccdev/tree/main/md/template
+
+### links - 2 *****
+* [markdownguide](https://www.markdownguide.org/)
+* [getting-started](https://www.markdownguide.org/getting-started/)
+* [basic-syntax](https://www.markdownguide.org/basic-syntax/)
+* [extended-syntax](https://www.markdownguide.org/extended-syntax/)
