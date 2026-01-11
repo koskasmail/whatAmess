@@ -29,3 +29,4 @@
 * [getting-started](https://www.markdownguide.org/getting-started/)
 * [basic-syntax](https://www.markdownguide.org/basic-syntax/)
 * [extended-syntax](https://www.markdownguide.org/extended-syntax/)
+* [markdown](https://daringfireball.net/projects/markdown/)
