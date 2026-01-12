@@ -170,9 +170,6 @@ pip download --platform manylinux2014_x86_64 --only-binary=:all: fastapi uvicorn
 * [Top](#Table_of_Content)
 
 
-------
-
-
 ----
 
 <p align="right">(<a href="#topage">back to top</a>)</p>
