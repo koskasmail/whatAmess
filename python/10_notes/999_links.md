@@ -14,14 +14,14 @@
 
 
 #### vscode Extensions
-* Python Debugger (Microsoft) - Python Debugger extension for Visual Studio Code
-* Python (Microsoft) - Python language support with extension access points for IntelliSense (Pylance), Debugging (Python Debugger), linting, formatting, refactoring, unit tests,
-* Python Environments (Microsoft) - Provides a unified python environment experience
-* Pylance (Pylance) - A performant, feature-rich language server for Python in VS Code
-* []()
-* []()
-* []()
-* []()
+* Python Debugger (Microsoft) -
+   * Python Debugger extension for Visual Studio Code
+* Python (Microsoft) - Python language support with extension access points for IntelliSense (Pylance),
+   * Debugging (Python Debugger), linting, formatting, refactoring, unit tests,
+* Python Environments (Microsoft) -
+   * Provides a unified python environment experience
+* Pylance (Pylance) -
+   * A performant, feature-rich language server for Python in VS Code
 
 ----
 
