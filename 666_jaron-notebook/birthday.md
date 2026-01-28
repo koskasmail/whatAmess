@@ -11,6 +11,8 @@
 | 28.04.1974 | Yaron Kessler | ... |
 | 04.06.2008 | Ofir Kessler | ... |
 | 21.09.2005 | Noam Kessler | ... |
+| 28.01.1944 | tzvia kessler | ... | 
+| 10.02.1944 | yakov kessler | ... |
 
 #### far family
 *
