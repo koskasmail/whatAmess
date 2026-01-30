@@ -27,6 +27,7 @@
 ## 🧭 3. Main Activity 
 ## 📋 4. List | Todo## List | ...
 ## ✏️ 7. Edit | Delete
+## 🎨 color
 ## 📝 2. Add an Edit
 ## 🎉 Final Result
 ## 🔍 Search bar  
@@ -42,9 +43,13 @@
 ## 🔔 Bell | Contact groups  
 ## ✅ Step 1
 ## ✔ Layout
+## ☕ java
 ## ⏱️ Time | stopWatch | duration tracking  
+## ⏱ Time | stopWatch | duration tracking  
+## ⏳ time / sand-clock
 ## 🗑️ delete | recycle bin
 ## 🔄 Edit/Redit Screen 
+## 0️⃣ 0 | step 0
 ## 1️⃣ 1 | step 1
 ## 2️⃣ 2 | step 2
 ## 3️⃣ 3 | step 3
@@ -54,11 +59,16 @@
 ## 7️⃣ 7 | step 7
 ## 8️⃣ 8 | step 8
 ## 9️⃣ 9 | step 9
-## 
 ## 📋 Step 5
+## ➕ arrows 
+## ➡️ Right  
+## ⬅️ Left  
+## ⬆️ Up  
+## ⬇️ Down  
 ## 🔄 Sync
 ## ⚠️ warn | attantion
 ## 👉 Before I continue  
+## 👍 OK 
 ## 🧩 If | pazzel 
 ## 🎉 party | result
 ## 🌍 earth
@@ -72,7 +82,7 @@
 ## 🔹 1 | 2 | 3 | 4
 ## ✔ ok
 ## ✅ ok green
-## 
+## 🔴 red dot
 
 
 ## 🧱 Step 1 
