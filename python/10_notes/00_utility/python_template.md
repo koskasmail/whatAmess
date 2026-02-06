@@ -77,7 +77,7 @@ xxxx
 
 ----
 
-### 📝 Notes:
+### Notes:
 
 #### xxx
 | xx | xx | xx | 
