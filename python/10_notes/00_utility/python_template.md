@@ -9,7 +9,6 @@
 * [link_2](#link_2)
 * [Notes](#Notes)
 
-
 ----
 
 ### link_1
@@ -17,19 +16,28 @@
 * link few words
 * xxx
 
-#### xxx
-| xx | xx | xx | 
-| :-: | :-: |  :-: | 
-| xx | xx | xxx  |
+###### 📄 template
 
-#### example_1
-
-```
+```python
+    code
 ```
 
-###### output: 
+###### 📄 Arithmetic_Operators
+
+| Operator | Description | Example | explanation | 
+| :-: | :-: | :-: | :-: |
+| + | Addition | 1 + 2 = 3  | |
+
+###### ✨ example:
+
+```python
+code;
+```
+
+###### 🖥️ output: 
 
 ```
+xxxx
 ```
 
 * [Top](#Table_of_Content)
@@ -41,15 +49,35 @@
 * link few words
 * xxx
 
-#### xxx
+###### 📄 template
+
+```python
+    code
+```
+
+###### 📄 xxx
+
 | xx | xx | xx | 
 | :-: | :-: |  :-: | 
 | xx | xx | xxx  |
 
+###### ✨ example:
+
+```python
+code;
+```
+
+###### 🖥️ output: 
+
+```
+xxxx
+```
+
 * [Top](#Table_of_Content)
 
+----
 
-# Notes:
+### 📝 Notes:
 
 #### xxx
 | xx | xx | xx | 
