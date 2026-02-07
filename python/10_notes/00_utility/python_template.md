@@ -28,7 +28,7 @@
 | :-: | :-: | :-: | :-: |
 | + | Addition | 1 + 2 = 3  | |
 
-###### ✨ example:
+###### ✏️ example:
 
 ```python
 code;
@@ -61,7 +61,7 @@ xxxx
 | :-: | :-: |  :-: | 
 | xx | xx | xxx  |
 
-###### ✨ example:
+###### ✏️ example:
 
 ```python
 code;
