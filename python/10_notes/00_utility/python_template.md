@@ -16,7 +16,7 @@
 * link few words
 * xxx
 
-###### 📄 template
+###### 📄 template:
 
 ```python
     code
@@ -49,7 +49,7 @@ xxxx
 * link few words
 * xxx
 
-###### 📄 template
+###### 📄 template:
 
 ```python
     code
