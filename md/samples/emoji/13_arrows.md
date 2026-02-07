@@ -179,6 +179,7 @@ If you want, I can also generate **custom green arrow images** (white arrow on g
 | ➕ | `:heavy_plus_sign:` |
 | ➖ | `:heavy_minus_sign:` |
 | ➗ | `:heavy_division_sign:` |
+| ✖️ | :heavy_multiplication_x: |
 | ➙ | `:arrow_right_heavy:` |
 | ➚ | `:arrow_up_heavy:` |
 | ➘ | `:arrow_down_heavy:` |
@@ -189,3 +190,15 @@ If you want, I can also generate **custom green arrow images** (white arrow on g
 | ➠ | `:arrow_right_triangle:` |
 
 ------
+
+## **D. Math**
+| Emoji | Shortcode |
+|--------|-----------|
+| ➕ | `:heavy_plus_sign:` |
+| ➖ | `:heavy_minus_sign:` |
+| ✖️ | :heavy_multiplication_x: |
+| ➗ | `:heavy_division_sign:` |
+
+---
+
+
