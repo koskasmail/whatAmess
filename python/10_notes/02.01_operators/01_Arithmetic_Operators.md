@@ -49,7 +49,7 @@ print (number);
 #### `*` Multiplication
 ```
 number = 3;
-number = number * 4; ## 12
+number = number * 4; ## =12
 print (number);
 ```
 
@@ -63,7 +63,7 @@ print (number);
 #### `/` Division 
 ```
 number = 12;
-number = number / 2; ## 6.0
+number = number / 2; ## =6.0
 print (number);
 ```
 
@@ -78,7 +78,7 @@ print (number);
 
 ```
 number = 6;
-number = number ** 2; ## 6 * 6 = 36.0
+number = number ** 2; ## =36.0
 print (number);
 ```
 
@@ -93,7 +93,7 @@ print (number);
 #### `//` Floor division
 ```
 number = 36;
-number = number // 2; ## 18
+number = number // 2; ## =18
 print (number);
 ```
 
@@ -107,7 +107,7 @@ print (number);
 #### `%` Modulus/Modulo
 ```
 number = 18;
-number = number % 2; ## 0.0
+number = number % 2; ## =0.0
 print (number);
 ```
 
