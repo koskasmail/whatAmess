@@ -1,6 +1,6 @@
 <a name="topage"></a>
 
-07_Logical_Operators__Truth_table
+# 07_Logical_Operators__Truth_table
 
 
 #### `and` Logical_Operators
