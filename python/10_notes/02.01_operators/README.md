@@ -8,7 +8,7 @@
 * [03_Simple_Math](#)
 * [04_Comparison_Operators](#)
 * [05_Logical_Operators](#)
-* [06_Logical_Operators__Truth_table](Logical_Operators__Truth_table.md)
+* [06_Logical_Operators__Truth_table](06_Logical_Operators__Truth_table.md)
 * 
 * [Notes](#Notes)
 
