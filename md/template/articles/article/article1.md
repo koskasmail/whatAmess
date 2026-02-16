@@ -4,7 +4,7 @@
 * [chapter 1](#chapter-1)
 * [chapter 2](#chapter-2)
 * [chapter 3](#chapter-3)
-* [article 2](08.02_article.md)
+* [article 2](article2.md)
 
 ----
 
