@@ -6,7 +6,7 @@
 * [chapter 3](#chapter-3)
 * [article 2](article2.md)
 
-----
+-----
 
 #### chapter 1
 
