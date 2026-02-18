@@ -1,6 +1,9 @@
 
 # fix_bug.md
 
+
+#### fix #1
+
 Got it 👍 — I’ll rewrite the program cleanly and fix the common errors:
 
 * ✅ Fix `NotSupportedError`
@@ -46,7 +49,7 @@ Save as `index.html`
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>JSON Base64 Audio Player</title>
+title>JSON Base64 Audio Player</title>
 
 <style>
 body {
@@ -263,3 +266,12 @@ If it still errors, send me:
 3. Full error message
 
 I’ll debug it precisely for you 👌
+
+-----
+
+#### 2 fix #2
+
+* xxx
+```
+xxx
+```
