@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test sound</title>
+</head>
+<body>
+    <!-- Beep sound (Base64 embedded) -->
+<audio id="beepSound">
+    <source
+        src="data:audio/ogg;base64,T2dnUwACAAAAAAAAAABVDxYVAAAAABYbG1YBHgF2b3JiaXMAAAAAAkSsAAAAAAAAgDgBAAAAAAC4AU9nZ1MAAAAAAAAAAAAAFQ8WFQAAABwYbG1YBHwFdm9yYmlzAAAAAAJErAAAAAAAAGAOAQAAAAAAtgBTZGF0YQAAAAEAAAAATGF2ZjU2LjQwLjEwMAAAAAAAAAAAAAAA//uQZAAAAAD//wQA"
+        type="audio/ogg">
+</audio>
+
+<label for="base64audio"><strong>Base64 Audio:</strong></label>
+<input type="text" id="base64audio" style="width:100%; padding:8px; margin-top:5px;"
+       value="data:audio/ogg;base64,T2dnUwACAAAAAAAAAABVDxYVAAAAABYbG1YBHgF2b3JiaXMAAAAAAkSsAAAAAAAAgDgBAAAAAAC4AU9nZ1MAAAAAAAAAAAAAFQ8WFQAAABwYbG1YBHwFdm9yYmlzAAAAAAJErAAAAAAAAGAOAQAAAAAAtgBTZGF0YQAAAAEAAAAATGF2ZjU2LjQwLjEwMAAAAAAAAAAAAAAA//uQZAAAAAD//wQA">
+
+<button onclick="copyBase64()" style="margin-top:10px;">Copy Base64</button>
+
+
+<button onclick="document.getElementById('beepSound').play()">
+    Sound Test
+</button>
+
+
+<script>
+    function copyBase64() {
+        const field = document.getElementById('base64audio');
+        field.select();
+        field.setSelectionRange(0, 99999); // mobile support
+        navigator.clipboard.writeText(field.value);
+        alert("Base64 audio copied!");
+    }
+    </script>
+    
+    
+</body>
+</html>
