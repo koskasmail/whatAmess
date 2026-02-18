@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Sample MP3",
+    "type": "mp3",
+    "base64": "SUQzAwAAAAAAI1RTU0UAAAAPAAADTGF2ZjU2LjE2LjEwMAAAAAAAAAAAAAAA//tQxAADBzQABAAADYAAAACAAADSAAAAAEAA..."
+  },
+  {
+    "name": "Sample WAV",
+    "type": "wav",
+    "base64": "UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA="
+  }
+]
