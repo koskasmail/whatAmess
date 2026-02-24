@@ -14,7 +14,12 @@ whatAmess - is a lot of small programs without any common subject between them.
 https://github.com/koskasmail/whatAmess/tree/main/xbmc_kody/xbmc_tv/
 ```
 
- 
+-----
+
+#### static web apges
+[cursive english](https://koskasmail.github.io/whatAmess/english/cursive.html)
+
+
 ----
 
 <p align="right">(<a href="#topage">back to top</a>)</p>
