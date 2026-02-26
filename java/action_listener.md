@@ -81,4 +81,53 @@ exitBtn.addActionListener(e -> {
 
 ---
 
-אם תרצה, אוכל גם להראות איך להוסיף **ActionCommand מותאם** לכל כפתור, או איך לנהל את זה עם Enum כדי לשמור על קוד נקי יותר.
+כדי להוסיף **ActionListener רק ל־exitBtn** בצורה ברורה ונכונה בתוך הקוד שלך, כל מה שאתה צריך הוא לחבר מאזין שמדפיס הודעה ומפעיל את ExitProc().
+
+החיבור נעשה מיד אחרי יצירת הכפתור.
+
+---
+
+## ✔️ הפתרון המדויק שאתה צריך
+
+הוסף את זה אחרי:
+
+```java
+exitBtn = new JButton("Exit");
+jpfrm1.add(exitBtn);
+```
+
+כך:
+
+```java
+exitBtn.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        System.out.println("Exit button clicked");
+        ExitProc();
+    }
+});
+```
+
+---
+
+## ✔️ גרסה קצרה עם Lambda (אם אתה ב‑Java 8+)
+
+```java
+exitBtn.addActionListener(e -> {
+    System.out.println("Exit button clicked");
+    ExitProc();
+});
+```
+
+---
+
+## מה זה נותן לך
+- הדפסה ל־System.out.println בכל לחיצה  
+- קריאה לפונקציית ExitProc שלך  
+- קוד נקי וברור  
+
+---
+
+
+
+-----
