@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Rock FM",
+    "type": "Music",
+    "station": "CH 1",
+    "url": "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav"
+  },
+  {
+    "name": "News Radio",
+    "type": "News",
+    "station": "CH 2",
+    "url": "https://www2.cs.uic.edu/~i101/SoundFiles/CantinaBand60.wav"
+  }
+]
