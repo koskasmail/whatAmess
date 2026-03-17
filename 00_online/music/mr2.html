@@ -14,7 +14,7 @@
   let currentStationIndex = null;
 
   // ✅ LOAD JSON
-  fetch("stations.json")
+  fetch("https://koskasmail.github.io/whatAmess/00_online/music/stations.json")
     .then(res => res.json())
     .then(data => {
       stations = data;
