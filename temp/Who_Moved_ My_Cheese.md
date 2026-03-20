@@ -1,8 +1,5 @@
 # Who Moved My Cheese ?
 
-
-# Who Moved My Cheese ?
-
 #### page 1
 
 ```
