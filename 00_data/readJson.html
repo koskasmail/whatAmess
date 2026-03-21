@@ -4,23 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>load json</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+li {
+  margin: 6px 0;
+  color: #333;
+}
+  </style>
 </head>
 <body>
 
+  
+  <h1>Loaded Stations</h1>
+  <ul id="stationList"></ul>
+  
   <script>
-    const url = "https://github.com/koskasmail/whatAmess/blob/main/00_data/apiStationList.json";
+let stations = [];
 
-async function loadData() {
-  const response = await fetch(url);
-  const data = await response.json(); // parsed JSON
+fetch("apiStationList.json")
+  .then(response => response.json())
+  .then(data => {
+    stations = data.stations;   // <-- store in JS array
+    console.log("Loaded stations:", stations);
 
-  return data;
-}
+    // Display in HTML
+    const list = document.getElementById("stationList");
+    stations.forEach(url => {
+      const li = document.createElement("li");
+      li.textContent = url;
+      list.appendChild(li);
+    });
+  })
+  .catch(err => console.error("Error loading JSON:", err));
 
-// usage
-loadData().then(data => {
-  console.log(data);
-});
   </script>
 </body>
 </html>
