@@ -1,5 +1,10 @@
 {
   "stations": [
-    "https://wg.cdn.tibus.net/Q10280s"
+    "https://wg.cdn.tibus.net/Q10280s",
+    "https://radio.garden/api/ara/content/listen/MDr5jUyC/channel.mp3?1773578907610",
+    "https://de4.streamingpulse.com/ssl/90sNetwork",
+    "https://media-ssl.musicradio.com/Heart90s",
+    "https://live.kissfm.ro/Magic-90s",
+    "https://eu8.fastcast4u.com/proxy/moon?mp=/1"
   ]
 }
