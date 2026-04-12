@@ -88,3 +88,9 @@ L‑theanine הוא חומצת אמינו ייחודית שאינה חלבוני
 - להשוות בין תוסף לבין צריכה טבעית  
 
 מה תרצה להעמיק בו?
+
+------
+
+#### links
+* https://www.medicalphysics.institute/papers/which-foods-are-high-in-inositol?utm_source=copilot.com
+* https://biologyinsights.com/what-foods-contain-l-theanine/?utm_source=copilot.com
