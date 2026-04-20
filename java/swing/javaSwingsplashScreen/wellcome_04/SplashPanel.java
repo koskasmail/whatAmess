@@ -73,5 +73,11 @@ public class SplashPanel extends JPanel {
         String sub = "Have a nice day";
         int subWidth = g.getFontMetrics().stringWidth(sub);
         g.drawString(sub, (w - subWidth) / 2, (h / 2) + (h / 15));
+                
+        // Smallest subtitle
+        g.setFont(new Font("Arial", Font.PLAIN, h / 40));
+        String sub2 = "Press Any Key to Continue...";
+        int subWidth2 = g.getFontMetrics().stringWidth(sub2);
+        g.drawString(sub2, 10, h - 100);
     }
 }
