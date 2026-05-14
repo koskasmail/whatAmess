@@ -19,5 +19,19 @@
 * ?? Zapier AI
 * ?? Beautiful.ai
 
-
+* [chatGPT]
+* [Gemini]
+* [Copilot]
+* [claude]
+* [Perplexity]
+* [Fathom]
+* [Grok]
+* [Midjourney]
+* [Synthesia]
+* [Canva Magic studio]
+* [DALL-E 3]
+* [Jasper]
+* [Notaion AI]
+* [Zapier AI]
+* [Beautiful.ai]
 
