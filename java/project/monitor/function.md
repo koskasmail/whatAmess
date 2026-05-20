@@ -87,47 +87,41 @@ public class General {
 
 #### class: HostName
 ```
+package monitor;
+
 import java.net.InetAddress;
 
 public class HostName {
 
-	private String hostName = "";
+	///----[stHostName]----///
+	private String stHostName = "";
 
-	/*
-	 * getHostName()
-	 */
+	///----[getHostName]----///
 	public String getHostName() {
-		return hostName;
+		return stHostName;
 	}
 
-	/*
-	 * setHostName()
-	 */
+	///----[setHostName]----///
 	public void setHostName(String hostName) {
-		this.hostName = hostName;
+		this.stHostName = hostName;
 	}
 
-	/*
-	 * HostNameDetect()
-	 */
-	private void HostNameDetect() {
+	///----[hostNameDetect - detect host name ]----///
+	private void hostNameDetect() {
 		try {
 			setHostName(InetAddress.getLocalHost().getHostName());
-//	            System.out.println("Server Host Name: " + hostName);
 		} catch (Exception e) {
 			setHostName("x");
 		}
 	}
 
-	/*
-	 * HostName()
-	 */
+	///----[class Constructor - onload]----///
 	public HostName() {
-		HostNameDetect();
+		hostNameDetect();
 		System.out.println("Server Host Name: " + getHostName());
 	}
+	
 }
-
 ```
 
 ```	
