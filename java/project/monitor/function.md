@@ -85,8 +85,30 @@ public class General {
 	}
 ```
 
-#### class: HostName
+#### class: MonitorMain
+```java
+package monitor;
+
+public class MonitorMain {
+
+	public MonitorMain() {
+		System.out.println("MonitorMain....");
+		General g = new General();		
+		HostName hn = new HostName();
+		Ip4 ip4 = new Ip4();
+		
+	}
+
+	public static void main(String[] args) {
+		System.out.println("Main....");
+		MonitorMain mm = new MonitorMain();	
+	}
+}
+
 ```
+
+#### class: HostName
+```java
 package monitor;
 
 import java.net.InetAddress;
@@ -121,6 +143,42 @@ public class HostName {
 		System.out.println("Server Host Name: " + getHostName());
 	}
 	
+}
+```
+
+#### class: Ip4
+
+```java
+package monitor;
+
+import java.net.InetAddress;
+
+public class Ip4 {
+
+	private String ip4Address = "";
+
+	public String getIp4Address() {
+		return ip4Address;
+	}
+
+	public void setIp4Address(String ip4Address) {
+		this.ip4Address = ip4Address;
+	}
+
+	private void ip4Detect() {
+
+	}
+
+	public Ip4() {
+		try {
+			setIp4Address(InetAddress.getLocalHost().getHostAddress());
+			System.err.println("Server IP Address: " + getIp4Address());
+//			System.out.println(" " + InetAddress.get)
+		} catch (Exception e) {
+			System.err.println("Server IP Address: xxx.xxx.xxx");
+			e.printStackTrace();
+		}
+	}
 }
 ```
 
