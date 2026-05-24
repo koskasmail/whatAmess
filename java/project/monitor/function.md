@@ -1,13 +1,46 @@
 
+#### menu
+* [x] MonitorMain
+* [x] General
+* [x] Ip4
+* [x] HostName
+* [x] NetworkInfo
+* [x] NetworkBasic
+* [ ] 
+
+#### class: MonitorMain
+
+```java
+package monitor;
+
+import java.net.SocketException;
+
+public class MonitorMain {
+
+	public MonitorMain() {
+		System.out.println("MonitorMain....");
+		General g = new General();		
+		HostName hn = new HostName();
+		Ip4 ip4 = new Ip4();	
+//		NetworkInfo ni = new NetworkInfo();		
+		try {
+			Nnw2 nw = new Nnw2();
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) {
+		System.out.println("Main....");
+		MonitorMain mm = new MonitorMain();	
+	}
+}
+```
+
+----
 
 #### class: General
-
-* generalInformation()
-    * get information
-        * java
-        * os
-        * user
-* printArr - print array.
 
 ``` java
 import java.util.ArrayList;
@@ -56,6 +89,198 @@ public class General {
 	}	
 }
 ```
+
+----
+
+#### class: Ip4
+
+```
+package monitor;
+
+import java.net.InetAddress;
+
+public class Ip4 {
+
+	private String ip4Address = "";
+
+	public String getIp4Address() {
+		return ip4Address;
+	}
+
+	public void setIp4Address(String ip4Address) {
+		this.ip4Address = ip4Address;
+	}
+
+	private void ip4Detect() {
+
+	}
+
+	public Ip4() {
+		try {
+			setIp4Address(InetAddress.getLocalHost().getHostAddress());
+			System.err.println("Server IP Address: " + getIp4Address());
+//			System.out.println(" " + InetAddress.get)
+		} catch (Exception e) {
+			System.err.println("Server IP Address: xxx.xxx.xxx");
+			e.printStackTrace();
+		}
+	}
+}
+```
+
+----
+
+#### class: HostName
+
+```
+package monitor;
+
+import java.net.InetAddress;
+
+public class HostName {
+
+	///----[stHostName]----///
+	private String stHostName = "";
+
+	///----[getHostName]----///
+	public String getHostName() {
+		return stHostName;
+	}
+
+	///----[setHostName]----///
+	public void setHostName(String hostName) {
+		this.stHostName = hostName;
+	}
+
+	///----[hostNameDetect - detect host name ]----///
+	private void hostNameDetect() {
+		try {
+			setHostName(InetAddress.getLocalHost().getHostName());
+		} catch (Exception e) {
+			setHostName("x");
+		}
+	}
+
+	///----[class Constructor - onload]----///
+	public HostName() {
+		hostNameDetect();
+		System.out.println("Server Host Name: " + getHostName());
+	}	
+}
+```
+
+----
+
+#### class: NetworkInfo
+
+```
+package monitor;
+
+import java.net.*;
+import java.util.*;
+
+public class NetworkInfo {
+
+	public NetworkInfo() {
+		Enumeration<NetworkInterface> interfaces = null;
+		try {
+			interfaces = NetworkInterface.getNetworkInterfaces();
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		while (interfaces.hasMoreElements()) {
+			NetworkInterface ni = interfaces.nextElement();
+
+			System.out.println("Interface: " + ni.getName());
+			System.out.println("Display Name: " + ni.getDisplayName());
+			try {
+				System.out.println("MAC: " + Arrays.toString(ni.getHardwareAddress()));
+			} catch (SocketException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			Enumeration<InetAddress> addresses = ni.getInetAddresses();
+			while (addresses.hasMoreElements()) {
+				InetAddress addr = addresses.nextElement();
+				System.out.println("Address: " + addr.getHostAddress());
+			}
+
+			System.out.println("--------------------------------");
+		}
+	}
+}
+
+```
+
+----
+
+#### NetworkBasic
+
+```
+package monitor;
+
+import java.net.*;
+import java.util.*;
+
+public class NetworkBasic {
+
+	public NetworkBasic() throws SocketException {
+		Enumeration<NetworkInterface> interfaces = null;
+		try {
+			interfaces = NetworkInterface.getNetworkInterfaces();
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		while (interfaces.hasMoreElements()) {
+			NetworkInterface ni = interfaces.nextElement();
+
+			// Skip loopback, virtual, or down interfaces if needed
+			if (!ni.isUp() || ni.isLoopback()) {
+				continue;
+			}
+
+			byte[] mac = ni.getHardwareAddress();
+
+			// Skip printing MAC if null or empty
+			if (mac == null || mac.length == 0) {
+				continue;
+			}
+
+			System.out.println("Interface: " + ni.getName());
+			System.out.println("Display Name: " + ni.getDisplayName());
+
+			// Format MAC address properly (AA-BB-CC-DD-EE-FF)
+			StringBuilder macStr = new StringBuilder();
+			for (int i = 0; i < mac.length; i++) {
+				macStr.append(String.format("%02X", mac[i]));
+				if (i < mac.length - 1)
+					macStr.append("-");
+			}
+			System.out.println("MAC: " + macStr);
+
+			Enumeration<InetAddress> addresses = ni.getInetAddresses();
+			while (addresses.hasMoreElements()) {
+				InetAddress addr = addresses.nextElement();
+				System.out.println("Address: " + addr.getHostAddress());
+			}
+
+			System.out.println("--------------------------------");
+		}
+	}
+}
+```
+
+----
+----
+----
+----
+----
+----
 
 ```
 	public static void getDiskFree(PluginLogger logger) {
