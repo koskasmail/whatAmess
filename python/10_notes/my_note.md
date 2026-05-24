@@ -24,6 +24,13 @@ signs_in_language
 
 ----
 
+#### links
+* https://www.learnpython.org/
+* https://www.w3schools.com/python/
+* https://coddy.tech/journeys/python/
+
+----
+
 <p align="right">(<a href="#topage">back to top</a>)</p>
 <br/>
 <br/>
