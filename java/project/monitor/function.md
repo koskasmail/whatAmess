@@ -298,6 +298,17 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+public class WindowsIpConfiguration {
+
+	public WindowsIpConfiguration() {
+		Map<String, String> config = getWindowsIpConfig();
+
+		System.out.println("=== Windows IP Configuration ===");
+		config.forEach((k, v) -> System.out.println(k + ": " + v));
+	}
+
+
 ```
 
 ----
