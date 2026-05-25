@@ -8,7 +8,7 @@
 * [ ] 07. class: WindowsIpConfiguration
 * [ ] 
 
-#### class: MonitorMain
+#### 01. class: MonitorMain
 
 ```java
 package monitor;
@@ -52,7 +52,7 @@ public class MonitorMain {
 
 ----
 
-#### class: General
+#### 02. class: General
 
 ``` java
 import java.util.ArrayList;
