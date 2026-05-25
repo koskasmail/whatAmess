@@ -5,8 +5,8 @@
 * [x] 04. HostName
 * [x] 05. NetworkInfo
 * [x] 06. NetworkBasic
-* [ ] 07. WindowsIpConfiguration
-* [ ] 
+* [ ] 07. NetworkInformation
+* [ ] ccc
 
 #### 01. class: MonitorMain
 
@@ -41,6 +41,9 @@ public class MonitorMain {
 		
 		System.out.println("-=-=-=-=-=-");
 		Hd hd = new Hd();
+
+		System.out.println("-=-=-=-=-=-");
+		NetworkInformation nwi = new NetworkInformation();
 	}
 
 	public static void main(String[] args) {
@@ -289,338 +292,106 @@ public class NetworkBasic {
 
 ----
 
-#### 07. class: WindowsIpConfiguration
-
-```
-package monitor;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-public class WindowsIpConfiguration {
-
-	public WindowsIpConfiguration() {
-		Map<String, String> config = getWindowsIpConfig();
-
-		System.out.println("=== Windows IP Configuration ===");
-		config.forEach((k, v) -> System.out.println(k + ": " + v));
-	}
-
-
-```
-
-----
-
-#### NetworkBasic
+#### 07. class: NetworkInformation
 
 ```
 package monitor;
 
 import java.net.*;
 import java.util.*;
+import java.io.*;
 
-public class NetworkBasic {
+public class NetworkInformation {
 
-	public NetworkBasic() throws SocketException {
-		Enumeration<NetworkInterface> interfaces = null;
-		try {
-			interfaces = NetworkInterface.getNetworkInterfaces();
-		} catch (SocketException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+   	public NetworkInformation() throws Exception {
+        showHostInfo();
+        showNetworkInterfaces();
+        /////showDNSInfo();
+        /////showSystemInfo();
+    }
 
-		while (interfaces.hasMoreElements()) {
-			NetworkInterface ni = interfaces.nextElement();
+    // ---------------- HOST INFO ----------------
+    private static void showHostInfo() throws Exception {
+        System.out.println("=== HOST INFORMATION ===");
+        InetAddress localHost = InetAddress.getLocalHost();
+        System.out.println("Host Name: " + localHost.getHostName());
+        System.out.println("Host Address: " + localHost.getHostAddress());
+        System.out.println();
+    }
 
-			// Skip loopback, virtual, or down interfaces if needed
-			if (!ni.isUp() || ni.isLoopback()) {
-				continue;
-			}
+    // ---------------- NETWORK INTERFACES ----------------
+    private static void showNetworkInterfaces() throws Exception {
+        System.out.println("=== NETWORK INTERFACES ===");
 
-			byte[] mac = ni.getHardwareAddress();
+        Enumeration<NetworkInterface> nets = NetworkInterface.getNetworkInterfaces();
+        while (nets.hasMoreElements()) {
+            NetworkInterface net = nets.nextElement();
 
-			// Skip printing MAC if null or empty
-			if (mac == null || mac.length == 0) {
-				continue;
-			}
+            System.out.println("Interface: " + net.getName());
+            System.out.println("Display Name: " + net.getDisplayName());
+            System.out.println("Up: " + net.isUp());
+            System.out.println("Loopback: " + net.isLoopback());
+            System.out.println("Virtual: " + net.isVirtual());
+            System.out.println("MTU: " + net.getMTU());
 
-			System.out.println("Interface: " + ni.getName());
-			System.out.println("Display Name: " + ni.getDisplayName());
+            // MAC Address
+            byte[] mac = net.getHardwareAddress();
+            if (mac != null) {
+                StringBuilder sb = new StringBuilder();
+                for (byte b : mac) sb.append(String.format("%02X-", b));
+                System.out.println("MAC Address: " + sb.substring(0, sb.length() - 1));
+            }
 
-			// Format MAC address properly (AA-BB-CC-DD-EE-FF)
-			StringBuilder macStr = new StringBuilder();
-			for (int i = 0; i < mac.length; i++) {
-				macStr.append(String.format("%02X", mac[i]));
-				if (i < mac.length - 1)
-					macStr.append("-");
-			}
-			System.out.println("MAC: " + macStr);
+            // IP Addresses
+            Enumeration<InetAddress> addrs = net.getInetAddresses();
+            while (addrs.hasMoreElements()) {
+                InetAddress addr = addrs.nextElement();
+                if (addr instanceof Inet4Address)
+                    System.out.println("IPv4: " + addr.getHostAddress());
+                else if (addr instanceof Inet6Address)
+                    System.out.println("IPv6: " + addr.getHostAddress());
+            }
 
-			Enumeration<InetAddress> addresses = ni.getInetAddresses();
-			while (addresses.hasMoreElements()) {
-				InetAddress addr = addresses.nextElement();
-				System.out.println("Address: " + addr.getHostAddress());
-			}
+            System.out.println();
+        }
+    }
 
-			System.out.println("--------------------------------");
-		}
-	}
-}
-```
+    // ---------------- DNS SERVERS ----------------
+    private static void showDNSInfo() throws Exception {
+        System.out.println("=== DNS SERVERS ===");
 
-----
-----
-----
-----
-----
-----
+        // Windows
+        if (System.getProperty("os.name").toLowerCase().contains("win")) {
+            runCommand("ipconfig /all");
+        }
+        // Linux / Mac
+        else {
+            runCommand("cat /etc/resolv.conf");
+        }
 
-```
-	public static void getDiskFree(PluginLogger logger) {
-        File file = new File("/");
-        long freeSpace = file.getFreeSpace();
-        long totalSpace = file.getTotalSpace();
-        double freeSpaceGB = (double) freeSpace / (1024 * 1024 * 1024); // Convert to GB
-        double totalSpaceGB = (double) totalSpace / (1024 * 1024 * 1024); // Convert to GB
-        double freeSpacePercentage = (freeSpaceGB / totalSpaceGB) * 100;
-        
-        JSONObject o1 = new JSONObject();
-        o1.put("freeSpaceGB", freeSpaceGB);
-        
-        JSONObject o2 = new JSONObject();
-        o2.put("totalSpaceGB", totalSpaceGB);
-        
-        JSONObject o3 = new JSONObject();
-        o3.put("freeSpacePercentage", freeSpacePercentage);
-        
-        returnValue.add(o1);
-        returnValue.add(o2);
-        returnValue.add(o3);
-        
-        System.err.println("Server Hard Drive Free Space: " + freeSpaceGB + " GB");
-        System.err.println("Server Hard Drive Total Space: " + totalSpaceGB + " GB");
-        System.err.println("Server Hard Drive Free Space Percentage: " + freeSpacePercentage + "%");
-	}
-```
+        System.out.println();
+    }
 
-#### class: MonitorMain
-```java
-package monitor;
+    // ---------------- SYSTEM INFO ----------------
+    private static void showSystemInfo() {
+        System.out.println("=== SYSTEM INFORMATION ===");
+        Properties props = System.getProperties();
+        props.forEach((k, v) -> System.out.println(k + ": " + v));
+        System.out.println();
+    }
 
-public class MonitorMain {
-
-	public MonitorMain() {
-		System.out.println("MonitorMain....");
-		General g = new General();		
-		HostName hn = new HostName();
-		Ip4 ip4 = new Ip4();
-		
-	}
-
-	public static void main(String[] args) {
-		System.out.println("Main....");
-		MonitorMain mm = new MonitorMain();	
-	}
+    // ---------------- COMMAND EXECUTOR ----------------
+    private static void runCommand(String cmd) throws Exception {
+        Process p = Runtime.getRuntime().exec(cmd);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            if (line.toLowerCase().contains("dns") || line.toLowerCase().contains("wins"))
+                System.out.println(line.trim());
+        }
+    }
 }
 
 ```
 
-#### class: HostName
-```java
-package monitor;
-
-import java.net.InetAddress;
-
-public class HostName {
-
-	///----[stHostName]----///
-	private String stHostName = "";
-
-	///----[getHostName]----///
-	public String getHostName() {
-		return stHostName;
-	}
-
-	///----[setHostName]----///
-	public void setHostName(String hostName) {
-		this.stHostName = hostName;
-	}
-
-	///----[hostNameDetect - detect host name ]----///
-	private void hostNameDetect() {
-		try {
-			setHostName(InetAddress.getLocalHost().getHostName());
-		} catch (Exception e) {
-			setHostName("x");
-		}
-	}
-
-	///----[class Constructor - onload]----///
-	public HostName() {
-		hostNameDetect();
-		System.out.println("Server Host Name: " + getHostName());
-	}
-	
-}
-```
-
-#### class: Ip4
-
-```java
-package monitor;
-
-import java.net.InetAddress;
-
-public class Ip4 {
-
-	private String ip4Address = "";
-
-	public String getIp4Address() {
-		return ip4Address;
-	}
-
-	public void setIp4Address(String ip4Address) {
-		this.ip4Address = ip4Address;
-	}
-
-	private void ip4Detect() {
-
-	}
-
-	public Ip4() {
-		try {
-			setIp4Address(InetAddress.getLocalHost().getHostAddress());
-			System.err.println("Server IP Address: " + getIp4Address());
-//			System.out.println(" " + InetAddress.get)
-		} catch (Exception e) {
-			System.err.println("Server IP Address: xxx.xxx.xxx");
-			e.printStackTrace();
-		}
-	}
-}
-```
-
-```	
-		public static void getIpAddress(PluginLogger logger) {
-	        try {
-	            String ipAddress = InetAddress.getLocalHost().getHostAddress();
-	            System.err.println("Server IP Address: " + ipAddress);
-	            JSONObject sip = new JSONObject();
-	            sip.put("ipAddress", ipAddress);
-	            returnValue.add(sip);
-	        } catch (Exception e) {
-	       	 	System.err.println("Server IP Address: xxx.xxx.xxx");
-	            JSONObject esip = new JSONObject();
-		        esip.put("ipAddress", "xxx.xxx.xxx");
-		        returnValue.add(esip);
-	            e.printStackTrace();
-	        }
-		}
-```
-		
-```		
-		public static void memStatus (PluginLogger logger) {
-			
-	        OperatingSystemMXBean osBean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
-
-	        // Get the total physical memory size in bytes
-	        long totalMemoryBytes = osBean.getTotalPhysicalMemorySize();
-	        long totalMemoryMB = totalMemoryBytes / (1024 * 1024);
-
-	        // Get the free physical memory size in bytes
-	        long freeMemoryBytes = osBean.getFreePhysicalMemorySize();
-	        long freeMemoryMB = freeMemoryBytes / (1024 * 1024);
-
-	        // Calculate the used physical memory size in bytes
-	        long usedMemoryBytes = totalMemoryBytes - freeMemoryBytes;
-	        long usedMemoryMB = usedMemoryBytes / (1024 * 1024);
-
-	        // Calculate the memory usage percentage
-	        double memoryUsagePercentage = (usedMemoryBytes / (double) totalMemoryBytes) * 100;
-
-	        JSONObject o21 = new JSONObject();
-	        o21.put("totalMemoryMB", totalMemoryMB);
-	        
-	        JSONObject o22 = new JSONObject();
-	        o22.put("freeMemoryMB", freeMemoryMB);
-	        
-	        JSONObject o23 = new JSONObject();
-	        o23.put("usedMemoryMB", usedMemoryMB);
-	        
-	        JSONObject o24 = new JSONObject();
-	        o24.put("memoryUsagePercentage", memoryUsagePercentage);
-	        
-	        
-	        returnValue.add(o21);
-	        returnValue.add(o22);
-	        returnValue.add(o23);
-	        returnValue.add(o24);
-	        
-//	        // Print the memory status
-//	        System.out.println("Total Memory: " + totalMemoryMB + " MB");
-//	        System.out.println("Free Memory: " + freeMemoryMB + " MB");
-//	        System.out.println("Used Memory: " + usedMemoryMB + " MB");
-//	        System.out.println("Memory Usage: " + memoryUsagePercentage + "%");
-	    }
-```		
-
-```    
-		public static void General(PluginLogger logger) {
-			
-			String javaVersion = System.getProperty("java.version");
-			String javaHome = System.getProperty("java.home");
-			String javaVendor = System.getProperty("java.vendor");
-			String javaVendorUrl = System.getProperty("java.vendor.url");
-			String osArch = System.getProperty("os.arch");
-			String osName = System.getProperty("os.name");
-			String osVersion = System.getProperty("os.version");
-			String userName = System.getProperty("user.name");
-			String userHome = System.getProperty("user.home");
-			String userDir = System.getProperty("user.dir");
-			
-			
-	        JSONObject o11 = new JSONObject();
-	        o11.put("javaVersion", javaVersion);
-
-	        JSONObject o12 = new JSONObject();
-	        o12.put("javaHome", javaHome);
-
-	        JSONObject o13 = new JSONObject();
-	        o13.put("javaVendor", javaVendor);
-
-	        JSONObject o14 = new JSONObject();
-	        o14.put("javaVendorUrl", javaVendorUrl);
-	        
-	        JSONObject o15 = new JSONObject();
-	        o15.put("osArch", osArch);
-	        
-	        JSONObject o16 = new JSONObject();
-	        o16.put("osName", osName);
-	        
-	        JSONObject o17 = new JSONObject();
-	        o17.put("osVersion", osVersion);
-	        	   
-	        JSONObject o18 = new JSONObject();
-	        o18.put("userName", userName);
-	        
-	        JSONObject o19 = new JSONObject();
-	        o19.put("userHome", userHome);
-	        
-	        JSONObject o20 = new JSONObject();
-	        o20.put("userDir", userDir);	        
-	        
-	        returnValue.add(o11);
-	        returnValue.add(o12);
-	        returnValue.add(o13);
-	        returnValue.add(o14);
-	        returnValue.add(o15);
-	        returnValue.add(o16);
-	        returnValue.add(o17);
-	        returnValue.add(o18);
-	        returnValue.add(o19);
-	        returnValue.add(o20);
-		}
-```
+----
