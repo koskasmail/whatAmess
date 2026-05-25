@@ -229,6 +229,67 @@ public class NetworkInfo {
 
 ----
 
+#### 06. NetworkBasic
+
+```
+package monitor;
+
+import java.net.*;
+import java.util.*;
+
+public class NetworkBasic {
+
+	public NetworkBasic() throws SocketException {
+		Enumeration<NetworkInterface> interfaces = null;
+		try {
+			interfaces = NetworkInterface.getNetworkInterfaces();
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		while (interfaces.hasMoreElements()) {
+			NetworkInterface ni = interfaces.nextElement();
+
+			// Skip loopback, virtual, or down interfaces if needed
+			if (!ni.isUp() || ni.isLoopback()) {
+				continue;
+			}
+
+			byte[] mac = ni.getHardwareAddress();
+
+			// Skip printing MAC if null or empty
+			if (mac == null || mac.length == 0) {
+				continue;
+			}
+
+			System.out.println("Interface: " + ni.getName());
+			System.out.println("Display Name: " + ni.getDisplayName());
+
+			// Format MAC address properly (AA-BB-CC-DD-EE-FF)
+			StringBuilder macStr = new StringBuilder();
+			for (int i = 0; i < mac.length; i++) {
+				macStr.append(String.format("%02X", mac[i]));
+				if (i < mac.length - 1)
+					macStr.append("-");
+			}
+			System.out.println("MAC: " + macStr);
+
+			Enumeration<InetAddress> addresses = ni.getInetAddresses();
+			while (addresses.hasMoreElements()) {
+				InetAddress addr = addresses.nextElement();
+				System.out.println("Address: " + addr.getHostAddress());
+			}
+
+			System.out.println("--------------------------------");
+		}
+	}
+}
+```
+
+----
+----
+
 #### NetworkBasic
 
 ```
