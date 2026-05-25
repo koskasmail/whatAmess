@@ -5,7 +5,7 @@
 * [x] 04. HostName
 * [x] 05. NetworkInfo
 * [x] 06. NetworkBasic
-* [ ] 07. class: WindowsIpConfiguration
+* [ ] 07. WindowsIpConfiguration
 * [ ] 
 
 #### 01. class: MonitorMain
@@ -288,6 +288,18 @@ public class NetworkBasic {
 ```
 
 ----
+
+#### 07. class: WindowsIpConfiguration
+
+```
+package monitor;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.LinkedHashMap;
+import java.util.Map;
+```
+
 ----
 
 #### NetworkBasic
