@@ -104,7 +104,7 @@ public class General {
 
 ----
 
-#### class: Ip4
+#### 03. class: Ip4
 
 ```
 package monitor;
@@ -142,7 +142,7 @@ public class Ip4 {
 
 ----
 
-#### class: HostName
+#### 04. class: HostName
 
 ```
 package monitor;
@@ -183,7 +183,7 @@ public class HostName {
 
 ----
 
-#### class: NetworkInfo
+#### 05. class: NetworkInfo
 
 ```
 package monitor;
