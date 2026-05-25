@@ -21,14 +21,26 @@ public class MonitorMain {
 		System.out.println("MonitorMain....");
 		General g = new General();		
 		HostName hn = new HostName();
-		Ip4 ip4 = new Ip4();	
-//		NetworkInfo ni = new NetworkInfo();		
+		
+		/* ip address (ip4) */
+		Ip4 ip4 = new Ip4(); 
+		
+		/* network Information -  information */
+		NetworkInfo ni = new NetworkInfo();		
+		
+		/* network Information - basic information */
 		try {
-			Nnw2 nw = new Nnw2();
+			NetworkBasic nw = new NetworkBasic();
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		System.out.println("-=-=-=-=-=-");
+		WindowsIpConfiguration wic = new WindowsIpConfiguration();
+		
+		System.out.println("-=-=-=-=-=-");
+		Hd hd = new Hd();
 	}
 
 	public static void main(String[] args) {
