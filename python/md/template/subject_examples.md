@@ -32,7 +32,7 @@ output;
 code;
 ```
 
-###### 🖥️ user input: 
+###### ✍️ user input: 
 
 ```
 what the user prompted, and what data the user entered
