@@ -1,49 +1,15 @@
 <a name="topage"></a>
 
-# xx.xx_file_name.md
+# 00_online
 
-### Table_of_Content
+### python links
 
-* [01_subject](#01)
-* 
-* 
-* [Notes](#Notes)
- 
-
-----
-
-
-### 01
-
-* basic informaion 1
-* more data
-  
-###### 📄 template:
-
-```python
-xxxxx
-```
-
-###### ✏️ example: 
-```python
-code
-```
-
-###### 🖥️ output:  
-
-```
-output
-```
-
-* [Top](#Table_of_Content)
-
-----
-
-# Notes:
-
-#### Note
+##### rtfm:
 
 * xxx
+* xxx
+
+
 
 ----
 
