@@ -1,0 +1,17 @@
+body {
+    font-family: Arial;
+    padding: 40px;
+    background: #f0f0f0;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+}
+
+#output {
+    margin-top: 20px;
+    padding: 15px;
+    background: white;
+    border: 1px solid #ccc;
+}
