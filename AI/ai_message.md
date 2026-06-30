@@ -39,3 +39,29 @@ If you want, I can generate:
 - Ultra‑short versions
 - 
 -----
+Here’s a message where the **AI itself acts as the announcer**, speaking in a clear, slightly formal, but still warm “system‑style” tone — perfect for exiting a group that has been inactive for 30+ days.
+
+---
+
+## 📢 **AI‑Announcer Exit Message**
+
+> **System Notice:**  
+> This is an automated assistant checking in. Activity in this group has been inactive for over 30 days.  
+>  
+> To maintain an organized communication environment, I will now conclude my participation here.  
+>  
+> If future conversation resumes or assistance is needed, feel free to reach out directly.  
+>  
+> **Status:** Exiting group.  
+> **End of transmission.**
+
+---
+
+If you want, I can generate versions that are:  
+- More humorous  
+- More dramatic  
+- More robotic  
+- More friendly
+- 
+-----
+-----
