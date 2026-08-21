@@ -1,0 +1,14 @@
+﻿[
+    {
+        "Icon":  "🖼️",
+        "Name":  "Downloads",
+        "Description":  "Downloads",
+        "Path":  "C:\\Users\\yaron\\Downloads"
+    },
+    {
+        "Icon":  "🌐",
+        "Name":  "Documents",
+        "Description":  "Documents",
+        "Path":  "C:\\Users\\yaron\\OneDrive\\Documents"
+    }
+]

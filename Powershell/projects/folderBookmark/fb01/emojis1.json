@@ -1,0 +1,14 @@
+[
+  { "Label": "Local",     "Emoji": "💻" },
+  { "Label": "Network",   "Emoji": "🌐" },
+  { "Label": "Logs",      "Emoji": "📜" },
+  { "Label": "Config",    "Emoji": "🔧" },
+  { "Label": "Setup",     "Emoji": "📦" },
+  { "Label": "Services",  "Emoji": "🔌" },
+  { "Label": "Downloads", "Emoji": "📥" },
+  { "Label": "Music",     "Emoji": "🎵" },
+  { "Label": "Documents", "Emoji": "📄" },
+  { "Label": "Videos",    "Emoji": "🎬" },
+  { "Label": "Pictures",  "Emoji": "🖼️" },
+  { "Label": "Desktop",   "Emoji": "🖥️" }
+]
