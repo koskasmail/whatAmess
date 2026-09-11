@@ -1,0 +1,729 @@
+Yes. The cleanest change is to make `search.json` a **JSON array** containing any number of `SearchRequest` records, then loop through them and run your existing search logic for each record.
+
+For example:
+
+```json
+[
+    {
+        "file": "C:/00/101.txt",
+        "searchName": "doc",
+        "pattern": "ERROR",
+        "searchType": "search_all"
+    },
+    {
+        "file": "C:/00/102.txt",
+        "searchName": "warning",
+        "pattern": "WARNING",
+        "searchType": "search_all"
+    },
+    {
+        "file": "C:/00/103.txt",
+        "searchName": "section",
+        "pattern": "ABC",
+        "searchType": "search_x..y",
+        "x": 10,
+        "y": 50
+    }
+]
+```
+
+Below is your program modified to support that format. Your actual search logic is kept intact; the main changes are `readJson()` returning a list and `main()` processing every record.
+
+```java
+package nofSearch;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Locale;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+public class NofSearch {
+
+    private static final DateTimeFormatter OUTPUT_DATE_FORMAT =
+            DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmssSSS");
+
+    public static void main(String[] args) {
+
+        try {
+
+            // Read all search records from search.json
+            List<SearchRequest> requests = readJson("C:\\00\\search.json");
+
+            if (requests == null || requests.isEmpty()) {
+                throw new IllegalArgumentException("JSON contains no search requests.");
+            }
+
+            System.out.println();
+            System.out.println("========================================");
+            System.out.println("Number of searches: " + requests.size());
+            System.out.println("========================================");
+
+            int searchNumber = 0;
+
+            for (SearchRequest request : requests) {
+
+                searchNumber++;
+
+                System.out.println();
+                System.out.println("****************************************");
+                System.out.println("SEARCH " + searchNumber + " OF " + requests.size());
+                System.out.println("****************************************");
+
+                try {
+
+                    validateRequest(request);
+
+                    SearchResult result = search(request);
+
+                    System.out.println();
+                    System.out.println("========================================");
+                    System.out.println("Search completed");
+                    System.out.println("========================================");
+                    System.out.println("File       : " + request.file);
+                    System.out.println("Search name: " + request.searchName);
+                    System.out.println("Pattern    : " + request.pattern);
+                    System.out.println("Type       : " + request.searchType);
+                    System.out.println("Matches    : " + result.matches);
+                    System.out.println("Output     : " + result.outputFile);
+                    System.out.println("========================================");
+
+                } catch (Exception e) {
+
+                    /*
+                     * If one search fails, continue with the next search.
+                     */
+                    System.err.println();
+                    System.err.println("ERROR in search " + searchNumber);
+                    System.err.println("Search name: "
+                            + (request == null ? "<null>" : request.searchName));
+                    System.err.println(e.getMessage());
+                }
+            }
+
+            System.out.println();
+            System.out.println("========================================");
+            System.out.println("ALL SEARCHES COMPLETED");
+            System.out.println("========================================");
+
+        } catch (Exception e) {
+
+            System.err.println("ERROR: " + e.getMessage());
+            System.exit(2);
+        }
+    }
+
+    /**
+     * Read multiple JSON search requests using Gson.
+     *
+     * Expected JSON:
+     *
+     * [
+     *   {
+     *     "file": "C:/00/101.txt",
+     *     "searchName": "doc",
+     *     "pattern": "ERROR",
+     *     "searchType": "search_all"
+     *   },
+     *   {
+     *     "file": "C:/00/102.txt",
+     *     "searchName": "warning",
+     *     "pattern": "WARNING",
+     *     "searchType": "search_all"
+     *   }
+     * ]
+     */
+    private static List<SearchRequest> readJson(String jsonFile) throws IOException {
+
+        Gson gson = new Gson();
+
+        Path jsonPath = Paths.get(jsonFile);
+
+        try (Reader reader = Files.newBufferedReader(
+                jsonPath,
+                StandardCharsets.UTF_8)) {
+
+            return gson.fromJson(
+                    reader,
+                    new TypeToken<List<SearchRequest>>() {}.getType()
+            );
+        }
+    }
+
+    /**
+     * Validate the JSON data.
+     */
+    private static void validateRequest(SearchRequest request) {
+
+        if (request == null) {
+            throw new IllegalArgumentException("Search request is empty.");
+        }
+
+        if (isBlank(request.file)) {
+            throw new IllegalArgumentException("'file' is missing.");
+        }
+
+        if (isBlank(request.searchName)) {
+            throw new IllegalArgumentException("'searchName' is missing.");
+        }
+
+        if (isBlank(request.pattern)) {
+            throw new IllegalArgumentException("'pattern' is missing.");
+        }
+
+        if (isBlank(request.searchType)) {
+            throw new IllegalArgumentException("'searchType' is missing.");
+        }
+
+        Path file = Paths.get(request.file);
+
+        if (!Files.exists(file)) {
+            throw new IllegalArgumentException(
+                    "File does not exist: " + request.file);
+        }
+
+        if (!Files.isRegularFile(file)) {
+            throw new IllegalArgumentException(
+                    "Path is not a file: " + request.file);
+        }
+
+        switch (request.searchType) {
+
+            case "search_all":
+                break;
+
+            case "search_x..y":
+
+                if (request.x == null || request.y == null) {
+                    throw new IllegalArgumentException(
+                            "search_x..y requires x and y.");
+                }
+
+                if (request.x < 1 || request.y < 1) {
+                    throw new IllegalArgumentException(
+                            "x and y must be >= 1.");
+                }
+
+                break;
+
+            case "search_x..count(y)":
+
+                if (request.x == null) {
+                    throw new IllegalArgumentException(
+                            "search_x..count(y) requires x.");
+                }
+
+                if (request.x < 1) {
+                    throw new IllegalArgumentException(
+                            "x must be >= 1.");
+                }
+
+                break;
+
+            case "search_x..eol":
+
+                if (request.x == null) {
+                    throw new IllegalArgumentException(
+                            "search_x..eol requires x.");
+                }
+
+                if (request.x < 1) {
+                    throw new IllegalArgumentException(
+                            "x must be >= 1.");
+                }
+
+                break;
+
+            default:
+
+                throw new IllegalArgumentException(
+                        "Unknown searchType: " + request.searchType);
+        }
+    }
+
+    /**
+     * Search the file.
+     */
+    private static SearchResult search(SearchRequest request)
+            throws IOException {
+
+        Path inputFile = Paths.get(request.file);
+
+        String outputFileName =
+                LocalDateTime.now().format(OUTPUT_DATE_FORMAT)
+                + "_"
+                + sanitizeFileName(request.searchName)
+                + ".txt";
+
+        Path outputFile = inputFile.toAbsolutePath()
+                .getParent()
+                .resolve(outputFileName);
+
+        long matchCount = 0;
+        long lineNumber = 0;
+        String previousLine = null;
+
+        try (
+            BufferedReader reader = Files.newBufferedReader(
+                    inputFile,
+                    StandardCharsets.UTF_8);
+
+            BufferedWriter writer = Files.newBufferedWriter(
+                    outputFile,
+                    StandardCharsets.UTF_8,
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.TRUNCATE_EXISTING,
+                    StandardOpenOption.WRITE)
+        ) {
+
+            String currentLine;
+
+            while ((currentLine = reader.readLine()) != null) {
+
+                lineNumber++;
+
+                SearchMatch match = findMatch(currentLine, request);
+
+                if (match != null) {
+
+                    matchCount++;
+
+                    String nextLine = reader.readLine();
+
+                    writeResult(
+                            writer,
+                            lineNumber,
+                            previousLine,
+                            currentLine,
+                            nextLine,
+                            match
+                    );
+
+                    /*
+                     * We consumed the next line to provide the context
+                     * after the matching line.
+                     */
+                    if (nextLine != null) {
+
+                        lineNumber++;
+
+                        previousLine = currentLine;
+
+                        /*
+                         * The consumed line itself could contain another match.
+                         */
+                        MatchProcessing processing =
+                                processConsumedLine(
+                                        reader,
+                                        writer,
+                                        request,
+                                        lineNumber,
+                                        previousLine,
+                                        nextLine
+                                );
+
+                        matchCount += processing.additionalMatches;
+                        lineNumber = processing.lastLineNumber;
+                        previousLine = processing.previousLine;
+
+                    } else {
+
+                        previousLine = currentLine;
+                    }
+
+                } else {
+
+                    previousLine = currentLine;
+                }
+            }
+        }
+
+        return new SearchResult(
+                matchCount,
+                outputFile.toString()
+        );
+    }
+
+    /**
+     * Process a line that was consumed while obtaining the
+     * "one line after" context.
+     */
+    private static MatchProcessing processConsumedLine(
+            BufferedReader reader,
+            BufferedWriter writer,
+            SearchRequest request,
+            long currentLineNumber,
+            String previousLine,
+            String currentLine) throws IOException {
+
+        long additionalMatches = 0;
+        long lineNumber = currentLineNumber;
+
+        String line = currentLine;
+        String previous = previousLine;
+
+        while (true) {
+
+            SearchMatch match = findMatch(line, request);
+
+            if (match != null) {
+
+                additionalMatches++;
+
+                String nextLine = reader.readLine();
+
+                writeResult(
+                        writer,
+                        lineNumber,
+                        previous,
+                        line,
+                        nextLine,
+                        match
+                );
+
+                if (nextLine == null) {
+
+                    previous = line;
+                    break;
+                }
+
+                previous = line;
+                line = nextLine;
+                lineNumber++;
+
+            } else {
+
+                previous = line;
+                break;
+            }
+        }
+
+        return new MatchProcessing(
+                additionalMatches,
+                lineNumber,
+                previous
+        );
+    }
+
+    /**
+     * Find the pattern inside the required range of the line.
+     *
+     * Returns the actual found text and its character position.
+     */
+    private static SearchMatch findMatch(
+            String line,
+            SearchRequest request) {
+
+        if (line == null || line.isEmpty()) {
+            return null;
+        }
+
+        String pattern = request.pattern;
+
+        int from;
+        int to;
+
+        switch (request.searchType) {
+
+            case "search_all":
+
+                from = 0;
+                to = line.length();
+
+                break;
+
+            case "search_x..y":
+
+                from = request.x - 1;
+                to = request.y;
+
+                if (from >= line.length()) {
+                    return null;
+                }
+
+                if (to > line.length()) {
+                    to = line.length();
+                }
+
+                if (from >= to) {
+                    return null;
+                }
+
+                break;
+
+            case "search_x..count(y)":
+
+                from = request.x - 1;
+
+                if (from >= line.length()) {
+                    return null;
+                }
+
+                to = Math.min(
+                        line.length(),
+                        from + pattern.length()
+                );
+
+                break;
+
+            case "search_x..eol":
+
+                from = request.x - 1;
+
+                if (from >= line.length()) {
+                    return null;
+                }
+
+                to = line.length();
+
+                break;
+
+            default:
+
+                return null;
+        }
+
+        String searchArea = line.substring(from, to);
+
+        int relativeIndex =
+                searchArea
+                        .toLowerCase(Locale.ROOT)
+                        .indexOf(pattern.toLowerCase(Locale.ROOT));
+
+        if (relativeIndex < 0) {
+            return null;
+        }
+
+        int absoluteIndex = from + relativeIndex;
+
+        /*
+         * Make sure the pattern fits inside the line.
+         */
+        if (absoluteIndex + pattern.length() > line.length()) {
+            return null;
+        }
+
+        String foundText = line.substring(
+                absoluteIndex,
+                absoluteIndex + pattern.length()
+        );
+
+        return new SearchMatch(
+                foundText,
+                absoluteIndex + 1
+        );
+    }
+
+    /**
+     * Write one result.
+     */
+    private static void writeResult(
+            BufferedWriter writer,
+            long lineNumber,
+            String previousLine,
+            String currentLine,
+            String nextLine,
+            SearchMatch match) throws IOException {
+
+        writer.write("========================================");
+        writer.newLine();
+
+        writer.write("LINE NUMBER : " + lineNumber);
+        writer.newLine();
+
+        writer.write("FOUND AT    : character " + match.position);
+        writer.newLine();
+
+        writer.write("FOUND TEXT  : " + match.foundText);
+        writer.newLine();
+
+        writer.write("----------------------------------------");
+        writer.newLine();
+
+        writer.write("BEFORE      : "
+                + (previousLine == null
+                ? "<START OF FILE>"
+                : previousLine));
+        writer.newLine();
+
+        writer.write("RESULT      : " + currentLine);
+        writer.newLine();
+
+        writer.write("AFTER       : "
+                + (nextLine == null
+                ? "<END OF FILE>"
+                : nextLine));
+        writer.newLine();
+
+        writer.newLine();
+    }
+
+    /**
+     * Make searchName safe for use in a filename.
+     */
+    private static String sanitizeFileName(String value) {
+
+        return value
+                .replaceAll("[\\\\/:*?\"<>|]", "_")
+                .replaceAll("\\s+", "_");
+    }
+
+    private static boolean isBlank(String value) {
+
+        return value == null || value.trim().isEmpty();
+    }
+
+    // ---------------------------------------------------------
+    // JSON data
+    // ---------------------------------------------------------
+
+    public static class SearchRequest {
+
+        public String file;
+        public String searchName;
+        public String pattern;
+        public String searchType;
+
+        public Integer x;
+        public Integer y;
+    }
+
+    // ---------------------------------------------------------
+    // Search result
+    // ---------------------------------------------------------
+
+    private static class SearchResult {
+
+        final long matches;
+        final String outputFile;
+
+        SearchResult(long matches, String outputFile) {
+
+            this.matches = matches;
+            this.outputFile = outputFile;
+        }
+    }
+
+    // ---------------------------------------------------------
+    // Match
+    // ---------------------------------------------------------
+
+    private static class SearchMatch {
+
+        final String foundText;
+        final int position;
+
+        SearchMatch(String foundText, int position) {
+
+            this.foundText = foundText;
+            this.position = position;
+        }
+    }
+
+    // ---------------------------------------------------------
+    // Internal processing
+    // ---------------------------------------------------------
+
+    private static class MatchProcessing {
+
+        final long additionalMatches;
+        final long lastLineNumber;
+        final String previousLine;
+
+        MatchProcessing(
+                long additionalMatches,
+                long lastLineNumber,
+                String previousLine) {
+
+            this.additionalMatches = additionalMatches;
+            this.lastLineNumber = lastLineNumber;
+            this.previousLine = previousLine;
+        }
+    }
+}
+```
+
+### `search.json`
+
+Your new `search.json` should be a **JSON array**. It can contain as many records as you want:
+
+```json
+[
+    {
+        "file": "C:/00/101.txt",
+        "searchName": "doc",
+        "pattern": "ERROR",
+        "searchType": "search_all"
+    },
+    {
+        "file": "C:/00/102.txt",
+        "searchName": "warning",
+        "pattern": "WARNING",
+        "searchType": "search_all"
+    },
+    {
+        "file": "C:/00/103.txt",
+        "searchName": "section",
+        "pattern": "ABC",
+        "searchType": "search_x..y",
+        "x": 10,
+        "y": 50
+    },
+    {
+        "file": "C:/00/104.txt",
+        "searchName": "from_position",
+        "pattern": "ERROR",
+        "searchType": "search_x..eol",
+        "x": 25
+    }
+]
+```
+
+### What changed
+
+The important change is this:
+
+**Before:**
+
+```java
+SearchRequest request = readJson("C:\\00\\search.json");
+validateRequest(request);
+SearchResult result = search(request);
+```
+
+**Now:**
+
+```java
+List<SearchRequest> requests = readJson("C:\\00\\search.json");
+
+for (SearchRequest request : requests) {
+    validateRequest(request);
+    SearchResult result = search(request);
+}
+```
+
+And `readJson()` now reads a list:
+
+```java
+return gson.fromJson(
+    reader,
+    new TypeToken<List<SearchRequest>>() {}.getType()
+);
+```
+
+So the file can contain **2, 10, 100, or more search records**, and each one gets processed independently.
+
+One other improvement I made is that **if search #3 fails, searches #4, #5, etc. will still run**. The error is reported for the failed search rather than terminating the entire batch.
+
+Also, the JSON can be nicely formatted across multiple lines—the whitespace and line breaks don't matter to Gson.
