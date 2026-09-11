@@ -1,0 +1,22 @@
+[
+	{
+		"file": "C:/00/101.txt",
+		"searchName": "all_",
+		"pattern": "doc",
+		"searchType": "search_all"
+	},
+	{
+		"file": "C:/00/101.txt",
+		"searchName": "all_",
+		"pattern": "xls",
+		"searchType": "search_all"
+	},
+	{
+		"file": "C:/00/101.txt",
+		"searchName": "all_",
+		"pattern": "ppt",
+		"searchType": "search_x..y",
+		"x": 10,
+		"y": 50
+	}
+]
