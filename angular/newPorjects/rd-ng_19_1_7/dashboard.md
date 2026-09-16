@@ -3039,4 +3039,5 @@ The complete project is also here:
 
 #### share link
 * https://chatgpt.com/s/t_6aaaabf44e088191aafeddde1479e0ed
+* https://chatgpt.com/backend-api/estuary/content?id=file_0000000007988206be29340ce1e719a0&fn=ricuz-angular19-dashboard.zip&cd=attachment&ts=497102&p=fs&cid=1&sig=8d299e946ae3d51998bf0faf5e19cc8f34a2dffb1c436fd1a993d6839c070787&v=0
 
