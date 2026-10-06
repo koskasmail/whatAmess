@@ -2,22 +2,53 @@
 
 # 00_config
 
+### Notes 
+* PS1 (PowerShell) property shortcut config.
+* create a shortcut and set this parameters. 
+* make your program load correctly.
+
 
 ----
 
-### xx.ps1 shortcut property
+#### sample #1 shortcut property
 
-#### Target
+##### Target (local drive)
 ```
-C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File "\\path\AC.ps1"
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File "C:\Scripts\AC.ps1"
 ```
 
-#### Start in
+##### Start in
 ```
 C:\Windows\System32\WindowsPowerShell\v1.0
 ```
 
 ----
+
+#### sample #2 shortcut property
+
+##### Target (network)
+```
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File "\\path\AC.ps1"
+```
+
+##### Start in
+```
+C:\Windows\System32\WindowsPowerShell\v1.0
+```
+
+----
+
+#### sample #3 shortcut property
+
+##### Target (network)
+```
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File "\\path\AC.ps1"
+```
+
+##### Start in
+```
+C:\Windows\System32\WindowsPowerShell\v1.0
+```
 
 
 ----
