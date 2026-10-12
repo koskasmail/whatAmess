@@ -1,0 +1,509 @@
+
+fm01 before fix
+
+#### MonitorMain
+```java
+package monitor;
+
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class MonitorMain {
+
+    public static void main(String[] args) {
+
+    	/*
+    	 * check if file exists
+    	 */
+    	
+        Path path = Paths.get("C:\\json");
+
+        try {
+        	FileMonitor monitor = new FileMonitor(path);
+            new Thread(monitor).start();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("File monitor is running...");
+    }
+}
+```
+
+-----
+
+####
+```java
+package monitor;
+
+
+import java.io.IOException;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.HashMap;
+import java.util.Map;
+
+public class FileMonitor implements Runnable {
+
+    private final Path rootPath;
+    private final WatchService watchService;
+    private final Map<WatchKey, Path> keyMap = new HashMap<>();
+
+    public FileMonitor(Path rootPath) throws IOException {
+        this.rootPath = rootPath;
+        this.watchService = FileSystems.getDefault().newWatchService();
+        registerAllSubFolders(rootPath);
+    }
+
+    private void registerAllSubFolders(Path start) throws IOException {
+        Files.walk(start)
+                .filter(Files::isDirectory)
+                .forEach(path -> {
+                    try {
+                        WatchKey key = path.register(
+                                watchService,
+                                StandardWatchEventKinds.ENTRY_CREATE
+                        );
+                        keyMap.put(key, path);
+                        System.out.println("Watching folder: " + path);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+    }
+
+    @Override
+    public void run() {
+        System.out.println("File monitor started for: " + rootPath);
+
+        while (true) {
+            WatchKey key;
+            try {
+                key = watchService.take();
+            } catch (InterruptedException e) {
+                return;
+            }
+
+            Path dir = keyMap.get(key);
+            if (dir == null) continue;
+
+            for (WatchEvent<?> event : key.pollEvents()) {
+
+                WatchEvent.Kind<?> kind = event.kind();
+
+                if (kind == StandardWatchEventKinds.ENTRY_CREATE) {
+                    Path created = dir.resolve((Path) event.context());
+
+                    if (Files.isDirectory(created)) {
+                        try {
+                            registerAllSubFolders(created);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        try {
+							printFileInfo(created);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+                    }
+                }
+            }
+
+            boolean valid = key.reset();
+            if (!valid) {
+                keyMap.remove(key);
+                if (keyMap.isEmpty()) break;
+            }
+        }
+    }
+
+    private void printFileInfo(Path file) throws IOException {
+        long sizeBytes = Files.size(file);
+
+        double sizeKB = sizeBytes / 1024.0;
+        double sizeMB = sizeKB / 1024.0;
+        double sizeGB = sizeMB / 1024.0;
+
+        System.out.println("\n=== New File Detected ===");
+        System.out.println("File Name: " + file.getFileName());
+        System.out.println("Path: " + file.getParent());
+        System.out.println("Full Path: " + file.toAbsolutePath());
+        System.out.println("Size (bytes): " + sizeBytes);
+        System.out.printf("Size (KB): %.2f%n", sizeKB);
+        System.out.printf("Size (MB): %.2f%n", sizeMB);
+        System.out.printf("Size (GB): %.4f%n", sizeGB);
+        System.out.println("=========================\n");
+    }
+}
+```
+
+-----
+
+# fm fix
+
+Your current `FileMonitor` detects when a new file or folder is created. To know the before and after change, you can monitor file creation, modification, and deletion, and save the previous file information so you can compare it with the new information.
+
+For example:
+
+* Before: `test.txt`, size = 100 KB, last modified = 10:00
+
+* After: `test.txt`, size = 150 KB, last modified = 10:05
+
+* Result: File changed; size increased by 50 KB.
+
+Java's `WatchService` can detect modifications and deletions, but it does not preserve the previous file size or contents automatically. We need to store that information ourselves.
+
+## Updated `FileMonitor.java`
+
+This version detects new files, modified files, and deleted files, displaying the before-and-after information for modifications.
+
+Writing
+
+```
+package monitor;
+
+import java.io.IOException;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.time.Instant;
+import java.util.HashMap;
+import java.util.Map;
+
+public class FileMonitor implements Runnable {
+
+    private final Path rootPath;
+    private final WatchService watchService;
+
+    private final Map<WatchKey, Path> keyMap = new HashMap<>();
+
+    // Stores the previous state of each file
+    private final Map<Path, FileInfo> fileStates = new HashMap<>();
+
+    public FileMonitor(Path rootPath) throws IOException {
+        this.rootPath = rootPath.toAbsolutePath().normalize();
+        this.watchService = FileSystems.getDefault().newWatchService();
+
+        // Save the initial state before monitoring begins
+        scanInitialFiles(this.rootPath);
+
+        registerAllSubFolders(this.rootPath);
+    }
+
+    private static class FileInfo {
+        long size;
+        Instant lastModified;
+
+        FileInfo(Path file) throws IOException {
+            BasicFileAttributes attrs =
+                    Files.readAttributes(file, BasicFileAttributes.class);
+
+            this.size = attrs.size();
+            this.lastModified = attrs.lastModifiedTime().toInstant();
+        }
+    }
+
+    private void scanInitialFiles(Path start) throws IOException {
+        Files.walkFileTree(start, new SimpleFileVisitor<Path>() {
+
+            @Override
+            public FileVisitResult visitFile(
+                    Path file, BasicFileAttributes attrs) {
+
+                if (attrs.isRegularFile()) {
+                    fileStates.put(
+                            file.toAbsolutePath().normalize(),
+                            createInfo(attrs)
+                    );
+                }
+
+                return FileVisitResult.CONTINUE;
+            }
+
+            private FileInfo createInfo(BasicFileAttributes attrs) {
+                FileInfo info = new FileInfoData(
+                        attrs.size(),
+                        attrs.lastModifiedTime().toInstant()
+                );
+                return info;
+            }
+        });
+
+        System.out.println("Initial file state saved.");
+    }
+
+    // Helper constructor is defined below through FileInfoData
+    private static class FileInfoData extends FileInfo {
+        FileInfoData(long size, Instant modified) throws IOException {
+            super(Paths.get("."));
+            this.size = size;
+            this.lastModified = modified;
+        }
+    }
+
+    private void registerAllSubFolders(Path start) throws IOException {
+        try (var paths = Files.walk(start)) {
+            paths.filter(Files::isDirectory).forEach(path -> {
+                try {
+                    WatchKey key = path.register(
+                            watchService,
+                            StandardWatchEventKinds.ENTRY_CREATE,
+                            StandardWatchEventKinds.ENTRY_MODIFY,
+                            StandardWatchEventKinds.ENTRY_DELETE
+                    );
+
+                    keyMap.put(key, path);
+                    System.out.println("Watching folder: " + path);
+
+                } catch (IOException e) {
+                    System.err.println(
+                            "Cannot watch folder: " + path + ": " + e.getMessage()
+                    );
+                }
+            });
+        }
+    }
+
+    @Override
+    public void run() {
+        System.out.println("File monitor started for: " + rootPath);
+
+        while (!Thread.currentThread().isInterrupted()) {
+            WatchKey key;
+
+            try {
+                key = watchService.take();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
+            }
+
+            Path dir = keyMap.get(key);
+
+            if (dir != null) {
+                for (WatchEvent<?> event : key.pollEvents()) {
+                    if (event.kind() == StandardWatchEventKinds.OVERFLOW) {
+                        System.out.println("Some file events may have been lost.");
+                        continue;
+                    }
+
+                    Path file = dir.resolve((Path) event.context())
+                                   .toAbsolutePath().normalize();
+
+                    try {
+                        if (event.kind() ==
+                                StandardWatchEventKinds.ENTRY_CREATE) {
+
+                            if (Files.isDirectory(file)) {
+                                registerAllSubFolders(file);
+                            } else {
+                                handleCreate(file);
+                            }
+
+                        } else if (event.kind() ==
+                                StandardWatchEventKinds.ENTRY_MODIFY) {
+
+                            if (Files.isRegularFile(file)) {
+                                handleModify(file);
+                            }
+
+                        } else if (event.kind() ==
+                                StandardWatchEventKinds.ENTRY_DELETE) {
+
+                            handleDelete(file);
+                        }
+
+                    } catch (IOException e) {
+                        System.err.println(
+                                "Could not inspect " + file + ": " + e.getMessage()
+                        );
+                    }
+                }
+            }
+
+            if (!key.reset()) {
+                keyMap.remove(key);
+                if (keyMap.isEmpty()) {
+                    break;
+                }
+            }
+        }
+
+        try {
+            watchService.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("File monitor stopped.");
+    }
+
+    private void handleCreate(Path file) throws IOException {
+        // A newly created file may still be empty or being written.
+        FileInfo current = new FileInfo(file);
+        fileStates.put(file, current);
+
+        System.out.println("\n=== NEW FILE ===");
+        System.out.println("File: " + file);
+        System.out.println("Size: " + current.size + " bytes");
+        System.out.println("Modified: " + current.lastModified);
+    }
+
+    private void handleModify(Path file) throws IOException {
+        FileInfo current = new FileInfo(file);
+        FileInfo previous = fileStates.get(file);
+
+        if (previous == null) {
+            fileStates.put(file, current);
+            System.out.println("\n=== FILE BASELINE RECORDED ===");
+            printInfo("Current", current);
+            return;
+        }
+
+        if (previous.size != current.size ||
+                !previous.lastModified.equals(current.lastModified)) {
+
+            System.out.println("\n=== FILE CHANGED ===");
+            System.out.println("File: " + file);
+
+            printInfo("BEFORE", previous);
+            printInfo("AFTER", current);
+
+            System.out.println("Size difference: "
+                    + (current.size - previous.size) + " bytes");
+
+            fileStates.put(file, current);
+        }
+    }
+
+    private void handleDelete(Path file) {
+        FileInfo previous = fileStates.remove(file);
+
+        System.out.println("\n=== FILE DELETED ===");
+        System.out.println("File: " + file);
+
+        if (previous != null) {
+            printInfo("LAST KNOWN STATE", previous);
+        }
+    }
+
+    private void printInfo(String label, FileInfo info) {
+        System.out.println("--- " + label + " ---");
+        System.out.println("Size (bytes): " + info.size);
+        System.out.printf("Size (KB): %.2f%n", info.size / 1024.0);
+        System.out.printf("Size (MB): %.2f%n", info.size / (1024.0 * 1024));
+        System.out.printf("Size (GB): %.4f%n",
+                info.size / (1024.0 * 1024 * 1024));
+        System.out.println("Last modified: " + info.lastModified);
+    }
+
+    public static void main(String[] args) throws IOException {
+        if (args.length == 0) {
+            System.out.println(
+                    "Usage: java monitor.FileMonitor <folder-path>"
+            );
+            return;
+        }
+
+        FileMonitor monitor = new FileMonitor(Paths.get(args[0]));
+
+        Runtime.getRuntime().addShutdownHook(
+                new Thread(() -> {
+                    System.out.println("Stopping monitor...");
+                    try {
+                        monitor.watchService.close();
+                    } catch (IOException ignored) {
+                    }
+                })
+        );
+
+        monitor.run();
+    }
+}
+```
+
+Important correction: The code above uses a helper constructor that reads the current directory when recording the initial state. To avoid that unnecessary file access, use the simpler implementation below for the `FileInfo` class and initial scan instead.
+
+Replace the `FileInfo` and `scanInitialFiles()` definitions with:
+
+Writing
+
+```
+private static class FileInfo {
+    long size;
+    Instant lastModified;
+
+    FileInfo(long size, Instant lastModified) {
+        this.size = size;
+        this.lastModified = lastModified;
+    }
+
+    FileInfo(Path file) throws IOException {
+        BasicFileAttributes attrs =
+                Files.readAttributes(file, BasicFileAttributes.class);
+
+        this.size = attrs.size();
+        this.lastModified = attrs.lastModifiedTime().toInstant();
+    }
+}
+
+private void scanInitialFiles(Path start) throws IOException {
+    Files.walkFileTree(start, new SimpleFileVisitor<Path>() {
+        @Override
+        public FileVisitResult visitFile(
+                Path file, BasicFileAttributes attrs) {
+
+            if (attrs.isRegularFile()) {
+                fileStates.put(
+                        file.toAbsolutePath().normalize(),
+                        new FileInfo(
+                                attrs.size(),
+                                attrs.lastModifiedTime().toInstant()
+                        )
+                );
+            }
+
+            return FileVisitResult.CONTINUE;
+        }
+    });
+
+    System.out.println("Initial file state saved.");
+}
+```
+
+Also remove the `FileInfoData` class from the first code block.
+
+## Example output
+
+```
+=== FILE CHANGED ===
+File: C:\monitor\test.txt
+
+--- BEFORE ---
+Size (bytes): 102400
+Size (KB): 100.00
+Last modified: 2026-10-12T10:00:00Z
+
+--- AFTER ---
+Size (bytes): 153600
+Size (KB): 150.00
+Last modified: 2026-10-12T10:05:00Z
+
+Size difference: 51200 bytes
+```
+
+## What this monitors
+
+| Event             | Result                                               |
+| ----------------- | ---------------------------------------------------- |
+| New file          | Displays its current size and timestamp              |
+| File modification | Displays the previous and current size and timestamp |
+| File deletion     | Displays the last known state                        |
+| New subfolder     | Registers the folder for monitoring                  |
+
+One limitation: Java may generate multiple modification events for one save, and this implementation tracks file metadata rather than the actual contents. It also cannot guarantee that every intermediate change is captured. For network folders, event delivery depends on the filesystem and operating system.
+
+If you want to compare the actual file contents before and after (for example, which lines were added, removed, or changed in a `.txt` file), that requires keeping a previous content snapshot or backup as well.
