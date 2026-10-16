@@ -229,9 +229,8 @@ public class FM01 implements Runnable {
 	}
 
 	public static void main(String[] args) throws IOException {
-		
 
-		Path path = Paths.get("\\\\mami.gov.il\\shares\\ApplicFiles\\MMILogFiles\\Prod\\RmiDocs\\FileNetWebApi\\");
+		Path path = Paths.get("c:\\");
 //		Path path = Paths.get("C:\\json");
 //		private final Path rootPath = "C:\\json";
 //		
