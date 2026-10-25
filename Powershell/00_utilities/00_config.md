@@ -51,6 +51,11 @@ C:\Windows\System32\WindowsPowerShell\v1.0
 ```
 
 
+##### run as `administrator`
+
+* Advanced Properties
+    * [x] Run as administrator
+
 ----
 
 <p align="right">(<a href="#topage">back to top</a>)</p>
