@@ -1,0 +1,33 @@
+
+#### Java
+
+```java
+@RestController
+@RequestMapping("/api/view")
+public class DocumentController {
+
+    @PostMapping("/convert")
+    public ResponseEntity<Resource> convertToPdf(@RequestParam("file") MultipartFile file) {
+        try {
+            File tempInput = File.createTempFile("upload_", file.getOriginalFilename());
+            file.transferTo(tempInput);
+
+            // Using LibreOffice via ProcessBuilder to convert Office/Images to PDF
+            File tempOutput = new File(tempInput.getParent(), "output.pdf");
+            ProcessBuilder pb = new ProcessBuilder("libreoffice", "--headless", "--convert-to", "pdf", tempInput.getAbsolutePath(), "--outdir", tempInput.getParent());
+            Process process = pb.start();
+            process.waitFor();
+
+            InputStreamResource resource = new InputStreamResource(new FileInputStream(tempOutput));
+            return ResponseEntity.ok()
+                    .contentType(MediaType.APPLICATION_PDF)
+                    .body(resource);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+}
+```
+
+
+      
