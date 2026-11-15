@@ -64,7 +64,62 @@ If you want simpler, higher-level file manipulation (like updating a ZIP/JAR wit
 
 -------------------
 
-```
+##### can i write a log file inside a jar file that beeing executed at the same time ?
+
+**No, you cannot write or modify files directly inside a running JAR file while it is being executed.**
+
+Even though you can *read* resources from inside a JAR (like configuration files or images), attempting to write to it at runtime fails for several technical reasons:
+
+### Why You Can't Write Inside a Running JAR
+
+1. **Operating System File Locks:** When you execute a JAR file, the Java Virtual Machine (JVM) and your operating system (especially Windows) lock the file to read its bytecode. This prevents any process—including the program itself—from modifying or writing to that file while it is in use.
+2. **ZIP Archive Limitations:** A JAR file is just a compressed ZIP archive. ZIP files do not support appending data to a specific file inside them on the fly. To change *anything* inside a ZIP, you have to unpack it, modify the file, and completely rebuild/recompress the entire archive.
+3. **Read-Only Environments:** JAR files are often distributed as standalone, read-only artifacts, or run from restricted directories (like Program Files or container environments) where write permissions are blocked.
+
+---
+
+### The Correct Approach: Write Logs Externally
+
+Instead of trying to store logs *inside* the JAR, the standard practice is to write log files to the **external file system**, typically in a `logs/` directory right next to where the JAR is running, or in the user's application data folder.
+
+Here is how you can dynamically write a log file relative to the executing JAR's location:
+
+```java
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.io.PrintWriter;
+
+public class ExternalLogger {
+    public static void main(String[] args) {
+        try {
+            // 1. Find the directory where the running JAR is located
+            File jarDir = new File(ExternalLogger.class
+                .getProtectionDomain()
+                .getCodeSource()
+                .getLocation()
+                .toURI())
+                .getParentFile();
+
+            // 2. Create a logs directory next to the JAR
+            File logDir = new File(jarDir, "logs");
+            if (!logDir.exists()) {
+                logDir.mkdirs();
+            }
+
+            // 3. Create or append to an external log file
+            File logFile = new File(logDir, "app.log");
+            try (PrintWriter writer = new PrintWriter(new FileWriter(logFile, true))) {
+                writer.println(java.time.LocalDateTime.now() + " - Application started successfully.");
+                System.out.println("Log written successfully to: " + logFile.getAbsolutePath());
+            }
+
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
 ```
 
